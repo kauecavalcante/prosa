@@ -27,6 +27,8 @@ O Prosa transforma a leitura em um ciclo com começo, meio e fim: um clube prop�
 | Documento | O que tem |
 |---|---|
 | [Requisitos](docs/requisitos.md) | Visão, personas, 9 épicos, 58 user stories, MVP, requisitos não-funcionais |
+| [Arquitetura](docs/arquitetura.md) | Modelo de dados, decisões técnicas, estrutura do app, segurança |
+| [Esquema do banco](docs/schema.sql) | SQL executável no Supabase, validado em PostgreSQL 17 |
 | [Manual da marca](docs/prototipos/manual-da-marca.html) | Marca, paleta, tipografia, regras de uso |
 | [Telas](docs/prototipos/telas.html) | Primeira versão das telas |
 | [Telas ilustradas](docs/prototipos/telas-ilustradas.html) | Versão final, com identidade ilustrada |
