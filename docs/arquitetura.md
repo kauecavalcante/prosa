@@ -193,9 +193,22 @@ Além disso, o gatilho `nota_exige_lido` garante a regra da US-34 — só avalia
 
 ---
 
-## 6. Validação do esquema
+## 6. Ambiente
 
-O [schema.sql](schema.sql) foi executado do zero em PostgreSQL 17 antes de entrar no repositório. Criou 16 tabelas, 26 políticas de RLS, 5 gatilhos e 29 índices, sem erro.
+| Item | Valor |
+|---|---|
+| Projeto Supabase | `dhhcvrfuwfimhdpnnxmp` |
+| URL da API | `https://dhhcvrfuwfimhdpnnxmp.supabase.co` |
+| Região | São Paulo (`sa-east-1`) |
+| Plano | Free |
+
+As chaves de API e a senha do banco não ficam no repositório. Elas são lidas de variáveis de ambiente (`VITE_SUPABASE_URL` e `VITE_SUPABASE_ANON_KEY`), e o `.env` está no `.gitignore`.
+
+---
+
+## 7. Validação do esquema
+
+O [schema.sql](schema.sql) foi executado do zero em PostgreSQL 17 local e depois no Supabase do projeto. Nos dois, criou 16 tabelas, 26 políticas de RLS, 5 gatilhos e 29 índices, sem erro.
 
 As regras de negócio foram testadas uma a uma:
 
@@ -211,7 +224,7 @@ As regras de negócio foram testadas uma a uma:
 
 ---
 
-## 7. Limites conhecidos
+## 8. Limites conhecidos
 
 | Limite | Consequência | Quando resolver |
 |---|---|---|
