@@ -1,7 +1,7 @@
 # Prosa — Documento de Requisitos
 
 **Disciplina:** Interface Humano-Computador (IHC)
-**Equipe:** [nome completo]
+**Equipe:** Kaue Cavalcante Wanderley de Melo
 **Versão:** 2.0 — rede de leitura assumida
 
 ---

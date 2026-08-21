@@ -64,4 +64,4 @@ Fase de concepção. Requisitos fechados, identidade visual definida, protótipo
 
 ## Equipe
 
-- [nome completo]
+- Kaue Cavalcante Wanderley de Melo
