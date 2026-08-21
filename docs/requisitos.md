@@ -2,7 +2,7 @@
 
 **Disciplina:** Interface Humano-Computador (IHC)
 **Equipe:** Kaue Cavalcante Wanderley de Melo
-**Versão:** 2.0 — rede de leitura assumida
+**Versão:** 2.1 — rede de leitura assumida, conversa sem trava de data
 
 ---
 
@@ -16,6 +16,7 @@ O protótipo revelou um produto maior do que o documento original previa. A v1 d
 | Rede social | Explicitamente fora de escopo | Épico E9, dentro do MVP |
 | Nota e resenha | Fase 2 | MVP — alimentam o feed |
 | Discussão com spoiler | Fase 2 | MVP — é o diferencial mais visível |
+| Conversa do clube | Travada até a data combinada | Aberta o tempo todo — ver nota em E6 |
 | Nome | Estante Compartilhada | Prosa |
 | Stories no MVP | 24 | 32 |
 
@@ -26,7 +27,7 @@ O protótipo revelou um produto maior do que o documento original previa. A v1 d
 > Para **pessoas que leem melhor acompanhadas**,
 > que **querem discutir livros com gente de verdade e não só registrar o que leram**,
 > o **Prosa** é uma **rede de leitura organizada em clubes**
-> que **transforma a leitura em um ciclo com começo, meio e fim: propor, votar, ler junto e conversar na data marcada**.
+> que **transforma a leitura em um ciclo com começo, meio e fim: propor, votar, ler junto e conversar sem medo de spoiler**.
 > Diferente de **Skoob e Goodreads**, que organizam a leitura como catálogo pessoal infinito,
 > o Prosa organiza a leitura como **evento coletivo com prazo** — e trata spoiler como problema de interface, não como falta de educação.
 
@@ -34,9 +35,9 @@ O protótipo revelou um produto maior do que o documento original previa. A v1 d
 
 A v1 respondia "somos fechados". Com a rede aberta, essa resposta caiu. A nova é mais forte e vem do próprio produto:
 
-1. **O ciclo é a espinha.** Skoob e Goodreads são catálogos: você registra o que leu, sem prazo e sem par. No Prosa existe um livro do ciclo, uma votação que o escolheu, uma data marcada e uma conversa que abre nela. Nenhum dos dois tem isso.
-2. **O clube é a unidade, não o indivíduo.** Nos concorrentes, grupo é recurso secundário. Aqui o clube é a tela principal e o feed serve o clube — não o contrário.
-3. **Spoiler é tratado como problema de design.** Comentário com spoiler nasce oculto e só se revela por ação individual. É a solução de um conflito real entre dois perfis de usuário, e nenhum concorrente resolve isso bem.
+1. **O spoiler é resolvido na interface, e é isso que liberta a conversa.** Comentário com spoiler nasce oculto e só se revela por ação individual de quem lê. Sem esse tratamento, um clube precisaria travar a discussão até uma data combinada — é a única forma de proteger quem está atrasado. Com ele, a trava é desnecessária: cada pessoa fala quando quer e lê quando está pronta. Nenhum concorrente resolve isso.
+2. **O ciclo é a espinha.** Skoob e Goodreads são catálogos: você registra o que leu, sem prazo e sem par. No Prosa existe um livro do ciclo, uma votação que o escolheu e um prazo que o grupo combinou. Nenhum dos dois tem isso.
+3. **O clube é a unidade, não o indivíduo.** Nos concorrentes, grupo é recurso secundário. Aqui o clube é a tela principal e o feed serve o clube — não o contrário.
 
 O feed e os perfis públicos existem para **alimentar os clubes** — descobrir o que propor, ver quem leu o que — e não para substituí-los.
 
@@ -81,7 +82,7 @@ Duas dores, uma de cada lado:
 ```
 Criar conta  →  Entrar em clube por convite  →  Propor livro  →  Votar
                                                                    ↓
-   Feed dos seguidos  ←  Nota + resenha  ←  Conversa na data  ←  Livro do ciclo
+   Feed dos seguidos  ←  Nota + resenha  ←  Ler e conversar  ←  Livro do ciclo
           ↓                                                        ↑
    Descobrir livro  →  Adicionar aos futuros  →  Propor no clube ──┘
 ```
@@ -157,8 +158,8 @@ O laço de baixo é o que a v1 não tinha: o feed devolve descoberta para dentro
 | US-20 | Como membro, quero votar em uma proposta. | M |
 | US-21 | Como membro, quero ver a parcial e identificar meu voto. | M |
 | US-22 | Como criador, quero encerrar a votação e definir o livro do ciclo. | M |
-| US-23 | Como criador, quero definir o prazo do ciclo e a data da conversa. | M |
-| US-24 | Como membro, quero ver quanto falta para a conversa. | S |
+| US-23 | Como criador, quero definir o prazo do ciclo. | M |
+| US-24 | Como membro, quero ver quanto falta para o fim do ciclo. | S |
 | US-25 | Como membro, quero trocar meu voto antes do encerramento. | S |
 | US-26 | Como membro, quero ver o ciclo passado e quem venceu. | S |
 | US-27 | Como criador, quero encerramento automático na data marcada. | C |
@@ -189,11 +190,17 @@ O laço de baixo é o que a v1 não tinha: o feed devolve descoberta para dentro
 | US-38 | Como leitor atrasado, quero que spoilers apareçam ocultos e só se revelem por ação minha. | M |
 | US-39 | Como usuário, quero ver a média e a distribuição de notas de um livro. | S |
 | US-40 | Como usuário, quero responder ao comentário de outro. | S |
-| US-41 | Como membro, quero que a conversa só abra na data combinada. | C |
+| US-41 | ~~Como membro, quero que a conversa só abra na data combinada.~~ Removida — ver nota abaixo. | W |
 
 **Critérios — US-34:** só pode avaliar quem marcou o livro como Lido; a nota vai para o perfil e para o feed; estrelas nunca usam a cor de ação (ocre).
 
 **Critérios — US-38:** spoiler renderizado oculto por padrão; revelação exige ação explícita e individual; o estado revelado não é compartilhado entre usuários; o aviso identifica quem marcou.
+
+> **Por que US-41 foi removida.** A versão anterior travava a conversa até uma data combinada, para proteger quem estava atrasado. A trava resolvia o problema errado: ela penalizava quem terminou primeiro para proteger quem ficou para trás, e a Marina — que lê rápido e quer discutir na hora — ficava em silêncio forçado.
+>
+> O tratamento de spoiler (US-37 e US-38) já resolve a proteção do Diego, e resolve melhor: em vez de calar todo mundo até uma data, ele deixa cada pessoa escolher quando ler o quê. Com isso a trava vira redundante e a conversa fica aberta o tempo todo.
+>
+> O **prazo do ciclo continua existindo** (US-23) — é o que mantém o grupo lendo junto. O que deixa de existir é o bloqueio da discussão. A data do encontro do clube, quando houver, é combinado social registrado em US-12, não regra de software.
 
 ### E7 — Estatísticas
 
@@ -212,7 +219,7 @@ O laço de baixo é o que a v1 não tinha: o feed devolve descoberta para dentro
 | US-47 | Como usuário, quero usar o app no celular e no computador. | M |
 | US-48 | Como usuário, quero navegar por teclado e com leitor de tela. | M |
 | US-49 | Como usuário, quero consultar minha estante sem conexão. | C |
-| US-50 | Como usuário, quero notificação quando a votação abrir ou a conversa começar. | W |
+| US-50 | Como usuário, quero notificação quando a votação abrir ou o prazo do ciclo estiver acabando. | W |
 
 ### E9 — Rede
 
@@ -250,7 +257,7 @@ O MVP fecha um ciclo completo **e** dá ao usuário para onde levar o que ele ac
 
 **Total: 32 user stories.**
 
-**Critério de pronto:** um clube real com pelo menos 3 membros escolhe um livro por votação, lê, conversa na data marcada e publica nota e resenha — e essas notas aparecem no feed de quem segue essas pessoas, sem nenhuma intervenção fora do app.
+**Critério de pronto:** um clube real com pelo menos 3 membros escolhe um livro por votação, lê dentro do prazo combinado, conversa sobre ele sem expor spoiler a quem está atrasado e publica nota e resenha — e essas notas aparecem no feed de quem segue essas pessoas, sem nenhuma intervenção fora do app.
 
 ### Corte de emergência
 

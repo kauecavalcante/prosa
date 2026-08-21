@@ -8,7 +8,7 @@ Rede de leitura organizada em clubes. Projeto da disciplina de Interface Humano-
 
 ## O que é
 
-O Prosa transforma a leitura em um ciclo com começo, meio e fim: um clube propõe livros, vota no próximo título, lê junto e conversa na data marcada. Em volta disso existe uma rede — feed, perfis públicos, notas de 0 a 5 e resenhas — que serve para descobrir o que propor no clube.
+O Prosa transforma a leitura em um ciclo com começo, meio e fim: um clube propõe livros, vota no próximo título, lê dentro de um prazo combinado e conversa sobre o livro sem ninguém tomar spoiler. Em volta disso existe uma rede — feed, perfis públicos, notas de 0 a 5 e resenhas — que serve para descobrir o que propor no clube.
 
 ## O problema
 
@@ -18,9 +18,9 @@ O Prosa transforma a leitura em um ciclo com começo, meio e fim: um clube prop�
 
 ## O que diferencia do Skoob e do Goodreads
 
-1. **O ciclo é a espinha.** Os concorrentes são catálogos: você registra o que leu, sem prazo e sem par. No Prosa existe um livro do ciclo, uma votação que o escolheu, uma data marcada e uma conversa que abre nela.
-2. **O clube é a unidade, não o indivíduo.** Lá, grupo é recurso secundário. Aqui o clube é a tela principal e o feed serve o clube.
-3. **Spoiler é problema de design.** Comentário com spoiler nasce oculto e só se revela por ação individual de quem lê.
+1. **O spoiler é resolvido na interface, e é isso que liberta a conversa.** Comentário com spoiler nasce oculto e só se revela por ação individual de quem lê. Sem esse tratamento, um clube precisaria travar a discussão até uma data combinada para proteger quem está atrasado. Com ele, a trava é desnecessária: cada pessoa fala quando quer e lê quando está pronta.
+2. **O ciclo é a espinha.** Os concorrentes são catálogos: você registra o que leu, sem prazo e sem par. No Prosa existe um livro do ciclo, uma votação que o escolheu e um prazo que o grupo combinou.
+3. **O clube é a unidade, não o indivíduo.** Lá, grupo é recurso secundário. Aqui o clube é a tela principal e o feed serve o clube.
 
 ## Documentação
 
@@ -35,7 +35,7 @@ Os protótipos são páginas HTML — baixe a pasta `docs/prototipos` inteira e 
 
 ## Escopo do MVP
 
-32 user stories que fecham um ciclo completo: um clube com pelo menos 3 membros escolhe um livro por votação, lê, conversa na data marcada e publica nota e resenha — e essas notas aparecem no feed de quem segue essas pessoas, sem nenhuma intervenção fora do app.
+32 user stories que fecham um ciclo completo: um clube com pelo menos 3 membros escolhe um livro por votação, lê dentro do prazo combinado, conversa sobre ele sem expor spoiler a quem está atrasado e publica nota e resenha — e essas notas aparecem no feed de quem segue essas pessoas, sem nenhuma intervenção fora do app.
 
 Acompanhamento em [Projects](../../projects).
 
