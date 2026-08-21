@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="812" viewBox="0 0 375 812">
+  <title>4 · Estante</title>
+  <rect x="0.5" y="0.5" width="374" height="811" fill="#FFFFFF" stroke="#C9CDD0" stroke-width="1"/>
+  <text x="20" y="70" font-family="Inter, sans-serif" font-size="26" font-weight="600" fill="#1F2426" text-anchor="start">Sua estante</text>
+  <rect x="20.0" y="82" width="105.0" height="62" rx="10" fill="#E3E6E8"/>
+  <text x="72.5" y="108.2" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#1F2426" text-anchor="middle">9</text>
+  <text x="72.5" y="130.96" font-family="Inter, sans-serif" font-size="11" font-weight="400" fill="#6B7376" text-anchor="middle">Futuros</text>
+  <rect x="135.0" y="82" width="105.0" height="62" rx="10" fill="#E3E6E8"/>
+  <text x="187.5" y="108.2" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#1F2426" text-anchor="middle">1</text>
+  <text x="187.5" y="130.96" font-family="Inter, sans-serif" font-size="11" font-weight="400" fill="#6B7376" text-anchor="middle">Lendo</text>
+  <rect x="250.0" y="82" width="105.0" height="62" rx="10" fill="#E3E6E8"/>
+  <text x="302.5" y="108.2" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#1F2426" text-anchor="middle">14</text>
+  <text x="302.5" y="130.96" font-family="Inter, sans-serif" font-size="11" font-weight="400" fill="#6B7376" text-anchor="middle">Lidos</text>
+  <text x="20" y="169" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#6B7376" text-anchor="start">AGORA</text>
+  <rect x="20" y="177" width="335" height="128" rx="12" fill="#FFFFFF" stroke="#C9CDD0" stroke-width="1"/>
+  <rect x="32" y="193" width="64" height="96" rx="4" fill="#E3E6E8"/>
+  <text x="64.0" y="245.32" font-family="Inter, sans-serif" font-size="12" font-weight="400" fill="#6B7376" text-anchor="middle">capa</text>
+  <rect x="108" y="193" width="46.0" height="22" rx="11" fill="#E3E6E8"/>
+  <text x="131.0" y="207.96" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#6B7376" text-anchor="middle">Lendo</text>
+  <text x="108" y="241" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#1F2426">Torto Arado</text>
+  <text x="108" y="259" font-family="Inter, sans-serif" font-size="12" fill="#6B7376">Itamar Vieira Junior</text>
+  <rect x="108" y="269" width="96" height="30" rx="8" fill="#1F2426"/>
+  <text x="156.0" y="288.68" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">Terminei ✓</text>
+  <text x="20" y="330" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#6B7376" text-anchor="start">FUTUROS — arraste ou use ⋯ para mover</text>
+  <rect x="20" y="338" width="335" height="76" rx="10" fill="#FFFFFF" stroke="#C9CDD0" stroke-width="1"/>
+  <rect x="30" y="348" width="38" height="56" rx="4" fill="#E3E6E8"/>
+  <text x="80" y="365" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#1F2426">A Hora da Estrela</text>
+  <text x="80" y="383" font-family="Inter, sans-serif" font-size="12" fill="#6B7376">Marina indicou</text>
+  <rect x="323.0" y="365.0" width="22.0" height="22" rx="11" fill="#E3E6E8"/>
+  <text x="334.0" y="379.96" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#6B7376" text-anchor="middle">⋯</text>
+  <rect x="20" y="424" width="335" height="76" rx="10" fill="#FFFFFF" stroke="#C9CDD0" stroke-width="1"/>
+  <rect x="30" y="434" width="38" height="56" rx="4" fill="#E3E6E8"/>
+  <text x="80" y="451" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#1F2426">Dom Casmurro</text>
+  <text x="80" y="469" font-family="Inter, sans-serif" font-size="12" fill="#6B7376">Caio indicou</text>
+  <rect x="323.0" y="451.0" width="22.0" height="22" rx="11" fill="#E3E6E8"/>
+  <text x="334.0" y="465.96" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#6B7376" text-anchor="middle">⋯</text>
+  <rect x="20" y="510" width="335" height="72" rx="10" fill="none" stroke="#C9CDD0" stroke-width="1" stroke-dasharray="6 6"/>
+  <text x="187.5" y="550.32" font-family="Inter, sans-serif" font-size="12" font-weight="400" fill="#6B7376" text-anchor="middle">Solte um livro aqui</text>
+  <line x1="0" y1="748" x2="375" y2="748" stroke="#C9CDD0" stroke-width="1"/>
+  <circle cx="46.875" cy="770" r="9" fill="#E3E6E8"/>
+  <text x="46.875" y="796" font-family="Inter, sans-serif" font-size="10" fill="#6B7376" text-anchor="middle">Feed</text>
+  <circle cx="140.625" cy="770" r="9" fill="#E3E6E8"/>
+  <text x="140.625" y="796" font-family="Inter, sans-serif" font-size="10" fill="#6B7376" text-anchor="middle">Estante</text>
+  <circle cx="234.375" cy="770" r="9" fill="#E3E6E8"/>
+  <text x="234.375" y="796" font-family="Inter, sans-serif" font-size="10" fill="#6B7376" text-anchor="middle">Buscar</text>
+  <circle cx="328.125" cy="770" r="9" fill="#E3E6E8"/>
+  <text x="328.125" y="796" font-family="Inter, sans-serif" font-size="10" fill="#6B7376" text-anchor="middle">Perfil</text>
+</svg>

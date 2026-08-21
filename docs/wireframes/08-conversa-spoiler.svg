@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="812" viewBox="0 0 375 812">
+  <title>8 · Conversa · spoiler</title>
+  <rect x="0.5" y="0.5" width="374" height="811" fill="#FFFFFF" stroke="#C9CDD0" stroke-width="1"/>
+  <text x="20" y="58" font-family="Inter, sans-serif" font-size="16" fill="#6B7376">‹</text>
+  <text x="38" y="58" font-family="Inter, sans-serif" font-size="15" fill="#6B7376">Torto Arado</text>
+  <text x="20" y="86" font-family="Inter, sans-serif" font-size="12" font-weight="400" fill="#6B7376" text-anchor="start">38 falas · Clube da Sexta</text>
+  <circle cx="34" cy="118" r="14" fill="#E3E6E8"/>
+  <text x="58" y="116" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1F2426">Bia</text>
+  <text x="90" y="116" font-family="Inter, sans-serif" font-size="11" fill="#6B7376">· 23:41</text>
+  <rect x="58" y="124" width="297" height="34" rx="10" fill="#E3E6E8"/>
+  <text x="70" y="145" font-family="Inter, sans-serif" font-size="12" fill="#1F2426">gente eu não vou conseguir dormir hoje</text>
+  <circle cx="34" cy="186" r="14" fill="#E3E6E8"/>
+  <text x="58" y="184" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1F2426">Diego</text>
+  <text x="106" y="184" font-family="Inter, sans-serif" font-size="11" fill="#6B7376">· 23:52</text>
+  <rect x="58" y="192" width="297" height="34" rx="10" fill="#E3E6E8"/>
+  <text x="70" y="213" font-family="Inter, sans-serif" font-size="12" fill="#1F2426">acordado e destruído. sexta vai ser tera</text>
+  <circle cx="34" cy="254" r="14" fill="#E3E6E8"/>
+  <text x="58" y="252" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1F2426">Marina</text>
+  <text x="114" y="252" font-family="Inter, sans-serif" font-size="11" fill="#6B7376">· 00:07</text>
+  <rect x="58" y="260" width="297" height="62" rx="10" fill="none" stroke="#C9CDD0" stroke-width="1" stroke-dasharray="5 5"/>
+  <text x="206.5" y="278.96" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#6B7376" text-anchor="middle">Marina avisou: tem spoiler aqui</text>
+  <rect x="70" y="290" width="118" height="26" rx="8" fill="#FFFFFF" stroke="#C9CDD0" stroke-width="1"/>
+  <text x="129.0" y="306.96" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1F2426" text-anchor="middle">Mostrar pra mim</text>
+  <circle cx="34" cy="350" r="14" fill="#E3E6E8"/>
+  <text x="58" y="348" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1F2426">Caio</text>
+  <text x="98" y="348" font-family="Inter, sans-serif" font-size="11" fill="#6B7376">· 00:12</text>
+  <rect x="58" y="356" width="297" height="34" rx="10" fill="#E3E6E8"/>
+  <text x="70" y="377" font-family="Inter, sans-serif" font-size="12" fill="#1F2426">tô no começo, não abri nada de vocês</text>
+  <text x="20" y="693" font-family="Inter, sans-serif" font-size="11" font-weight="400" fill="#6B7376" text-anchor="start">A conversa abre sexta às 21h.</text>
+  <rect x="20" y="703" width="289" height="44" rx="10" fill="#FFFFFF" stroke="#C9CDD0" stroke-width="1"/>
+  <text x="34" y="730" font-family="Inter, sans-serif" font-size="13" fill="#6B7376">Escreve aí…</text>
+  <rect x="317" y="703" width="38" height="44" rx="10" fill="#1F2426"/>
+  <text x="336.0" y="730.76" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF" text-anchor="middle">↑</text>
+  <text x="20" y="766" font-family="Inter, sans-serif" font-size="11" font-weight="400" fill="#6B7376" text-anchor="start">Avisar que tem spoiler</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="812" viewBox="0 0 375 812">
+  <title>5 · Votação</title>
+  <rect x="0.5" y="0.5" width="374" height="811" fill="#FFFFFF" stroke="#C9CDD0" stroke-width="1"/>
+  <text x="20" y="58" font-family="Inter, sans-serif" font-size="16" fill="#6B7376">‹</text>
+  <text x="38" y="58" font-family="Inter, sans-serif" font-size="15" fill="#6B7376">Clube da Sexta</text>
+  <text x="20" y="98" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="#1F2426" text-anchor="start">O que a gente lê depois?</text>
+  <text x="20" y="116" font-family="Inter, sans-serif" font-size="12" font-weight="400" fill="#6B7376" text-anchor="start">Aberta até sexta, 22h · 4 de 5 votaram</text>
+  <rect x="20" y="130" width="335" height="150" rx="12" fill="#FFFFFF" stroke="#1F2426" stroke-width="2"/>
+  <rect x="32" y="142" width="64.0" height="22" rx="11" fill="#E3E6E8"/>
+  <text x="64.0" y="156.96" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#6B7376" text-anchor="middle">seu voto</text>
+  <rect x="32" y="172" width="40" height="60" rx="4" fill="#E3E6E8"/>
+  <text x="84" y="190" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#1F2426">A Hora da Estrela</text>
+  <text x="84" y="208" font-family="Inter, sans-serif" font-size="11" fill="#6B7376">Clarice Lispector · 96 pág.</text>
+  <text x="84" y="226" font-family="Inter, sans-serif" font-size="11" fill="#6B7376">Marina: “é curtinho, dá pro fim de sem</text>
+  <text x="32" y="258" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1F2426">3 votos</text>
+  <rect x="274.0" y="240" width="69.0" height="32" rx="8" fill="#1F2426"/>
+  <text x="308.5" y="260.68" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">Votado</text>
+  <rect x="20" y="290" width="335" height="126" rx="12" fill="#FFFFFF" stroke="#C9CDD0" stroke-width="1"/>
+  <rect x="32" y="302" width="40" height="60" rx="4" fill="#E3E6E8"/>
+  <text x="84" y="320" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#1F2426">Dom Casmurro</text>
+  <text x="84" y="338" font-family="Inter, sans-serif" font-size="11" fill="#6B7376">Machado de Assis · 256 pág.</text>
+  <text x="84" y="356" font-family="Inter, sans-serif" font-size="11" fill="#6B7376">Caio: “ninguém leu sem ser na escola”</text>
+  <text x="32" y="388" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1F2426">1 voto</text>
+  <rect x="281.5" y="370" width="61.5" height="32" rx="8" fill="#FFFFFF" stroke="#C9CDD0" stroke-width="1"/>
+  <text x="312.25" y="390.68" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1F2426" text-anchor="middle">Votar</text>
+  <rect x="20" y="426" width="335" height="126" rx="12" fill="#FFFFFF" stroke="#C9CDD0" stroke-width="1"/>
+  <rect x="32" y="438" width="40" height="60" rx="4" fill="#E3E6E8"/>
+  <text x="84" y="456" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#1F2426">A Vida Invisível</text>
+  <text x="84" y="474" font-family="Inter, sans-serif" font-size="11" fill="#6B7376">Martha Batalha · 208 pág.</text>
+  <text x="84" y="492" font-family="Inter, sans-serif" font-size="11" fill="#6B7376">Bia: “vi o filme, quero brigar com o l</text>
+  <text x="32" y="524" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1F2426">0 votos</text>
+  <rect x="281.5" y="506" width="61.5" height="32" rx="8" fill="#FFFFFF" stroke="#C9CDD0" stroke-width="1"/>
+  <text x="312.25" y="526.68" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#1F2426" text-anchor="middle">Votar</text>
+  <rect x="20" y="562" width="335" height="48" rx="10" fill="#FFFFFF" stroke="#C9CDD0" stroke-width="1"/>
+  <text x="187.5" y="591.4" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#1F2426" text-anchor="middle">Propor um livro</text>
+  <text x="20" y="627" font-family="Inter, sans-serif" font-size="11" font-weight="400" fill="#6B7376" text-anchor="start">Cada pessoa vota em um só. Dá pra trocar até sexta.</text>
+</svg>
