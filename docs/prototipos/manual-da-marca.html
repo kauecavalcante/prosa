@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&family=Instrument+Sans:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#0E1417; -webkit-font-smoothing:antialiased; }
+  a { color:#E7B054; text-decoration:none; }
+  a:hover { color:#F3C877; text-decoration:underline; }
+  ::selection { background:#C4882A; color:#0E1417; }
+</style>
+</helmet>
+
+<div style="background:#0E1417; color:#E8EDEF; font-family:'Instrument Sans',system-ui,sans-serif; padding:0 0 120px; overflow-x:hidden">
+
+  <div style="max-width:1120px; margin:0 auto; padding:0 40px">
+
+    <!-- ░░ CAPA ░░ -->
+    <header style="display:grid; grid-template-columns:1.05fr 1fr; gap:64px; align-items:center; min-height:92vh; border-bottom:1px solid #2A363C">
+      <div>
+        <div style="display:flex; align-items:center; gap:12px; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:#96A5AC; margin-bottom:40px">
+          <span style="width:28px; height:1px; background:#C4882A; display:block"></span>
+          Manual da marca · v1.0
+        </div>
+        <h1 style="font-family:'Newsreader',Georgia,serif; font-weight:600; font-size:128px; line-height:0.86; letter-spacing:-0.03em; margin:0 0 28px; color:#F4F7F8">Prosa</h1>
+        <p style="font-family:'Newsreader',Georgia,serif; font-size:26px; line-height:1.45; color:#C6D0D4; margin:0 0 32px; max-width:30ch; text-wrap:pretty">O clube de leitura dos seus amigos. <em style="color:#E7B054">A melhor parte do livro é depois.</em></p>
+        <p style="font-size:15px; line-height:1.7; color:#96A5AC; margin:0; max-width:44ch; text-wrap:pretty">Prosa é texto e prosa é conversa. Esta identidade foi construída sobre o segundo sentido: o produto não é uma estante, é uma mesa de bar com livros em cima.</p>
+      </div>
+      <div style="display:flex; justify-content:center; align-items:center">
+        <div style="position:relative; width:100%; max-width:420px; aspect-ratio:1; display:grid; place-items:center; border-radius:50%; background:radial-gradient(circle at 50% 45%, #1E2A30 0%, #0E1417 72%)">
+          <svg viewBox="0 0 64 64" width="260" height="260" style="color:#D19A3A; display:block; filter:drop-shadow(0 24px 60px rgba(196,136,42,0.22))" aria-label="Marca Prosa" role="img"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+        </div>
+      </div>
+    </header>
+
+    <!-- ░░ 01 A MARCA ░░ -->
+    <section style="padding:104px 0 0">
+      <div style="display:flex; align-items:baseline; gap:20px; margin-bottom:12px">
+        <span style="font-family:'Newsreader',serif; font-size:15px; color:#C4882A">01</span>
+        <h2 style="font-family:'Newsreader',Georgia,serif; font-weight:500; font-size:44px; letter-spacing:-0.02em; margin:0; color:#F4F7F8">A marca</h2>
+      </div>
+      <p style="font-size:16px; line-height:1.7; color:#96A5AC; margin:0 0 48px; max-width:62ch; text-wrap:pretty">Um balão de fala com um livro aberto vazado no centro. O livro é um furo real no caminho vetorial (<code style="font-family:ui-monospace,monospace; font-size:14px; color:#E7B054">fill-rule="evenodd"</code>) — nunca uma forma branca por cima. O miolo mostra a superfície de baixo, então o mesmo arquivo serve fundo claro, escuro e colorido. Uma cor só, sempre.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px">
+        <figure style="margin:0">
+          <div style="background:#F1F3F4; border-radius:20px; height:230px; display:grid; place-items:center">
+            <svg viewBox="0 0 64 64" width="96" height="96" style="color:#8F6412; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+          </div>
+          <figcaption style="font-size:13px; color:#96A5AC; margin-top:12px; line-height:1.6"><strong style="color:#E8EDEF; font-weight:600">Principal</strong> — ocre profundo <span style="font-family:ui-monospace,monospace">#8F6412</span> sobre papel frio.</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div style="background:#172025; border:1px solid #2A363C; border-radius:20px; height:230px; display:grid; place-items:center">
+            <svg viewBox="0 0 64 64" width="96" height="96" style="color:#E7B054; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+          </div>
+          <figcaption style="font-size:13px; color:#96A5AC; margin-top:12px; line-height:1.6"><strong style="color:#E8EDEF; font-weight:600">Reverso</strong> — ocre claro <span style="font-family:ui-monospace,monospace">#E7B054</span> no tema escuro.</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div style="border-radius:20px; height:230px; display:grid; place-items:center; background:linear-gradient(105deg, #C4882A 0% 50%, #4A3FC2 50% 100%)">
+            <svg viewBox="0 0 64 64" width="96" height="96" style="color:#0E1417; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+          </div>
+          <figcaption style="font-size:13px; color:#96A5AC; margin-top:12px; line-height:1.6"><strong style="color:#E8EDEF; font-weight:600">Sobre cor</strong> — tinta única e o furo revelando as duas superfícies. Prova do vazado.</figcaption>
+        </figure>
+      </div>
+
+      <!-- assinatura horizontal -->
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:20px">
+        <div style="background:#F1F3F4; border-radius:20px; padding:36px; display:flex; align-items:center; gap:16px">
+          <svg viewBox="0 0 64 64" width="44" height="44" style="color:#8F6412; display:block; flex:none"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+          <span style="font-family:'Newsreader',Georgia,serif; font-size:42px; font-weight:600; letter-spacing:-0.02em; color:#131A1E; line-height:1">Prosa</span>
+        </div>
+        <div style="background:#172025; border:1px solid #2A363C; border-radius:20px; padding:36px; display:flex; align-items:center; gap:16px">
+          <svg viewBox="0 0 64 64" width="44" height="44" style="color:#E7B054; display:block; flex:none"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+          <span style="font-family:'Newsreader',Georgia,serif; font-size:42px; font-weight:600; letter-spacing:-0.02em; color:#F4F7F8; line-height:1">Prosa</span>
+        </div>
+      </div>
+      <p style="font-size:13px; color:#96A5AC; margin:12px 0 0">Assinatura horizontal: altura da marca = altura da caixa alta do <em>P</em>. Respiro mínimo em volta = largura da cauda do balão.</p>
+    </section>
+
+    <!-- ░░ 02 ÍCONE ░░ -->
+    <section style="padding:104px 0 0">
+      <div style="display:flex; align-items:baseline; gap:20px; margin-bottom:12px">
+        <span style="font-family:'Newsreader',serif; font-size:15px; color:#C4882A">02</span>
+        <h2 style="font-family:'Newsreader',Georgia,serif; font-weight:500; font-size:44px; letter-spacing:-0.02em; margin:0; color:#F4F7F8">Ícone do app</h2>
+      </div>
+      <p style="font-size:16px; line-height:1.7; color:#96A5AC; margin:0 0 40px; max-width:62ch; text-wrap:pretty">No ícone o ocre vira fundo e a tinta vira o balão — o furo do livro devolve o ocre. Testado nos três tamanhos que o PWA exige: 76 px (home Android), 48 px (aba/atalho) e 28 px (favicon e avatar de clube).</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px">
+        <div style="background:#F1F3F4; border-radius:20px; padding:44px; display:flex; align-items:flex-end; gap:40px">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:14px">
+            <div style="width:76px; height:76px; border-radius:20px; background:#C4882A; display:grid; place-items:center"><svg viewBox="0 0 64 64" width="54" height="54" style="color:#131A1E; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg></div>
+            <span style="font-size:11px; letter-spacing:0.1em; color:#56656D">76</span>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:14px">
+            <div style="width:48px; height:48px; border-radius:13px; background:#C4882A; display:grid; place-items:center"><svg viewBox="0 0 64 64" width="34" height="34" style="color:#131A1E; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg></div>
+            <span style="font-size:11px; letter-spacing:0.1em; color:#56656D">48</span>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:14px">
+            <div style="width:28px; height:28px; border-radius:8px; background:#C4882A; display:grid; place-items:center"><svg viewBox="0 0 64 64" width="21" height="21" style="color:#131A1E; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg></div>
+            <span style="font-size:11px; letter-spacing:0.1em; color:#56656D">28</span>
+          </div>
+        </div>
+        <div style="background:#172025; border:1px solid #2A363C; border-radius:20px; padding:44px; display:flex; align-items:flex-end; gap:40px">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:14px">
+            <div style="width:76px; height:76px; border-radius:20px; background:#0E1417; border:1px solid #2A363C; display:grid; place-items:center"><svg viewBox="0 0 64 64" width="54" height="54" style="color:#E7B054; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg></div>
+            <span style="font-size:11px; letter-spacing:0.1em; color:#96A5AC">76</span>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:14px">
+            <div style="width:48px; height:48px; border-radius:13px; background:#0E1417; border:1px solid #2A363C; display:grid; place-items:center"><svg viewBox="0 0 64 64" width="34" height="34" style="color:#E7B054; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg></div>
+            <span style="font-size:11px; letter-spacing:0.1em; color:#96A5AC">48</span>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:14px">
+            <div style="width:28px; height:28px; border-radius:8px; background:#0E1417; border:1px solid #2A363C; display:grid; place-items:center"><svg viewBox="0 0 64 64" width="21" height="21" style="color:#E7B054; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg></div>
+            <span style="font-size:11px; letter-spacing:0.1em; color:#96A5AC">28</span>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:13px; color:#96A5AC; margin:12px 0 0">A 28 px o vão da lombada (3/64 do desenho) e a cauda são os primeiros a sumir: nunca reduza o balão abaixo de 21 px de área útil, e nunca acrescente contorno para "salvar" o tamanho.</p>
+    </section>
+
+    <!-- ░░ 03 PALETA ░░ -->
+    <section style="padding:104px 0 0">
+      <div style="display:flex; align-items:baseline; gap:20px; margin-bottom:12px">
+        <span style="font-family:'Newsreader',serif; font-size:15px; color:#C4882A">03</span>
+        <h2 style="font-family:'Newsreader',Georgia,serif; font-weight:500; font-size:44px; letter-spacing:-0.02em; margin:0; color:#F4F7F8">Paleta</h2>
+      </div>
+      <p style="font-size:16px; line-height:1.7; color:#96A5AC; margin:0 0 40px; max-width:66ch; text-wrap:pretty">O clichê do app de livro é papel creme com terracota. Prosa vai pelo caminho oposto: <strong style="color:#E8EDEF; font-weight:600">superfícies frias, cinza-azuladas</strong>, e o ocre como único calor da tela. Menos sebo, mais mesa de bar à noite. Cada cor tem valor próprio nos dois temas — nada é invertido automaticamente.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-bottom:20px">
+        <!-- claro -->
+        <div style="background:#F1F3F4; border-radius:20px; padding:28px">
+          <div style="display:flex; align-items:center; gap:10px; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#56656D; margin-bottom:22px"><span style="width:10px; height:10px; border-radius:50%; background:#FFFFFF; border:1px solid #D7DDDF; display:block"></span> Tema claro</div>
+          <div style="display:flex; flex-direction:column; gap:14px">
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#F1F3F4; border:1px solid #D7DDDF; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#131A1E">Papel · fundo</span><span style="display:block; font-size:12px; color:#56656D">Base de todas as telas</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#131A1E">#F1F3F4</span></div>
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#FFFFFF; border:1px solid #D7DDDF; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#131A1E">Superfície · cartão</span><span style="display:block; font-size:12px; color:#56656D">Livros, comentários, folhas</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#131A1E">#FFFFFF</span></div>
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#131A1E; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#131A1E">Tinta · texto</span><span style="display:block; font-size:12px; color:#56656D">15.8:1 sobre papel</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#131A1E">#131A1E</span></div>
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#56656D; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#131A1E">Tinta suave · apoio</span><span style="display:block; font-size:12px; color:#56656D">5.4:1 · metadados</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#131A1E">#56656D</span></div>
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#C4882A; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#131A1E">Ocre · ação</span><span style="display:block; font-size:12px; color:#56656D">Preenchimento de botão (tinta em cima: 5.8:1)</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#131A1E">#C4882A</span></div>
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#8F6412; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#131A1E">Ocre profundo · marca e link</span><span style="display:block; font-size:12px; color:#56656D">4.7:1 · texto ocre sempre neste valor</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#131A1E">#8F6412</span></div>
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#D7DDDF; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#131A1E">Traço · borda</span><span style="display:block; font-size:12px; color:#56656D">Divisores e contornos</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#131A1E">#D7DDDF</span></div>
+          </div>
+        </div>
+        <!-- escuro -->
+        <div style="background:#172025; border:1px solid #2A363C; border-radius:20px; padding:28px">
+          <div style="display:flex; align-items:center; gap:10px; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#96A5AC; margin-bottom:22px"><span style="width:10px; height:10px; border-radius:50%; background:#0E1417; border:1px solid #2A363C; display:block"></span> Tema escuro</div>
+          <div style="display:flex; flex-direction:column; gap:14px">
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#0E1417; border:1px solid #2A363C; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#E8EDEF">Noite · fundo</span><span style="display:block; font-size:12px; color:#96A5AC">Azulado, nunca preto puro</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#E8EDEF">#0E1417</span></div>
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#172025; border:1px solid #2A363C; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#E8EDEF">Superfície · cartão</span><span style="display:block; font-size:12px; color:#96A5AC">Elevação por cor, não por sombra</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#E8EDEF">#172025</span></div>
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#E8EDEF; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#E8EDEF">Tinta · texto</span><span style="display:block; font-size:12px; color:#96A5AC">15.7:1 sobre noite</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#E8EDEF">#E8EDEF</span></div>
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#96A5AC; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#E8EDEF">Tinta suave · apoio</span><span style="display:block; font-size:12px; color:#96A5AC">7.3:1 · metadados</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#E8EDEF">#96A5AC</span></div>
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#D19A3A; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#E8EDEF">Ocre · ação</span><span style="display:block; font-size:12px; color:#96A5AC">Preenchimento (tinta noite em cima: 7.4:1)</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#E8EDEF">#D19A3A</span></div>
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#E7B054; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#E8EDEF">Ocre claro · marca e link</span><span style="display:block; font-size:12px; color:#96A5AC">9.5:1 · texto ocre no escuro</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#E8EDEF">#E7B054</span></div>
+            <div style="display:flex; align-items:center; gap:14px"><span style="width:44px; height:44px; border-radius:12px; background:#2A363C; flex:none"></span><span style="flex:1"><span style="display:block; font-size:14px; font-weight:600; color:#E8EDEF">Traço · borda</span><span style="display:block; font-size:12px; color:#96A5AC">Divisores e contornos</span></span><span style="font-family:ui-monospace,monospace; font-size:13px; color:#E8EDEF">#2A363C</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ 04 ESTADOS ░░ -->
+    <section style="padding:80px 0 0">
+      <div style="display:flex; align-items:baseline; gap:20px; margin-bottom:12px">
+        <span style="font-family:'Newsreader',serif; font-size:15px; color:#C4882A">04</span>
+        <h2 style="font-family:'Newsreader',Georgia,serif; font-weight:500; font-size:44px; letter-spacing:-0.02em; margin:0; color:#F4F7F8">Estados de leitura</h2>
+      </div>
+      <p style="font-size:16px; line-height:1.7; color:#96A5AC; margin:0 0 12px; max-width:66ch; text-wrap:pretty">O conflito: se um botão de ação e um livro em andamento têm a mesma cor, o significado se perde. <strong style="color:#E8EDEF; font-weight:600">Regra: o ocre é ação, nunca estado.</strong> Os três estados vivem em matizes frias e distantes do ocre (índigo 250°, verde-água 175°, framboesa 335°) — presentes, mas incapazes de competir com o calor.</p>
+      <p style="font-size:16px; line-height:1.7; color:#96A5AC; margin:0 0 40px; max-width:66ch; text-wrap:pretty">E cor nunca carrega a informação sozinha: cada estado tem <strong style="color:#E8EDEF; font-weight:600">forma própria</strong> (círculo vazio · meia-lua · disco com traço) e <strong style="color:#E8EDEF; font-weight:600">rótulo em texto</strong>. Daltônico, monocromático ou impresso, continua legível.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px">
+        <div style="background:#F1F3F4; border-radius:20px; padding:26px">
+          <div style="display:inline-flex; align-items:center; gap:9px; padding:8px 14px 8px 11px; border-radius:999px; background:#FFFFFF; border:1.5px solid #4A3FC2">
+            <svg width="14" height="14" viewBox="0 0 14 14" style="display:block; flex:none"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#4A3FC2" stroke-width="2"/></svg>
+            <span style="font-size:13px; font-weight:600; color:#4A3FC2; letter-spacing:0.01em">Quero ler</span>
+          </div>
+          <p style="font-size:13px; line-height:1.6; color:#56656D; margin:18px 0 0">Círculo vazio: nada dentro ainda. Índigo <span style="font-family:ui-monospace,monospace">#4A3FC2</span> · 6.8:1</p>
+          <p style="font-size:13px; line-height:1.6; color:#56656D; margin:6px 0 0">Escuro: <span style="font-family:ui-monospace,monospace; color:#131A1E">#ABA0FF</span> · 8.1:1</p>
+        </div>
+        <div style="background:#F1F3F4; border-radius:20px; padding:26px">
+          <div style="display:inline-flex; align-items:center; gap:9px; padding:8px 14px 8px 11px; border-radius:999px; background:#0B7268; border:1.5px solid #0B7268">
+            <svg width="14" height="14" viewBox="0 0 14 14" style="display:block; flex:none"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#FFFFFF"/></svg>
+            <span style="font-size:13px; font-weight:600; color:#FFFFFF; letter-spacing:0.01em">Lendo</span>
+          </div>
+          <p style="font-size:13px; line-height:1.6; color:#56656D; margin:18px 0 0">Meia-lua: metade do caminho. Verde-água <span style="font-family:ui-monospace,monospace">#0B7268</span> · 5.2:1 — único estado com preenchimento sólido, porque é o único que pede atenção.</p>
+          <p style="font-size:13px; line-height:1.6; color:#56656D; margin:6px 0 0">Escuro: <span style="font-family:ui-monospace,monospace; color:#131A1E">#4FD3BD</span> · 10.1:1</p>
+        </div>
+        <div style="background:#F1F3F4; border-radius:20px; padding:26px">
+          <div style="display:inline-flex; align-items:center; gap:9px; padding:8px 14px 8px 11px; border-radius:999px; background:#FFFFFF; border:1.5px solid #D7DDDF">
+            <svg width="14" height="14" viewBox="0 0 14 14" style="display:block; flex:none"><circle cx="7" cy="7" r="6.4" fill="#B0295F"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:13px; font-weight:600; color:#B0295F; letter-spacing:0.01em">Lido</span>
+          </div>
+          <p style="font-size:13px; line-height:1.6; color:#56656D; margin:18px 0 0">Disco fechado com traço. Framboesa <span style="font-family:ui-monospace,monospace">#B0295F</span> · 5.7:1 — encerrado, e por isso em cápsula neutra.</p>
+          <p style="font-size:13px; line-height:1.6; color:#56656D; margin:6px 0 0">Escuro: <span style="font-family:ui-monospace,monospace; color:#131A1E">#FF93B6</span> · 8.9:1</p>
+        </div>
+      </div>
+
+      <!-- lado a lado: ação x estado -->
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:20px">
+        <div style="background:#FFFFFF; border-radius:20px; padding:28px; display:flex; flex-direction:column; gap:18px">
+          <span style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#56656D">Convivência · claro</span>
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap">
+            <span style="display:inline-flex; align-items:center; height:44px; padding:0 20px; border-radius:12px; background:#C4882A; color:#131A1E; font-size:15px; font-weight:600">Propor livro</span>
+            <span style="display:inline-flex; align-items:center; height:44px; padding:0 20px; border-radius:12px; border:1.5px solid #D7DDDF; color:#131A1E; font-size:15px; font-weight:600">Votar</span>
+            <span style="display:inline-flex; align-items:center; gap:8px; height:32px; padding:0 12px 0 10px; border-radius:999px; background:#0B7268; color:#FFFFFF; font-size:12px; font-weight:600"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#FFFFFF"/></svg>Lendo</span>
+          </div>
+          <p style="font-size:13px; line-height:1.6; color:#56656D; margin:0">Ação é retangular e ocre. Estado é cápsula e frio. Forma e cor separam os dois papéis mesmo de longe.</p>
+        </div>
+        <div style="background:#172025; border:1px solid #2A363C; border-radius:20px; padding:28px; display:flex; flex-direction:column; gap:18px">
+          <span style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#96A5AC">Convivência · escuro</span>
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap">
+            <span style="display:inline-flex; align-items:center; height:44px; padding:0 20px; border-radius:12px; background:#D19A3A; color:#0E1417; font-size:15px; font-weight:600">Propor livro</span>
+            <span style="display:inline-flex; align-items:center; height:44px; padding:0 20px; border-radius:12px; border:1.5px solid #2A363C; color:#E8EDEF; font-size:15px; font-weight:600">Votar</span>
+            <span style="display:inline-flex; align-items:center; gap:8px; height:32px; padding:0 12px 0 10px; border-radius:999px; background:#0E2E2B; color:#4FD3BD; font-size:12px; font-weight:600; border:1px solid #1D5850"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#4FD3BD" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#4FD3BD"/></svg>Lendo</span>
+          </div>
+          <p style="font-size:13px; line-height:1.6; color:#96A5AC; margin:0">No escuro os estados perdem o fundo sólido e ganham cápsula tingida — sólido a 10:1 vibraria mais que o ocre.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ 05 TIPOGRAFIA ░░ -->
+    <section style="padding:104px 0 0">
+      <div style="display:flex; align-items:baseline; gap:20px; margin-bottom:12px">
+        <span style="font-family:'Newsreader',serif; font-size:15px; color:#C4882A">05</span>
+        <h2 style="font-family:'Newsreader',Georgia,serif; font-weight:500; font-size:44px; letter-spacing:-0.02em; margin:0; color:#F4F7F8">Tipografia</h2>
+      </div>
+      <p style="font-size:16px; line-height:1.7; color:#96A5AC; margin:0 0 16px; max-width:66ch; text-wrap:pretty"><strong style="color:#E8EDEF; font-weight:600">Se pode ser clicado, é sem serifa.</strong> A serifada é a voz do produto — o que se lê e se conversa. A sem serifa é a mão — o que se toca.</p>
+      <p style="font-size:15px; line-height:1.7; color:#96A5AC; margin:0 0 40px; max-width:66ch; text-wrap:pretty">Par escolhido: <strong style="color:#E7B054; font-weight:600">Newsreader</strong> + <strong style="color:#E7B054; font-weight:600">Instrument Sans</strong>, no lugar de Fraunces/Inter. Fraunces é display caricata e já é a assinatura de meio mercado editorial; Newsreader foi desenhada para texto de leitura longa, tem itálico verdadeiro, eixo óptico e acentuação completa para o português — cabe num título de 88 px e num parágrafo de discussão de 17 px. Inter é a fonte-padrão da internet: invisível de tão vista. Instrument Sans tem altura-de-x alta, largura econômica e terminais retos que se resolvem bem em rótulo de 11 px sem virar personalidade demais.</p>
+
+      <div style="background:#F1F3F4; border-radius:20px; padding:44px; color:#131A1E">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #D7DDDF; padding-bottom:14px; margin-bottom:32px">
+          <span style="font-family:'Newsreader',serif; font-size:22px; font-weight:600">Newsreader</span>
+          <span style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#56656D">Voz do produto · nunca clicável</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:28px">
+          <div style="display:grid; grid-template-columns:112px 1fr; gap:24px; align-items:baseline">
+            <span style="font-size:11px; color:#56656D; letter-spacing:0.08em">88 / 600<br>-3%</span>
+            <span style="font-family:'Newsreader',serif; font-size:88px; font-weight:600; line-height:0.95; letter-spacing:-0.03em; display:block">Prosa</span>
+          </div>
+          <div style="display:grid; grid-template-columns:112px 1fr; gap:24px; align-items:baseline">
+            <span style="font-size:11px; color:#56656D; letter-spacing:0.08em">38 / 500</span>
+            <span style="font-family:'Newsreader',serif; font-size:38px; font-weight:500; line-height:1.15; letter-spacing:-0.02em; display:block">Leia comigo, Clube da Sexta</span>
+          </div>
+          <div style="display:grid; grid-template-columns:112px 1fr; gap:24px; align-items:baseline">
+            <span style="font-size:11px; color:#56656D; letter-spacing:0.08em">26 / 400 itálico</span>
+            <span style="font-family:'Newsreader',serif; font-size:26px; font-style:italic; line-height:1.35; display:block">Grande Sertão: Veredas — capítulo três, e ninguém aguentou calado.</span>
+          </div>
+          <div style="display:grid; grid-template-columns:112px 1fr; gap:24px; align-items:baseline">
+            <span style="font-size:11px; color:#56656D; letter-spacing:0.08em">17 / 400<br>alt. 1.65</span>
+            <span style="font-family:'Newsreader',serif; font-size:17px; line-height:1.65; display:block; max-width:60ch; text-wrap:pretty">Corpo de discussão. É aqui que o produto vive: parágrafos que amigos escrevem às onze da noite sobre um livro que ninguém terminou ainda. A serifada dá tempo à leitura sem pedir reverência. Acentuação cheia: coração, açúcar, ninguém, três, você.</span>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #D7DDDF; padding-bottom:14px; margin:52px 0 32px">
+          <span style="font-size:22px; font-weight:700; letter-spacing:-0.01em">Instrument Sans</span>
+          <span style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#56656D">Interface · tudo que se toca</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:26px">
+          <div style="display:grid; grid-template-columns:112px 1fr; gap:24px; align-items:baseline">
+            <span style="font-size:11px; color:#56656D; letter-spacing:0.08em">24 / 600</span>
+            <span style="font-size:24px; font-weight:600; letter-spacing:-0.01em">Próximo encontro em 4 dias</span>
+          </div>
+          <div style="display:grid; grid-template-columns:112px 1fr; gap:24px; align-items:baseline">
+            <span style="font-size:11px; color:#56656D; letter-spacing:0.08em">15 / 600<br>botão</span>
+            <span style="display:flex; gap:10px; flex-wrap:wrap"><span style="display:inline-flex; align-items:center; height:44px; padding:0 20px; border-radius:12px; background:#C4882A; color:#131A1E; font-size:15px; font-weight:600">Propor livro</span><span style="display:inline-flex; align-items:center; height:44px; padding:0 20px; border-radius:12px; border:1.5px solid #D7DDDF; font-size:15px; font-weight:600">Ver votação</span></span>
+          </div>
+          <div style="display:grid; grid-template-columns:112px 1fr; gap:24px; align-items:baseline">
+            <span style="font-size:11px; color:#56656D; letter-spacing:0.08em">15 / 400<br>lista</span>
+            <span style="font-size:15px; line-height:1.6">Bia, Caio e mais 3 estão lendo · 12 comentários novos</span>
+          </div>
+          <div style="display:grid; grid-template-columns:112px 1fr; gap:24px; align-items:baseline">
+            <span style="font-size:11px; color:#56656D; letter-spacing:0.08em">11 / 600<br>0.16em</span>
+            <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#56656D">Estante do clube</span>
+          </div>
+        </div>
+        <p style="font-size:13px; line-height:1.6; color:#56656D; margin:36px 0 0; padding-top:20px; border-top:1px solid #D7DDDF">Mínimos: 15 px em qualquer alvo de toque (altura 44 px), 11 px só em rótulo em caixa alta com espacejamento. Números sempre tabulares na contagem de votos.</p>
+      </div>
+    </section>
+
+    <!-- ░░ 06 APLICAÇÃO ░░ -->
+    <section style="padding:104px 0 0">
+      <div style="display:flex; align-items:baseline; gap:20px; margin-bottom:12px">
+        <span style="font-family:'Newsreader',serif; font-size:15px; color:#C4882A">06</span>
+        <h2 style="font-family:'Newsreader',Georgia,serif; font-weight:500; font-size:44px; letter-spacing:-0.02em; margin:0; color:#F4F7F8">Aplicação</h2>
+      </div>
+      <p style="font-size:16px; line-height:1.7; color:#96A5AC; margin:0 0 40px; max-width:62ch; text-wrap:pretty">Um recorte da estante do clube nos dois temas, com o sistema inteiro em uso: ocre só nas ações, estados frios com forma e rótulo, serifada nos títulos dos livros, sem serifa em tudo que responde ao toque.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px">
+        <div style="background:#F1F3F4; border-radius:24px; padding:24px; color:#131A1E">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px">
+            <div style="display:flex; align-items:center; gap:9px">
+              <svg viewBox="0 0 64 64" width="24" height="24" style="color:#8F6412; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+              <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#56656D">Clube da Sexta</span>
+            </div>
+            <span style="font-size:13px; font-weight:600; color:#8F6412">Convidar</span>
+          </div>
+          <div style="background:#FFFFFF; border-radius:16px; padding:18px; display:flex; gap:16px; margin-bottom:12px">
+            <div style="width:66px; height:96px; border-radius:6px; background:#DDE3E5; flex:none; display:grid; place-items:center; text-align:center; padding:8px"><span style="font-family:'Newsreader',serif; font-size:12px; line-height:1.2; color:#56656D">capa</span></div>
+            <div style="flex:1">
+              <span style="font-family:'Newsreader',serif; font-size:21px; font-weight:600; line-height:1.2; display:block; margin-bottom:2px">Torto Arado</span>
+              <span style="font-size:13px; color:#56656D; display:block; margin-bottom:12px">Itamar Vieira Junior</span>
+              <span style="display:inline-flex; align-items:center; gap:8px; height:30px; padding:0 12px 0 10px; border-radius:999px; background:#0B7268; color:#FFFFFF; font-size:12px; font-weight:600"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#FFFFFF"/></svg>Lendo · pág. 118</span>
+              <p style="font-size:14px; line-height:1.55; color:#56656D; margin:12px 0 0">Bia: “alguém mais chorou no capítulo 9 ou fui só eu”</p>
+            </div>
+          </div>
+          <div style="background:#FFFFFF; border-radius:16px; padding:18px; display:flex; align-items:center; gap:16px">
+            <div style="width:44px; height:62px; border-radius:5px; background:#DDE3E5; flex:none"></div>
+            <div style="flex:1">
+              <span style="font-family:'Newsreader',serif; font-size:17px; font-weight:600; display:block">A Vida Invisível</span>
+              <span style="display:inline-flex; align-items:center; gap:7px; margin-top:8px; font-size:12px; font-weight:600; color:#4A3FC2"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#4A3FC2" stroke-width="2"/></svg>Quero ler · 4 votos</span>
+            </div>
+            <span style="display:inline-flex; align-items:center; height:36px; padding:0 14px; border-radius:10px; background:#C4882A; color:#131A1E; font-size:13px; font-weight:600">Votar</span>
+          </div>
+        </div>
+
+        <div style="background:#0E1417; border:1px solid #2A363C; border-radius:24px; padding:24px; color:#E8EDEF">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px">
+            <div style="display:flex; align-items:center; gap:9px">
+              <svg viewBox="0 0 64 64" width="24" height="24" style="color:#E7B054; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+              <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#96A5AC">Clube da Sexta</span>
+            </div>
+            <span style="font-size:13px; font-weight:600; color:#E7B054">Convidar</span>
+          </div>
+          <div style="background:#172025; border:1px solid #2A363C; border-radius:16px; padding:18px; display:flex; gap:16px; margin-bottom:12px">
+            <div style="width:66px; height:96px; border-radius:6px; background:#222E34; flex:none; display:grid; place-items:center; padding:8px"><span style="font-family:'Newsreader',serif; font-size:12px; color:#96A5AC">capa</span></div>
+            <div style="flex:1">
+              <span style="font-family:'Newsreader',serif; font-size:21px; font-weight:600; line-height:1.2; display:block; margin-bottom:2px">Torto Arado</span>
+              <span style="font-size:13px; color:#96A5AC; display:block; margin-bottom:12px">Itamar Vieira Junior</span>
+              <span style="display:inline-flex; align-items:center; gap:8px; height:30px; padding:0 12px 0 10px; border-radius:999px; background:#0E2E2B; border:1px solid #1D5850; color:#4FD3BD; font-size:12px; font-weight:600"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#4FD3BD" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#4FD3BD"/></svg>Lendo · pág. 118</span>
+              <p style="font-size:14px; line-height:1.55; color:#96A5AC; margin:12px 0 0">Bia: “alguém mais chorou no capítulo 9 ou fui só eu”</p>
+            </div>
+          </div>
+          <div style="background:#172025; border:1px solid #2A363C; border-radius:16px; padding:18px; display:flex; align-items:center; gap:16px">
+            <div style="width:44px; height:62px; border-radius:5px; background:#222E34; flex:none"></div>
+            <div style="flex:1">
+              <span style="font-family:'Newsreader',serif; font-size:17px; font-weight:600; display:block">A Vida Invisível</span>
+              <span style="display:inline-flex; align-items:center; gap:7px; margin-top:8px; font-size:12px; font-weight:600; color:#ABA0FF"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#ABA0FF" stroke-width="2"/></svg>Quero ler · 4 votos</span>
+            </div>
+            <span style="display:inline-flex; align-items:center; height:36px; padding:0 14px; border-radius:10px; background:#D19A3A; color:#0E1417; font-size:13px; font-weight:600">Votar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░ 07 REGRAS ░░ -->
+    <section style="padding:104px 0 0">
+      <div style="display:flex; align-items:baseline; gap:20px; margin-bottom:12px">
+        <span style="font-family:'Newsreader',serif; font-size:15px; color:#C4882A">07</span>
+        <h2 style="font-family:'Newsreader',Georgia,serif; font-weight:500; font-size:44px; letter-spacing:-0.02em; margin:0; color:#F4F7F8">Faça · não faça</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:40px">
+        <div style="border:1px solid #1D5850; background:#0F1A1C; border-radius:20px; padding:28px">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px"><span style="width:20px; height:20px; border-radius:50%; background:#4FD3BD; color:#0E1417; font-size:13px; font-weight:700; display:grid; place-items:center">✓</span><span style="font-size:12px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#4FD3BD">Faça</span></div>
+          <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:16px; font-size:15px; line-height:1.6; color:#C6D0D4">
+            <li>Use o ocre <strong style="color:#E8EDEF">só para ação e marca</strong>: propor, votar, convidar, o ícone.</li>
+            <li>Mantenha o livro <strong style="color:#E8EDEF">vazado</strong> — um arquivo, uma cor, qualquer fundo.</li>
+            <li>Acompanhe todo estado de <strong style="color:#E8EDEF">forma + rótulo</strong>, mesmo quando a cor parecer óbvia.</li>
+            <li>Serifada para títulos de livro e conversa; sem serifa em tudo clicável.</li>
+            <li>Escolha os valores próprios de cada tema na tabela — não clareie no olho.</li>
+            <li>Deixe respiro: a cauda do balão é a unidade mínima de margem.</li>
+          </ul>
+        </div>
+        <div style="border:1px solid #6B2340; background:#1A1015; border-radius:20px; padding:28px">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px"><span style="width:20px; height:20px; border-radius:50%; background:#FF93B6; color:#0E1417; font-size:13px; font-weight:700; display:grid; place-items:center">×</span><span style="font-size:12px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#FF93B6">Não faça</span></div>
+          <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:16px; font-size:15px; line-height:1.6; color:#C6D0D4">
+            <li>Não use ocre em estado de leitura — <strong style="color:#E8EDEF">ação e progresso nunca se parecem</strong>.</li>
+            <li>Não tape o vazado com forma branca, nem ponha o livro em segunda cor.</li>
+            <li>Não distinga estados só por cor, sem forma nem palavra.</li>
+            <li>Não coloque serifada em botão, aba ou rótulo de campo.</li>
+            <li>Não caia no creme + terracota, nem em gradiente de capa e textura de papel velho.</li>
+            <li>Não gire, incline, contorne ou aplique sombra na marca; não reescreva “PROSA” em caixa alta.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin-top:104px; padding-top:32px; border-top:1px solid #2A363C; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px">
+      <div style="display:flex; align-items:center; gap:10px">
+        <svg viewBox="0 0 64 64" width="20" height="20" style="color:#C4882A; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+        <span style="font-size:13px; color:#96A5AC">Prosa · manual da marca · todos os textos e contrastes conferidos em WCAG 2.1 AA</span>
+      </div>
+      <span style="font-family:'Newsreader',serif; font-style:italic; font-size:15px; color:#E7B054">A melhor parte do livro é depois.</span>
+    </footer>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

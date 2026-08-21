@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&family=Instrument+Sans:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#0B1013; -webkit-font-smoothing:antialiased; }
+  a { color:#E7B054; text-decoration:none; }
+  a:hover { color:#F3C877; text-decoration:underline; }
+  ::selection { background:#C4882A; color:#0E1417; }
+  .fr::-webkit-scrollbar { width:0; height:0; }
+  @keyframes sh { 0% { background-position:120% 0 } 100% { background-position:-120% 0 } }
+</style>
+</helmet>
+
+<div style="background:#0B1013; color:#E8EDEF; font-family:'Instrument Sans',system-ui,sans-serif; padding:56px 40px 120px">
+
+  <header style="max-width:1180px; margin:0 auto 64px">
+    <div style="display:flex; align-items:center; gap:12px; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:#96A5AC; margin-bottom:28px">
+      <svg viewBox="0 0 64 64" width="20" height="20" style="color:#C4882A; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+      Prosa · telas principais
+    </div>
+    <h1 style="font-family:'Newsreader',Georgia,serif; font-weight:600; font-size:64px; line-height:1; letter-spacing:-0.03em; margin:0 0 20px; color:#F4F7F8">Clube da Sexta</h1>
+    <p style="font-size:16px; line-height:1.7; color:#96A5AC; margin:0; max-width:70ch; text-wrap:pretty">Seis telas desenhadas primeiro em 375 px, depois no desktop, nos dois temas. O acompanhamento de leitura acontece só pelos três estados da estante — ninguém digita página nenhuma. As capas são placeholders de cor com o título em Newsreader, exatamente como o app se comporta quando a busca não devolve imagem.</p>
+  </header>
+
+  <!-- ════════ MOBILE · TEMA CLARO ════════ -->
+  <section style="max-width:1180px; margin:0 auto">
+    <div style="display:flex; align-items:center; gap:16px; margin-bottom:32px">
+      <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#C4882A">Mobile 375 px · tema claro</span>
+      <span style="flex:1; height:1px; background:#2A363C; display:block"></span>
+    </div>
+
+    <div style="display:flex; gap:28px; flex-wrap:wrap">
+
+      <!-- ─── 1. ESTANTE ─── -->
+      <figure style="margin:0">
+        <figcaption style="font-size:13px; font-weight:600; color:#E8EDEF; margin-bottom:10px">1 · Estante do clube <span style="font-weight:400; color:#96A5AC">— kanban de três estados</span></figcaption>
+        <div class="fr" style="width:375px; height:812px; border-radius:34px; overflow:hidden; background:#F1F3F4; color:#131A1E; border:1px solid #2A363C; display:flex; flex-direction:column">
+          <div style="padding:52px 20px 14px; display:flex; align-items:center; justify-content:space-between; background:#F1F3F4">
+            <div style="display:flex; align-items:center; gap:9px">
+              <svg viewBox="0 0 64 64" width="22" height="22" style="color:#8F6412; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+              <span style="font-family:'Newsreader',serif; font-size:19px; font-weight:600">Clube da Sexta</span>
+            </div>
+            <span style="width:44px; height:44px; margin-right:-10px; border-radius:50%; display:grid; place-items:center"><span style="width:32px; height:32px; border-radius:50%; background:#33424B; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center">K</span></span>
+          </div>
+
+          <div style="display:flex; gap:8px; padding:4px 20px 10px; overflow:hidden">
+            <span style="display:inline-flex; align-items:center; gap:7px; height:36px; padding:0 13px 0 11px; border-radius:999px; background:#FFFFFF; border:1.5px solid #4A3FC2; color:#4A3FC2; font-size:13px; font-weight:600"><svg width="13" height="13" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#4A3FC2" stroke-width="2"/></svg>Quero ler <span style="font-variant-numeric:tabular-nums">3</span></span>
+            <span style="display:inline-flex; align-items:center; gap:7px; height:36px; padding:0 13px 0 11px; border-radius:999px; background:#0B7268; color:#FFFFFF; font-size:13px; font-weight:600"><svg width="13" height="13" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#FFFFFF"/></svg>Lendo <span style="font-variant-numeric:tabular-nums">1</span></span>
+            <span style="display:inline-flex; align-items:center; gap:7px; height:36px; padding:0 13px 0 11px; border-radius:999px; background:#FFFFFF; border:1.5px solid #D7DDDF; color:#B0295F; font-size:13px; font-weight:600"><svg width="13" height="13" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#B0295F"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Lido <span style="font-variant-numeric:tabular-nums">2</span></span>
+          </div>
+
+          <div style="flex:1; overflow-y:auto; padding:0 20px 12px; display:flex; flex-direction:column; gap:14px">
+            <div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px">
+                <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#4A3FC2">Quero ler</span>
+                <span style="font-size:11px; color:#56656D">arraste ou use ⋯</span>
+              </div>
+              <div style="display:flex; gap:12px">
+                <div style="width:104px; display:flex; flex-direction:column; gap:8px">
+                  <div style="position:relative; height:112px; border-radius:4px 8px 8px 4px; background:#33424B; overflow:hidden; box-shadow:0 8px 20px rgba(19,26,30,0.22); transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(700px) rotateY(-11deg) translateY(-4px)">
+                    <span style="position:absolute; left:0; top:0; bottom:0; width:9px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(19,26,30,0.35); display:block"></span>
+                    <span style="position:absolute; inset:0 10px 0 20px; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:14px"><span style="font-family:'Newsreader',serif; font-size:17px; line-height:1.15; color:#F4F7F8; font-weight:500">A Hora da Estrela</span><span style="font-size:10px; color:rgba(244,247,248,0.72); margin-top:5px">Clarice Lispector</span></span>
+                  </div>
+                  <span style="font-size:12px; color:#56656D">Proposto por Marina</span>
+                </div>
+                <div style="width:104px; display:flex; flex-direction:column; gap:8px">
+                  <div style="position:relative; height:112px; border-radius:4px 8px 8px 4px; background:#4A3B44; overflow:hidden; box-shadow:0 8px 20px rgba(19,26,30,0.22); transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(700px) rotateY(-11deg) translateY(-4px)">
+                    <span style="position:absolute; left:0; top:0; bottom:0; width:9px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(19,26,30,0.35); display:block"></span>
+                    <span style="position:absolute; inset:0 10px 0 20px; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:14px"><span style="font-family:'Newsreader',serif; font-size:17px; line-height:1.15; color:#F4F7F8; font-weight:500">Dom Casmurro</span><span style="font-size:10px; color:rgba(244,247,248,0.72); margin-top:5px">Machado de Assis</span></span>
+                  </div>
+                  <span style="font-size:12px; color:#56656D">Proposto por Caio</span>
+                </div>
+                <div style="width:104px; display:grid; place-items:center; height:112px; border:1.5px dashed #D7DDDF; border-radius:8px; padding:12px; text-align:center"><span style="font-size:12px; line-height:1.5; color:#56656D">Solte um livro aqui</span></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px">
+                <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#0B7268">Lendo agora</span>
+                <span style="font-size:11px; color:#56656D">até <span style="font-variant-numeric:tabular-nums">28/08</span></span>
+              </div>
+              <div style="background:#FFFFFF; border-radius:16px; padding:14px; display:flex; gap:14px; position:relative; box-shadow:0 1px 0 #D7DDDF">
+                <div style="position:relative; width:68px; height:100px; flex:none; border-radius:4px 8px 8px 4px; background:#3E4A3F; overflow:hidden; box-shadow:0 8px 18px rgba(19,26,30,0.24); transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(700px) rotateY(-13deg) translateY(-4px)">
+                  <span style="position:absolute; left:0; top:0; bottom:0; width:8px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(19,26,30,0.35); display:block"></span>
+                  <span style="position:absolute; inset:0 8px 0 16px; display:flex; align-items:flex-end; padding-bottom:10px"><span style="font-family:'Newsreader',serif; font-size:14px; line-height:1.15; color:#F4F7F8; font-weight:500">Torto Arado</span></span>
+                </div>
+                <div style="flex:1; min-width:0; padding-right:40px">
+                  <span style="font-family:'Newsreader',serif; font-size:20px; font-weight:600; line-height:1.2; display:block">Torto Arado</span>
+                  <span style="font-size:13px; color:#56656D; display:block; margin-top:2px">Itamar Vieira Junior</span>
+                  <span style="display:inline-flex; align-items:center; gap:7px; margin-top:10px; height:30px; padding:0 12px 0 10px; border-radius:999px; background:#0B7268; color:#FFFFFF; font-size:12px; font-weight:600"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#FFFFFF"/></svg>Lendo</span>
+                  <span style="display:block; font-size:12px; color:#56656D; margin-top:10px">Bia, Diego e mais 2 também</span>
+                </div>
+                <span style="position:absolute; top:10px; right:10px; width:44px; height:44px; border-radius:12px; display:grid; place-items:center; font-size:18px; color:#56656D; background:#F1F3F4">⋯</span>
+              </div>
+
+              <!-- menu de mover sem arrastar -->
+              <div style="margin-top:10px; background:#FFFFFF; border:1px solid #D7DDDF; border-radius:16px; padding:8px; box-shadow:0 16px 34px rgba(19,26,30,0.14)">
+                <span style="display:block; font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#56656D; padding:8px 12px 6px">Mover “Torto Arado” para</span>
+                <span style="display:flex; align-items:center; gap:10px; height:44px; padding:0 12px; border-radius:10px; font-size:15px; font-weight:600; color:#4A3FC2"><svg width="14" height="14" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#4A3FC2" stroke-width="2"/></svg>Quero ler</span>
+                <span style="display:flex; align-items:center; gap:10px; height:44px; padding:0 12px; border-radius:10px; font-size:15px; font-weight:600; color:#56656D; background:#F1F3F4"><svg width="14" height="14" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#56656D" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#56656D"/></svg>Lendo <span style="margin-left:auto; font-size:12px; font-weight:400">agora</span></span>
+                <span style="display:flex; align-items:center; gap:10px; height:44px; padding:0 12px; border-radius:10px; font-size:15px; font-weight:600; color:#B0295F"><svg width="14" height="14" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#B0295F"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Lido</span>
+                <span style="display:block; font-size:11px; color:#56656D; padding:8px 12px 6px; border-top:1px solid #D7DDDF; margin-top:6px; line-height:1.5">No teclado: <strong style="font-weight:600">Espaço</strong> pega o livro, <strong style="font-weight:600">← →</strong> troca de coluna, <strong style="font-weight:600">Enter</strong> solta.</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid #D7DDDF; background:#FFFFFF; padding:8px 12px 18px; display:flex; justify-content:space-around">
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#8F6412; font-size:11px; font-weight:600"><svg viewBox="0 0 64 64" width="19" height="19" style="color:#8F6412; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>Estante</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#56656D; font-size:11px; font-weight:600"><span style="font-size:17px; line-height:1">✓</span>Votação</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#56656D; font-size:11px; font-weight:600"><span style="font-size:17px; line-height:1">⌕</span>Buscar</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#56656D; font-size:11px; font-weight:600"><span style="width:19px; height:19px; border-radius:50%; background:#D7DDDF; display:block"></span>Perfil</span>
+          </div>
+        </div>
+      </figure>
+
+      <!-- ─── 2. TELA DO CLUBE ─── -->
+      <figure style="margin:0">
+        <figcaption style="font-size:13px; font-weight:600; color:#E8EDEF; margin-bottom:10px">2 · Tela do clube <span style="font-weight:400; color:#96A5AC">— ciclo atual</span></figcaption>
+        <div class="fr" style="width:375px; height:812px; border-radius:34px; overflow:hidden; background:#F1F3F4; color:#131A1E; border:1px solid #2A363C; display:flex; flex-direction:column">
+          <div style="padding:52px 20px 12px; display:flex; align-items:center; justify-content:space-between">
+            <span style="font-family:'Newsreader',serif; font-size:19px; font-weight:600">Clube da Sexta</span>
+            <span style="font-size:13px; font-weight:600; color:#8F6412; height:44px; display:flex; align-items:center">Convidar</span>
+          </div>
+
+          <div style="flex:1; overflow-y:auto; padding:0 20px 4px">
+            <div style="background:#FFFFFF; border-radius:20px; padding:14px; display:flex; gap:14px; align-items:flex-start">
+              <div style="position:relative; width:66px; height:92px; flex:none; border-radius:5px 10px 10px 5px; background:#3E4A3F; overflow:hidden; box-shadow:0 12px 26px rgba(19,26,30,0.26); transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(800px) rotateY(-14deg) translateY(-5px)">
+                <span style="position:absolute; left:0; top:0; bottom:0; width:10px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(19,26,30,0.35); display:block"></span>
+                <span style="position:absolute; inset:0 10px 0 20px; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:14px"><span style="font-family:'Newsreader',serif; font-size:15px; line-height:1.12; color:#F4F7F8; font-weight:500">Torto Arado</span><span style="font-size:10px; color:rgba(244,247,248,0.72); margin-top:5px">Itamar Vieira Junior</span></span>
+              </div>
+              <div style="flex:1; min-width:0">
+                <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#56656D; display:block">Lendo neste ciclo</span>
+                <span style="font-family:'Newsreader',serif; font-size:26px; font-weight:600; line-height:1.15; display:block; margin-top:8px">Torto Arado</span>
+                <span style="font-size:13px; color:#56656D; display:block; margin-top:3px">Itamar Vieira Junior</span>
+                <span style="display:flex; align-items:baseline; gap:7px; margin-top:14px"><span style="font-family:'Newsreader',serif; font-size:30px; font-weight:600; line-height:1; font-variant-numeric:tabular-nums; color:#131A1E">7</span><span style="font-size:13px; color:#56656D; line-height:1.3">dias até a<br>conversa</span></span>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:10px; margin-top:12px">
+              <span style="flex:1; display:inline-flex; align-items:center; justify-content:center; height:44px; border-radius:12px; background:#C4882A; color:#131A1E; font-size:15px; font-weight:600">Abrir conversa</span>
+              <span style="width:44px; height:44px; border-radius:12px; border:1.5px solid #D7DDDF; display:grid; place-items:center; font-size:17px; color:#56656D">⋯</span>
+            </div>
+
+            <div style="margin-top:8px">
+              <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#56656D; display:block; margin-bottom:8px">Quem está onde</span>
+              <div style="background:#FFFFFF; border-radius:16px; overflow:hidden">
+                <div style="display:flex; align-items:center; gap:12px; padding:4px 14px; border-bottom:1px solid #F1F3F4">
+                  <span style="width:30px; height:30px; border-radius:50%; background:#33424B; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; flex:none">K</span>
+                  <span style="flex:1; font-size:15px">Kauê <span style="font-size:12px; color:#56656D">· você</span></span>
+                  <span style="display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 11px 0 9px; border-radius:999px; background:#0B7268; color:#FFFFFF; font-size:12px; font-weight:600"><svg width="11" height="11" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#FFFFFF"/></svg>Lendo</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; padding:4px 14px; border-bottom:1px solid #F1F3F4">
+                  <span style="width:30px; height:30px; border-radius:50%; background:#4A3B44; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; flex:none">M</span>
+                  <span style="flex:1; font-size:15px">Marina</span>
+                  <span style="display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 11px 0 9px; border-radius:999px; background:#FFFFFF; border:1.5px solid #D7DDDF; color:#B0295F; font-size:12px; font-weight:600"><svg width="11" height="11" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#B0295F"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Lido</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; padding:4px 14px; border-bottom:1px solid #F1F3F4">
+                  <span style="width:30px; height:30px; border-radius:50%; background:#45414F; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; flex:none">D</span>
+                  <span style="flex:1; font-size:15px">Diego</span>
+                  <span style="display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 11px 0 9px; border-radius:999px; background:#0B7268; color:#FFFFFF; font-size:12px; font-weight:600"><svg width="11" height="11" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#FFFFFF"/></svg>Lendo</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; padding:4px 14px; border-bottom:1px solid #F1F3F4">
+                  <span style="width:30px; height:30px; border-radius:50%; background:#524436; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; flex:none">B</span>
+                  <span style="flex:1; font-size:15px">Bia</span>
+                  <span style="display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 11px 0 9px; border-radius:999px; background:#0B7268; color:#FFFFFF; font-size:12px; font-weight:600"><svg width="11" height="11" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#FFFFFF"/></svg>Lendo</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; padding:4px 14px">
+                  <span style="width:30px; height:30px; border-radius:50%; background:#3A4B52; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; flex:none">C</span>
+                  <span style="flex:1; font-size:15px">Caio</span>
+                  <span style="display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 11px 0 9px; border-radius:999px; background:#FFFFFF; border:1.5px solid #4A3FC2; color:#4A3FC2; font-size:12px; font-weight:600"><svg width="11" height="11" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#4A3FC2" stroke-width="2"/></svg>Quero ler</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:8px">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
+                <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#56656D">Conversa de ontem</span>
+                <span style="font-size:13px; font-weight:600; color:#8F6412">Ver tudo</span>
+              </div>
+              <div style="background:#FFFFFF; border-radius:16px; padding:11px; display:flex; flex-direction:column; gap:9px">
+                <div style="display:flex; gap:12px">
+                  <span style="width:30px; height:30px; border-radius:50%; background:#524436; color:#F1F3F4; font-size:11px; font-weight:600; display:grid; place-items:center; flex:none">B</span>
+                  <div><span style="font-size:13px; font-weight:600; display:block">Bia <span style="font-weight:400; color:#56656D">· 23:41</span></span><p style="font-family:'Newsreader',serif; font-size:16px; line-height:1.45; margin:3px 0 0; text-wrap:pretty">gente eu não vou conseguir dormir hoje. alguém acordado?</p></div>
+                </div>
+                <div style="display:flex; gap:12px">
+                  <span style="width:30px; height:30px; border-radius:50%; background:#45414F; color:#F1F3F4; font-size:11px; font-weight:600; display:grid; place-items:center; flex:none">D</span>
+                  <div><span style="font-size:13px; font-weight:600; display:block">Diego <span style="font-weight:400; color:#56656D">· 23:52</span></span><p style="font-family:'Newsreader',serif; font-size:16px; line-height:1.45; margin:3px 0 0; text-wrap:pretty">acordado e destruído. sexta vai ser terapia coletiva</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid #D7DDDF; background:#FFFFFF; padding:8px 12px 18px; display:flex; justify-content:space-around">
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#8F6412; font-size:11px; font-weight:600"><svg viewBox="0 0 64 64" width="19" height="19" style="color:#8F6412; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>Estante</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#56656D; font-size:11px; font-weight:600"><span style="font-size:17px; line-height:1">✓</span>Votação</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#56656D; font-size:11px; font-weight:600"><span style="font-size:17px; line-height:1">⌕</span>Buscar</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#56656D; font-size:11px; font-weight:600"><span style="width:19px; height:19px; border-radius:50%; background:#D7DDDF; display:block"></span>Perfil</span>
+          </div>
+        </div>
+      </figure>
+
+      <!-- ─── 3. VOTAÇÃO ─── -->
+      <figure style="margin:0">
+        <figcaption style="font-size:13px; font-weight:600; color:#E8EDEF; margin-bottom:10px">3 · Votação <span style="font-weight:400; color:#96A5AC">— próximo ciclo</span></figcaption>
+        <div class="fr" style="width:375px; height:812px; border-radius:34px; overflow:hidden; background:#F1F3F4; color:#131A1E; border:1px solid #2A363C; display:flex; flex-direction:column">
+          <div style="padding:52px 20px 16px">
+            <span style="font-family:'Newsreader',serif; font-size:28px; font-weight:600; line-height:1.1; display:block">O que a gente lê depois?</span>
+            <div style="display:flex; align-items:center; gap:8px; margin-top:10px; font-size:13px; color:#56656D"><span style="width:8px; height:8px; border-radius:50%; background:#0B7268; display:block"></span>Votação aberta até <strong style="font-weight:600; color:#131A1E; font-variant-numeric:tabular-nums">sexta, 22h</strong> · <span style="font-variant-numeric:tabular-nums">4</span> de <span style="font-variant-numeric:tabular-nums">5</span> já votaram</div>
+          </div>
+
+          <div style="flex:1; overflow:hidden; padding:4px 20px 20px; display:flex; flex-direction:column; gap:12px">
+            <div style="background:#FFFFFF; border:2px solid #C4882A; border-radius:18px; padding:14px; display:flex; gap:14px; align-items:center; position:relative">
+              <span style="position:absolute; top:-9px; left:14px; background:#C4882A; color:#131A1E; font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; padding:2px 8px; border-radius:999px">Seu voto</span>
+              <div style="position:relative; width:62px; height:92px; flex:none; border-radius:4px 8px 8px 4px; background:#33424B; overflow:hidden; box-shadow:0 8px 18px rgba(19,26,30,0.24); transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(700px) rotateY(-13deg) translateY(-4px)">
+                <span style="position:absolute; left:0; top:0; bottom:0; width:8px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(19,26,30,0.35); display:block"></span>
+                <span style="position:absolute; inset:0 6px 0 14px; display:flex; align-items:flex-end; padding-bottom:9px"><span style="font-family:'Newsreader',serif; font-size:12px; line-height:1.12; color:#F4F7F8; font-weight:500">A Hora da Estrela</span></span>
+              </div>
+              <div style="flex:1; min-width:0">
+                <span style="font-family:'Newsreader',serif; font-size:19px; font-weight:600; line-height:1.2; display:block">A Hora da Estrela</span>
+                <span style="font-size:12px; color:#56656D; display:block; margin-top:2px">Clarice Lispector · <span style="font-variant-numeric:tabular-nums">96</span> páginas</span>
+                <span style="font-size:12px; color:#56656D; display:block; margin-top:6px">Marina: “é curtinho, dá pra ler no fim de semana”</span>
+              </div>
+              <div style="display:flex; flex-direction:column; align-items:center; gap:4px; flex:none; width:56px">
+                <span style="font-family:'Newsreader',serif; font-size:26px; font-weight:600; line-height:1; font-variant-numeric:tabular-nums">3</span>
+                <span style="font-size:11px; color:#56656D">votos</span>
+                <span style="height:32px; width:52px; border-radius:9px; background:#C4882A; color:#131A1E; font-size:12px; font-weight:600; display:grid; place-items:center; margin-top:2px">Votado</span>
+              </div>
+            </div>
+
+            <div style="background:#FFFFFF; border:1px solid #D7DDDF; border-radius:18px; padding:14px; display:flex; gap:14px; align-items:center">
+              <div style="position:relative; width:62px; height:92px; flex:none; border-radius:4px 8px 8px 4px; background:#4A3B44; overflow:hidden; box-shadow:0 8px 18px rgba(19,26,30,0.24); transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(700px) rotateY(-13deg) translateY(-4px)">
+                <span style="position:absolute; left:0; top:0; bottom:0; width:8px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(19,26,30,0.35); display:block"></span>
+                <span style="position:absolute; inset:0 6px 0 14px; display:flex; align-items:flex-end; padding-bottom:9px"><span style="font-family:'Newsreader',serif; font-size:12px; line-height:1.12; color:#F4F7F8; font-weight:500">Dom Casmurro</span></span>
+              </div>
+              <div style="flex:1; min-width:0">
+                <span style="font-family:'Newsreader',serif; font-size:19px; font-weight:600; line-height:1.2; display:block">Dom Casmurro</span>
+                <span style="font-size:12px; color:#56656D; display:block; margin-top:2px">Machado de Assis · <span style="font-variant-numeric:tabular-nums">256</span> páginas</span>
+                <span style="font-size:12px; color:#56656D; display:block; margin-top:6px">Caio: “ninguém aqui leu sem ser na escola, admitam”</span>
+              </div>
+              <div style="display:flex; flex-direction:column; align-items:center; gap:4px; flex:none; width:56px">
+                <span style="font-family:'Newsreader',serif; font-size:26px; font-weight:600; line-height:1; font-variant-numeric:tabular-nums">1</span>
+                <span style="font-size:11px; color:#56656D">voto</span>
+                <span style="height:32px; width:52px; border-radius:9px; border:1.5px solid #D7DDDF; color:#131A1E; font-size:12px; font-weight:600; display:grid; place-items:center; margin-top:2px">Votar</span>
+              </div>
+            </div>
+
+            <div style="background:#FFFFFF; border:1px solid #D7DDDF; border-radius:18px; padding:14px; display:flex; gap:14px; align-items:center">
+              <div style="position:relative; width:62px; height:92px; flex:none; border-radius:4px 8px 8px 4px; background:#3A4B52; overflow:hidden; box-shadow:0 8px 18px rgba(19,26,30,0.24); transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(700px) rotateY(-13deg) translateY(-4px)">
+                <span style="position:absolute; left:0; top:0; bottom:0; width:8px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(19,26,30,0.35); display:block"></span>
+                <span style="position:absolute; inset:0 6px 0 14px; display:flex; align-items:flex-end; padding-bottom:9px"><span style="font-family:'Newsreader',serif; font-size:12px; line-height:1.12; color:#F4F7F8; font-weight:500">A Vida Invisível</span></span>
+              </div>
+              <div style="flex:1; min-width:0">
+                <span style="font-family:'Newsreader',serif; font-size:19px; font-weight:600; line-height:1.2; display:block">A Vida Invisível de Eurídice Gusmão</span>
+                <span style="font-size:12px; color:#56656D; display:block; margin-top:2px">Martha Batalha · <span style="font-variant-numeric:tabular-nums">208</span> páginas</span>
+                <span style="font-size:12px; color:#56656D; display:block; margin-top:6px">Bia: “vi o filme, quero o livro pra brigar com ele”</span>
+              </div>
+              <div style="display:flex; flex-direction:column; align-items:center; gap:4px; flex:none; width:56px">
+                <span style="font-family:'Newsreader',serif; font-size:26px; font-weight:600; line-height:1; font-variant-numeric:tabular-nums">0</span>
+                <span style="font-size:11px; color:#56656D">votos</span>
+                <span style="height:32px; width:52px; border-radius:9px; border:1.5px solid #D7DDDF; color:#131A1E; font-size:12px; font-weight:600; display:grid; place-items:center; margin-top:2px">Votar</span>
+              </div>
+            </div>
+
+            <div style="margin-top:auto; display:flex; flex-direction:column; gap:10px">
+              <span style="display:flex; align-items:center; justify-content:center; height:44px; border-radius:12px; background:#C4882A; color:#131A1E; font-size:15px; font-weight:600">Propor um livro</span>
+              <span style="font-size:12px; color:#56656D; text-align:center; line-height:1.5">Cada pessoa vota em um só. Dá pra trocar seu voto até sexta.</span>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid #D7DDDF; background:#FFFFFF; padding:8px 12px 18px; display:flex; justify-content:space-around">
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#56656D; font-size:11px; font-weight:600"><svg viewBox="0 0 64 64" width="19" height="19" style="color:#56656D; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>Estante</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#8F6412; font-size:11px; font-weight:600"><span style="font-size:17px; line-height:1">✓</span>Votação</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#56656D; font-size:11px; font-weight:600"><span style="font-size:17px; line-height:1">⌕</span>Buscar</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#56656D; font-size:11px; font-weight:600"><span style="width:19px; height:19px; border-radius:50%; background:#D7DDDF; display:block"></span>Perfil</span>
+          </div>
+        </div>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- ════════ MOBILE · BUSCA (3 estados) ════════ -->
+  <section style="max-width:1180px; margin:64px auto 0">
+    <div style="display:flex; align-items:center; gap:16px; margin-bottom:32px">
+      <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#C4882A">4 · Busca de livro — carregando, com resultados, sem resultado</span>
+      <span style="flex:1; height:1px; background:#2A363C; display:block"></span>
+    </div>
+    <div style="display:flex; gap:28px; flex-wrap:wrap">
+
+      <!-- carregando -->
+      <figure style="margin:0">
+        <figcaption style="font-size:13px; font-weight:600; color:#E8EDEF; margin-bottom:10px">4a · Procurando</figcaption>
+        <div class="fr" style="width:375px; height:812px; border-radius:34px; overflow:hidden; background:#F1F3F4; color:#131A1E; border:1px solid #2A363C; display:flex; flex-direction:column">
+          <div style="padding:52px 20px 14px">
+            <span style="font-family:'Newsreader',serif; font-size:26px; font-weight:600; display:block; margin-bottom:14px">Achar um livro</span>
+            <div style="display:flex; align-items:center; gap:10px; height:48px; padding:0 14px; border-radius:14px; background:#FFFFFF; border:1.5px solid #C4882A">
+              <span style="font-size:17px; color:#56656D">⌕</span>
+              <span style="flex:1; font-size:15px">clarice lispector</span>
+              <span style="width:26px; height:26px; border-radius:50%; background:#F1F3F4; display:grid; place-items:center; font-size:13px; color:#56656D">×</span>
+            </div>
+          </div>
+          <div style="flex:1; padding:10px 20px; display:flex; flex-direction:column; gap:12px">
+            <span style="font-size:12px; color:#56656D; display:block; margin-bottom:2px">Procurando nas estantes do mundo…</span>
+            <div style="background:#FFFFFF; border-radius:16px; padding:14px; display:flex; gap:14px; align-items:center">
+              <span style="width:62px; height:92px; border-radius:4px 8px 8px 4px; background:linear-gradient(100deg,#E8ECEE 30%,#F5F7F8 50%,#E8ECEE 70%); background-size:220% 100%; animation:sh 1.3s linear infinite; flex:none; display:block"></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:9px"><span style="height:15px; width:72%; border-radius:5px; background:linear-gradient(100deg,#E8ECEE 30%,#F5F7F8 50%,#E8ECEE 70%); background-size:220% 100%; animation:sh 1.3s linear infinite; display:block"></span><span style="height:12px; width:46%; border-radius:5px; background:#EDF0F1; display:block"></span><span style="height:12px; width:32%; border-radius:5px; background:#EDF0F1; display:block"></span></span>
+            </div>
+            <div style="background:#FFFFFF; border-radius:16px; padding:14px; display:flex; gap:14px; align-items:center; opacity:0.72">
+              <span style="width:62px; height:92px; border-radius:4px 8px 8px 4px; background:linear-gradient(100deg,#E8ECEE 30%,#F5F7F8 50%,#E8ECEE 70%); background-size:220% 100%; animation:sh 1.3s linear infinite .15s; flex:none; display:block"></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:9px"><span style="height:15px; width:58%; border-radius:5px; background:linear-gradient(100deg,#E8ECEE 30%,#F5F7F8 50%,#E8ECEE 70%); background-size:220% 100%; animation:sh 1.3s linear infinite .15s; display:block"></span><span style="height:12px; width:40%; border-radius:5px; background:#EDF0F1; display:block"></span></span>
+            </div>
+            <div style="background:#FFFFFF; border-radius:16px; padding:14px; display:flex; gap:14px; align-items:center; opacity:0.44">
+              <span style="width:62px; height:92px; border-radius:4px 8px 8px 4px; background:#EDF0F1; flex:none; display:block"></span>
+              <span style="flex:1; display:flex; flex-direction:column; gap:9px"><span style="height:15px; width:64%; border-radius:5px; background:#EDF0F1; display:block"></span><span style="height:12px; width:36%; border-radius:5px; background:#EDF0F1; display:block"></span></span>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- resultados -->
+      <figure style="margin:0">
+        <figcaption style="font-size:13px; font-weight:600; color:#E8EDEF; margin-bottom:10px">4b · Com resultados</figcaption>
+        <div class="fr" style="width:375px; height:812px; border-radius:34px; overflow:hidden; background:#F1F3F4; color:#131A1E; border:1px solid #2A363C; display:flex; flex-direction:column">
+          <div style="padding:52px 20px 14px">
+            <span style="font-family:'Newsreader',serif; font-size:26px; font-weight:600; display:block; margin-bottom:14px">Achar um livro</span>
+            <div style="display:flex; align-items:center; gap:10px; height:48px; padding:0 14px; border-radius:14px; background:#FFFFFF; border:1.5px solid #D7DDDF">
+              <span style="font-size:17px; color:#56656D">⌕</span>
+              <span style="flex:1; font-size:15px">clarice lispector</span>
+              <span style="width:26px; height:26px; border-radius:50%; background:#F1F3F4; display:grid; place-items:center; font-size:13px; color:#56656D">×</span>
+            </div>
+          </div>
+          <div style="flex:1; overflow:hidden; padding:10px 20px; display:flex; flex-direction:column; gap:12px">
+            <span style="font-size:12px; color:#56656D"><span style="font-variant-numeric:tabular-nums">7</span> livros encontrados</span>
+            <div style="background:#FFFFFF; border-radius:16px; padding:14px; display:flex; gap:14px; align-items:center">
+              <div style="position:relative; width:62px; height:92px; flex:none; border-radius:4px 8px 8px 4px; background:#33424B; overflow:hidden; box-shadow:0 8px 18px rgba(19,26,30,0.22); transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(700px) rotateY(-13deg) translateY(-4px)">
+                <span style="position:absolute; left:0; top:0; bottom:0; width:8px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(19,26,30,0.35); display:block"></span>
+                <span style="position:absolute; inset:0 6px 0 14px; display:flex; align-items:flex-end; padding-bottom:9px"><span style="font-family:'Newsreader',serif; font-size:12px; line-height:1.12; color:#F4F7F8; font-weight:500">A Hora da Estrela</span></span>
+              </div>
+              <div style="flex:1; min-width:0">
+                <span style="font-family:'Newsreader',serif; font-size:18px; font-weight:600; line-height:1.2; display:block">A Hora da Estrela</span>
+                <span style="font-size:13px; color:#56656D; display:block; margin-top:2px">Clarice Lispector</span>
+                <span style="font-size:12px; color:#56656D; display:block; margin-top:2px; font-variant-numeric:tabular-nums">96 páginas · 1977</span>
+              </div>
+              <span style="height:36px; padding:0 13px; border-radius:10px; background:#C4882A; color:#131A1E; font-size:13px; font-weight:600; display:grid; place-items:center; flex:none">Propor</span>
+            </div>
+            <div style="background:#FFFFFF; border-radius:16px; padding:14px; display:flex; gap:14px; align-items:center">
+              <div style="position:relative; width:62px; height:92px; flex:none; border-radius:4px 8px 8px 4px; background:#45414F; overflow:hidden; box-shadow:0 8px 18px rgba(19,26,30,0.22); transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(700px) rotateY(-13deg) translateY(-4px)">
+                <span style="position:absolute; left:0; top:0; bottom:0; width:8px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(19,26,30,0.35); display:block"></span>
+                <span style="position:absolute; inset:0 6px 0 14px; display:flex; align-items:flex-end; padding-bottom:9px"><span style="font-family:'Newsreader',serif; font-size:12px; line-height:1.12; color:#F4F7F8; font-weight:500">A Paixão Segundo G.H.</span></span>
+              </div>
+              <div style="flex:1; min-width:0">
+                <span style="font-family:'Newsreader',serif; font-size:18px; font-weight:600; line-height:1.2; display:block">A Paixão Segundo G.H.</span>
+                <span style="font-size:13px; color:#56656D; display:block; margin-top:2px">Clarice Lispector</span>
+                <span style="font-size:12px; color:#56656D; display:block; margin-top:2px; font-variant-numeric:tabular-nums">184 páginas · 1964</span>
+              </div>
+              <span style="height:36px; padding:0 13px; border-radius:10px; background:#C4882A; color:#131A1E; font-size:13px; font-weight:600; display:grid; place-items:center; flex:none">Propor</span>
+            </div>
+            <div style="background:#FFFFFF; border-radius:16px; padding:14px; display:flex; gap:14px; align-items:center">
+              <div style="position:relative; width:62px; height:92px; flex:none; border-radius:4px 8px 8px 4px; background:#3E4A3F; overflow:hidden; box-shadow:0 8px 18px rgba(19,26,30,0.22); transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(700px) rotateY(-13deg) translateY(-4px)">
+                <span style="position:absolute; left:0; top:0; bottom:0; width:8px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(19,26,30,0.35); display:block"></span>
+                <span style="position:absolute; inset:0 6px 0 14px; display:flex; align-items:flex-end; padding-bottom:9px"><span style="font-family:'Newsreader',serif; font-size:12px; line-height:1.12; color:#F4F7F8; font-weight:500">Laços de Família</span></span>
+              </div>
+              <div style="flex:1; min-width:0">
+                <span style="font-family:'Newsreader',serif; font-size:18px; font-weight:600; line-height:1.2; display:block">Laços de Família</span>
+                <span style="font-size:13px; color:#56656D; display:block; margin-top:2px">Clarice Lispector</span>
+                <span style="font-size:12px; color:#56656D; display:block; margin-top:2px; font-variant-numeric:tabular-nums">160 páginas · 1960</span>
+              </div>
+              <span style="height:36px; padding:0 13px; border-radius:10px; border:1.5px solid #D7DDDF; color:#56656D; font-size:13px; font-weight:600; display:grid; place-items:center; flex:none">Na estante</span>
+            </div>
+            <div style="background:#FFFFFF; border-radius:16px; padding:14px; display:flex; gap:14px; align-items:center; opacity:0.6">
+              <span style="width:62px; height:92px; border-radius:4px 8px 8px 4px; background:#514A38; flex:none; display:block"></span>
+              <div style="flex:1"><span style="font-family:'Newsreader',serif; font-size:18px; font-weight:600; display:block">Água Viva</span><span style="font-size:13px; color:#56656D">Clarice Lispector</span></div>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- vazio -->
+      <figure style="margin:0">
+        <figcaption style="font-size:13px; font-weight:600; color:#E8EDEF; margin-bottom:10px">4c · Nada encontrado</figcaption>
+        <div class="fr" style="width:375px; height:812px; border-radius:34px; overflow:hidden; background:#F1F3F4; color:#131A1E; border:1px solid #2A363C; display:flex; flex-direction:column">
+          <div style="padding:52px 20px 14px">
+            <span style="font-family:'Newsreader',serif; font-size:26px; font-weight:600; display:block; margin-bottom:14px">Achar um livro</span>
+            <div style="display:flex; align-items:center; gap:10px; height:48px; padding:0 14px; border-radius:14px; background:#FFFFFF; border:1.5px solid #D7DDDF">
+              <span style="font-size:17px; color:#56656D">⌕</span>
+              <span style="flex:1; font-size:15px">torto arado 2</span>
+              <span style="width:26px; height:26px; border-radius:50%; background:#F1F3F4; display:grid; place-items:center; font-size:13px; color:#56656D">×</span>
+            </div>
+          </div>
+          <div style="flex:1; padding:24px 20px; display:flex; flex-direction:column; align-items:center; text-align:center">
+            <svg viewBox="0 0 64 64" width="64" height="64" style="color:#D7DDDF; display:block; margin-top:32px"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+            <span style="font-family:'Newsreader',serif; font-size:24px; font-weight:600; line-height:1.25; display:block; margin-top:10px; max-width:24ch">Esse aí ninguém achou ainda</span>
+            <p style="font-size:15px; line-height:1.6; color:#56656D; margin:12px 0 0; max-width:30ch; text-wrap:pretty">Tenta o nome do autor, ou cadastre o livro à mão — o clube não precisa esperar catálogo nenhum.</p>
+            <div style="display:flex; flex-direction:column; gap:10px; width:100%; margin-top:10px">
+              <span style="display:flex; align-items:center; justify-content:center; height:44px; border-radius:12px; background:#C4882A; color:#131A1E; font-size:15px; font-weight:600">Cadastrar à mão</span>
+              <span style="display:flex; align-items:center; justify-content:center; height:44px; border-radius:12px; border:1.5px solid #D7DDDF; font-size:15px; font-weight:600">Buscar por autor</span>
+            </div>
+            <div style="width:100%; margin-top:32px; text-align:left">
+              <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#56656D; display:block; margin-bottom:10px">O clube andou olhando</span>
+              <div style="display:flex; gap:10px">
+                <span style="width:56px; height:84px; border-radius:4px 7px 7px 4px; background:#4A3B44; display:block"></span>
+                <span style="width:56px; height:84px; border-radius:4px 7px 7px 4px; background:#3A4B52; display:block"></span>
+                <span style="width:56px; height:84px; border-radius:4px 7px 7px 4px; background:#514A38; display:block"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- ════════ MOBILE · PERFIL + DISCUSSÃO ════════ -->
+  <section style="max-width:1180px; margin:64px auto 0">
+    <div style="display:flex; align-items:center; gap:16px; margin-bottom:32px">
+      <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#C4882A">5 e 6 · Perfil e conversa com spoiler</span>
+      <span style="flex:1; height:1px; background:#2A363C; display:block"></span>
+    </div>
+    <div style="display:flex; gap:28px; flex-wrap:wrap">
+
+      <!-- PERFIL -->
+      <figure style="margin:0">
+        <figcaption style="font-size:13px; font-weight:600; color:#E8EDEF; margin-bottom:10px">5 · Perfil</figcaption>
+        <div class="fr" style="width:375px; height:812px; border-radius:34px; overflow:hidden; background:#F1F3F4; color:#131A1E; border:1px solid #2A363C; display:flex; flex-direction:column">
+          <div style="padding:52px 20px 0; display:flex; flex-direction:column; align-items:center">
+            <div style="width:96px; height:96px; border-radius:50%; background:#33424B; display:grid; place-items:center; position:relative">
+              <svg viewBox="0 0 64 64" width="46" height="46" style="color:#F1F3F4; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+              <span style="position:absolute; bottom:-2px; right:-2px; width:32px; height:32px; border-radius:50%; background:#C4882A; color:#131A1E; font-size:14px; display:grid; place-items:center; border:3px solid #F1F3F4">✎</span>
+            </div>
+            <span style="font-family:'Newsreader',serif; font-size:30px; font-weight:600; margin-top:14px; display:block">Kauê</span>
+            <span style="font-size:13px; color:#56656D; margin-top:2px">no Prosa desde março</span>
+          </div>
+
+          <div style="padding:24px 20px 0">
+            <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#56656D; display:block; margin-bottom:10px">Seu retrato</span>
+            <div style="background:#FFFFFF; border-radius:16px; padding:14px">
+              <div style="display:flex; gap:10px; margin-bottom:10px">
+                <span style="width:52px; height:52px; border-radius:50%; background:#33424B; border:2.5px solid #C4882A; display:grid; place-items:center"><svg viewBox="0 0 64 64" width="26" height="26" style="color:#F1F3F4; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg></span>
+                <span style="width:52px; height:52px; border-radius:50%; background:#4A3B44; display:grid; place-items:center; font-family:'Newsreader',serif; font-size:22px; color:#F1F3F4">✎</span>
+                <span style="width:52px; height:52px; border-radius:50%; background:#3E4A3F; display:grid; place-items:center; font-family:'Newsreader',serif; font-size:20px; color:#F1F3F4">§</span>
+                <span style="width:52px; height:52px; border-radius:50%; background:#45414F; display:grid; place-items:center; font-family:'Newsreader',serif; font-size:22px; color:#F1F3F4">&amp;</span>
+                <span style="width:52px; height:52px; border-radius:50%; background:#524436; display:grid; place-items:center; font-family:'Newsreader',serif; font-size:22px; color:#F1F3F4">¶</span>
+              </div>
+              <span style="font-size:12px; color:#56656D; line-height:1.5; display:block">Cinco retratos da galeria de tipografia. Sem foto, sem rede social — aqui é só o clube.</span>
+            </div>
+          </div>
+
+          <div style="padding:22px 20px 0">
+            <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#56656D; display:block; margin-bottom:10px">Seus clubes</span>
+            <div style="background:#FFFFFF; border-radius:16px; overflow:hidden">
+              <div style="display:flex; align-items:center; gap:12px; padding:13px 14px; border-bottom:1px solid #F1F3F4">
+                <svg viewBox="0 0 64 64" width="20" height="20" style="color:#8F6412; display:block; flex:none"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+                <span style="flex:1"><span style="font-family:'Newsreader',serif; font-size:17px; font-weight:600; display:block">Clube da Sexta</span><span style="font-size:12px; color:#56656D"><span style="font-variant-numeric:tabular-nums">5</span> pessoas · lendo Torto Arado</span></span>
+                <span style="font-size:15px; color:#56656D">›</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:12px; padding:13px 14px">
+                <svg viewBox="0 0 64 64" width="20" height="20" style="color:#8F6412; display:block; flex:none"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+                <span style="flex:1"><span style="font-family:'Newsreader',serif; font-size:17px; font-weight:600; display:block">Terça sem Pressa</span><span style="font-size:12px; color:#56656D"><span style="font-variant-numeric:tabular-nums">3</span> pessoas · votação aberta</span></span>
+                <span style="font-size:15px; color:#56656D">›</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:22px 20px 20px; flex:1; overflow:hidden">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px">
+              <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#56656D">Já lidos</span>
+              <span style="font-size:12px; color:#56656D"><span style="font-variant-numeric:tabular-nums">14</span> livros</span>
+            </div>
+            <div style="display:flex; gap:10px">
+              <div style="flex:1"><span style="display:block; height:96px; border-radius:4px 8px 8px 4px; background:#4A3B44; box-shadow:0 6px 14px rgba(19,26,30,0.2)"></span><span style="display:inline-flex; align-items:center; gap:5px; margin-top:7px; font-size:11px; font-weight:600; color:#B0295F"><svg width="10" height="10" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#B0295F"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Lido</span></div>
+              <div style="flex:1"><span style="display:block; height:96px; border-radius:4px 8px 8px 4px; background:#3A4B52; box-shadow:0 6px 14px rgba(19,26,30,0.2)"></span><span style="display:inline-flex; align-items:center; gap:5px; margin-top:7px; font-size:11px; font-weight:600; color:#B0295F"><svg width="10" height="10" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#B0295F"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Lido</span></div>
+              <div style="flex:1"><span style="display:block; height:96px; border-radius:4px 8px 8px 4px; background:#514A38; box-shadow:0 6px 14px rgba(19,26,30,0.2)"></span><span style="display:inline-flex; align-items:center; gap:5px; margin-top:7px; font-size:11px; font-weight:600; color:#B0295F"><svg width="10" height="10" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#B0295F"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Lido</span></div>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid #D7DDDF; background:#FFFFFF; padding:8px 12px 18px; display:flex; justify-content:space-around">
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#56656D; font-size:11px; font-weight:600"><svg viewBox="0 0 64 64" width="19" height="19" style="color:#56656D; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>Estante</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#56656D; font-size:11px; font-weight:600"><span style="font-size:17px; line-height:1">✓</span>Votação</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#56656D; font-size:11px; font-weight:600"><span style="font-size:17px; line-height:1">⌕</span>Buscar</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#8F6412; font-size:11px; font-weight:600"><span style="width:19px; height:19px; border-radius:50%; background:#33424B; display:block"></span>Perfil</span>
+          </div>
+        </div>
+      </figure>
+
+      <!-- DISCUSSÃO COM SPOILER -->
+      <figure style="margin:0">
+        <figcaption style="font-size:13px; font-weight:600; color:#E8EDEF; margin-bottom:10px">6 · Conversa <span style="font-weight:400; color:#96A5AC">— spoiler oculto e revelado (clicável)</span></figcaption>
+        <div class="fr" style="width:375px; height:812px; border-radius:34px; overflow:hidden; background:#F1F3F4; color:#131A1E; border:1px solid #2A363C; display:flex; flex-direction:column">
+          <div style="padding:52px 20px 14px; display:flex; align-items:center; gap:12px; border-bottom:1px solid #D7DDDF; background:#FFFFFF">
+            <span style="width:44px; height:44px; margin-left:-10px; display:grid; place-items:center; font-size:18px; color:#56656D">‹</span>
+            <div style="flex:1"><span style="font-family:'Newsreader',serif; font-size:19px; font-weight:600; line-height:1.15; display:block">Torto Arado</span><span style="font-size:12px; color:#56656D"><span style="font-variant-numeric:tabular-nums">38</span> comentários · Clube da Sexta</span></div>
+            <span style="display:inline-flex; align-items:center; gap:6px; height:30px; padding:0 11px 0 9px; border-radius:999px; background:#0B7268; color:#FFFFFF; font-size:12px; font-weight:600; flex:none"><svg width="11" height="11" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#FFFFFF"/></svg>Lendo</span>
+          </div>
+
+          <div style="flex:1; overflow-y:auto; padding:14px 20px 10px; display:flex; flex-direction:column; gap:10px">
+            <div style="display:flex; gap:12px">
+              <span style="width:32px; height:32px; border-radius:50%; background:#524436; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; flex:none">B</span>
+              <div style="flex:1"><span style="font-size:13px; font-weight:600; display:block">Bia <span style="font-weight:400; color:#56656D">· 23:41</span></span><p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.6; margin:5px 0 0; text-wrap:pretty">gente eu não vou conseguir dormir hoje. alguém acordado?</p></div>
+            </div>
+
+            <div style="display:flex; gap:12px">
+              <span style="width:32px; height:32px; border-radius:50%; background:#45414F; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; flex:none">D</span>
+              <div style="flex:1">
+                <span style="font-size:13px; font-weight:600; display:block">Diego <span style="font-weight:400; color:#56656D">· 23:52</span></span>
+                <sc-if value="{{ spoilerAberto }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:7px; border:1.5px solid #B0295F; border-radius:14px; padding:11px 12px; background:#FFFFFF">
+                    <span style="display:flex; align-items:center; gap:7px; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#B0295F; margin-bottom:7px"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#B0295F"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Spoiler revelado</span>
+                    <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.6; margin:0; text-wrap:pretty">quando a Belonísia perde a fala eu tive que fechar o livro e ir andar pela casa. não tava pronto</p>
+                    <span onClick="{{ fecharSpoiler }}" style="display:inline-flex; align-items:center; height:36px; margin-top:10px; padding:0 12px; border-radius:10px; border:1.5px solid #D7DDDF; font-size:13px; font-weight:600; cursor:pointer">Esconder de novo</span>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ spoilerFechado }}" hint-placeholder-val="{{ true }}">
+                  <div onClick="{{ abrirSpoiler }}" style="margin-top:7px; border:1.5px dashed #B0295F; border-radius:14px; padding:11px 12px; background:#FFFFFF; cursor:pointer">
+                    <span style="display:flex; align-items:center; gap:7px; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#B0295F"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#B0295F"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Marcado como spoiler</span>
+                    <span style="display:block; font-size:14px; line-height:1.55; color:#56656D; margin-top:7px">Diego contou algo do meio do livro.</span>
+                    <span style="display:inline-flex; align-items:center; height:44px; margin-top:10px; padding:0 16px; border-radius:11px; background:#C4882A; color:#131A1E; font-size:15px; font-weight:600">Mostrar pra mim</span>
+                  </div>
+                </sc-if>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:12px">
+              <span style="width:32px; height:32px; border-radius:50%; background:#4A3B44; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; flex:none">M</span>
+              <div style="flex:1">
+                <span style="font-size:13px; font-weight:600; display:block">Marina <span style="font-weight:400; color:#56656D">· 00:07</span></span>
+                <div style="margin-top:7px; border:1.5px solid #B0295F; border-radius:14px; padding:11px 12px; background:#FFFFFF">
+                  <span style="display:flex; align-items:center; gap:7px; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#B0295F; margin-bottom:7px"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#B0295F"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Spoiler revelado</span>
+                  <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.6; margin:0; text-wrap:pretty">eu já tinha terminado quando vocês começaram, então tô sofrendo em silêncio há uma semana. sexta eu falo tudo</p>
+                  <span style="display:inline-flex; align-items:center; height:36px; margin-top:10px; padding:0 12px; border-radius:10px; border:1.5px solid #D7DDDF; font-size:13px; font-weight:600">Esconder de novo</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:12px">
+              <span style="width:32px; height:32px; border-radius:50%; background:#3A4B52; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; flex:none">C</span>
+              <div style="flex:1"><span style="font-size:13px; font-weight:600; display:block">Caio <span style="font-weight:400; color:#56656D">· 00:12</span></span><p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.6; margin:5px 0 0; text-wrap:pretty">eu tô no começo ainda, não abri nada de vocês. respeitem o rapaz</p></div>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid #D7DDDF; background:#FFFFFF; padding:12px 20px 26px">
+            <div style="display:flex; align-items:center; gap:10px">
+              <span style="flex:1; height:44px; border-radius:14px; background:#F1F3F4; border:1px solid #D7DDDF; display:flex; align-items:center; padding:0 14px; font-size:15px; color:#56656D">Escreve aí…</span>
+              <span style="width:44px; height:44px; border-radius:12px; background:#C4882A; color:#131A1E; display:grid; place-items:center; font-size:17px">↑</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:9px; margin-top:10px; padding-left:2px">
+              <span style="width:38px; height:22px; border-radius:999px; background:#B0295F; display:flex; align-items:center; padding:2px; box-sizing:border-box"><span style="width:18px; height:18px; border-radius:50%; background:#FFFFFF; margin-left:auto; display:block"></span></span>
+              <span style="font-size:13px; font-weight:600; color:#B0295F">Marcar como spoiler</span>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- ════════ MOBILE · TEMA ESCURO ════════ -->
+  <section style="max-width:1180px; margin:64px auto 0">
+    <div style="display:flex; align-items:center; gap:16px; margin-bottom:14px">
+      <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#C4882A">Mobile 375 px · tema escuro</span>
+      <span style="flex:1; height:1px; background:#2A363C; display:block"></span>
+    </div>
+    <p style="font-size:15px; line-height:1.7; color:#96A5AC; margin:0 0 32px; max-width:70ch; text-wrap:pretty">Projetado, não invertido: os estados trocam o preenchimento sólido por cápsula tingida, as capas ganham borda para não flutuar no vazio, e o ocre sobe para <span style="font-family:ui-monospace,monospace">#D19A3A</span> nas ações e <span style="font-family:ui-monospace,monospace">#E7B054</span> nos links.</p>
+    <div style="display:flex; gap:28px; flex-wrap:wrap">
+
+      <!-- ESTANTE ESCURA -->
+      <figure style="margin:0">
+        <figcaption style="font-size:13px; font-weight:600; color:#E8EDEF; margin-bottom:10px">1 · Estante do clube</figcaption>
+        <div class="fr" style="width:375px; height:812px; border-radius:34px; overflow:hidden; background:#0E1417; color:#E8EDEF; border:1px solid #2A363C; display:flex; flex-direction:column">
+          <div style="padding:52px 20px 14px; display:flex; align-items:center; justify-content:space-between">
+            <div style="display:flex; align-items:center; gap:9px">
+              <svg viewBox="0 0 64 64" width="22" height="22" style="color:#E7B054; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+              <span style="font-family:'Newsreader',serif; font-size:19px; font-weight:600">Clube da Sexta</span>
+            </div>
+            <span style="width:44px; height:44px; margin-right:-10px; border-radius:50%; display:grid; place-items:center"><span style="width:32px; height:32px; border-radius:50%; background:#222E34; color:#E8EDEF; font-size:12px; font-weight:600; display:grid; place-items:center">K</span></span>
+          </div>
+
+          <div style="display:flex; gap:8px; padding:4px 20px 10px; overflow:hidden">
+            <span style="display:inline-flex; align-items:center; gap:7px; height:36px; padding:0 13px 0 11px; border-radius:999px; background:#1B1B3A; border:1px solid #38357A; color:#ABA0FF; font-size:13px; font-weight:600"><svg width="13" height="13" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#ABA0FF" stroke-width="2"/></svg>Quero ler <span style="font-variant-numeric:tabular-nums">3</span></span>
+            <span style="display:inline-flex; align-items:center; gap:7px; height:36px; padding:0 13px 0 11px; border-radius:999px; background:#0E2E2B; border:1px solid #1D5850; color:#4FD3BD; font-size:13px; font-weight:600"><svg width="13" height="13" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#4FD3BD" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#4FD3BD"/></svg>Lendo <span style="font-variant-numeric:tabular-nums">1</span></span>
+            <span style="display:inline-flex; align-items:center; gap:7px; height:36px; padding:0 13px 0 11px; border-radius:999px; background:#2E1220; border:1px solid #6B2340; color:#FF93B6; font-size:13px; font-weight:600"><svg width="13" height="13" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#FF93B6"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#0E1417" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Lido <span style="font-variant-numeric:tabular-nums">2</span></span>
+          </div>
+
+          <div style="flex:1; overflow-y:auto; padding:0 20px 12px; display:flex; flex-direction:column; gap:14px">
+            <div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px">
+                <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#ABA0FF">Quero ler</span>
+                <span style="font-size:11px; color:#96A5AC">arraste ou use ⋯</span>
+              </div>
+              <div style="display:flex; gap:12px">
+                <div style="width:104px; display:flex; flex-direction:column; gap:8px">
+                  <div style="position:relative; height:112px; border-radius:4px 8px 8px 4px; background:#33424B; border:1px solid #2A363C; overflow:hidden; transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(700px) rotateY(-11deg) translateY(-4px)">
+                    <span style="position:absolute; left:0; top:0; bottom:0; width:9px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.42) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(0,0,0,0.4); display:block"></span>
+                    <span style="position:absolute; inset:0 10px 0 20px; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:14px"><span style="font-family:'Newsreader',serif; font-size:17px; line-height:1.15; color:#F4F7F8; font-weight:500">A Hora da Estrela</span><span style="font-size:10px; color:rgba(244,247,248,0.7); margin-top:5px">Clarice Lispector</span></span>
+                  </div>
+                  <span style="font-size:12px; color:#96A5AC">Proposto por Marina</span>
+                </div>
+                <div style="width:104px; display:flex; flex-direction:column; gap:8px">
+                  <div style="position:relative; height:112px; border-radius:4px 8px 8px 4px; background:#4A3B44; border:1px solid #2A363C; overflow:hidden; transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(700px) rotateY(-11deg) translateY(-4px)">
+                    <span style="position:absolute; left:0; top:0; bottom:0; width:9px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.42) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(0,0,0,0.4); display:block"></span>
+                    <span style="position:absolute; inset:0 10px 0 20px; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:14px"><span style="font-family:'Newsreader',serif; font-size:17px; line-height:1.15; color:#F4F7F8; font-weight:500">Dom Casmurro</span><span style="font-size:10px; color:rgba(244,247,248,0.7); margin-top:5px">Machado de Assis</span></span>
+                  </div>
+                  <span style="font-size:12px; color:#96A5AC">Proposto por Caio</span>
+                </div>
+                <div style="width:104px; display:grid; place-items:center; height:112px; border:1.5px dashed #2A363C; border-radius:8px; padding:12px; text-align:center"><span style="font-size:12px; line-height:1.5; color:#96A5AC">Solte um livro aqui</span></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px">
+                <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#4FD3BD">Lendo agora</span>
+                <span style="font-size:11px; color:#96A5AC">até <span style="font-variant-numeric:tabular-nums">28/08</span></span>
+              </div>
+              <div style="background:#172025; border:1px solid #2A363C; border-radius:16px; padding:14px; display:flex; gap:14px; position:relative">
+                <div style="position:relative; width:68px; height:100px; flex:none; border-radius:4px 8px 8px 4px; background:#3E4A3F; overflow:hidden; transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(700px) rotateY(-13deg) translateY(-4px)">
+                  <span style="position:absolute; left:0; top:0; bottom:0; width:8px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.42) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(0,0,0,0.4); display:block"></span>
+                  <span style="position:absolute; inset:0 8px 0 16px; display:flex; align-items:flex-end; padding-bottom:10px"><span style="font-family:'Newsreader',serif; font-size:14px; line-height:1.15; color:#F4F7F8; font-weight:500">Torto Arado</span></span>
+                </div>
+                <div style="flex:1; min-width:0; padding-right:40px">
+                  <span style="font-family:'Newsreader',serif; font-size:20px; font-weight:600; line-height:1.2; display:block">Torto Arado</span>
+                  <span style="font-size:13px; color:#96A5AC; display:block; margin-top:2px">Itamar Vieira Junior</span>
+                  <span style="display:inline-flex; align-items:center; gap:7px; margin-top:10px; height:30px; padding:0 12px 0 10px; border-radius:999px; background:#0E2E2B; border:1px solid #1D5850; color:#4FD3BD; font-size:12px; font-weight:600"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#4FD3BD" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#4FD3BD"/></svg>Lendo</span>
+                  <span style="display:block; font-size:12px; color:#96A5AC; margin-top:10px">Bia, Diego e mais 2 também</span>
+                </div>
+                <span style="position:absolute; top:10px; right:10px; width:44px; height:44px; border-radius:12px; display:grid; place-items:center; font-size:18px; color:#96A5AC; background:#0E1417">⋯</span>
+              </div>
+
+              <div style="margin-top:10px; background:#172025; border:1px solid #2A363C; border-radius:16px; padding:8px">
+                <span style="display:block; font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#96A5AC; padding:8px 12px 6px">Mover “Torto Arado” para</span>
+                <span style="display:flex; align-items:center; gap:10px; height:44px; padding:0 12px; border-radius:10px; font-size:15px; font-weight:600; color:#ABA0FF"><svg width="14" height="14" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#ABA0FF" stroke-width="2"/></svg>Quero ler</span>
+                <span style="display:flex; align-items:center; gap:10px; height:44px; padding:0 12px; border-radius:10px; font-size:15px; font-weight:600; color:#96A5AC; background:#0E1417"><svg width="14" height="14" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#96A5AC" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#96A5AC"/></svg>Lendo <span style="margin-left:auto; font-size:12px; font-weight:400">agora</span></span>
+                <span style="display:flex; align-items:center; gap:10px; height:44px; padding:0 12px; border-radius:10px; font-size:15px; font-weight:600; color:#FF93B6"><svg width="14" height="14" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#FF93B6"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#0E1417" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Lido</span>
+                <span style="display:block; font-size:11px; color:#96A5AC; padding:8px 12px 6px; border-top:1px solid #2A363C; margin-top:6px; line-height:1.5">No teclado: <strong style="font-weight:600">Espaço</strong> pega o livro, <strong style="font-weight:600">← →</strong> troca de coluna, <strong style="font-weight:600">Enter</strong> solta.</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid #2A363C; background:#172025; padding:8px 12px 18px; display:flex; justify-content:space-around">
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#E7B054; font-size:11px; font-weight:600"><svg viewBox="0 0 64 64" width="19" height="19" style="color:#E7B054; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>Estante</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#96A5AC; font-size:11px; font-weight:600"><span style="font-size:17px; line-height:1">✓</span>Votação</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#96A5AC; font-size:11px; font-weight:600"><span style="font-size:17px; line-height:1">⌕</span>Buscar</span>
+            <span style="min-width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#96A5AC; font-size:11px; font-weight:600"><span style="width:19px; height:19px; border-radius:50%; background:#2A363C; display:block"></span>Perfil</span>
+          </div>
+        </div>
+      </figure>
+
+      <!-- CONVERSA ESCURA -->
+      <figure style="margin:0">
+        <figcaption style="font-size:13px; font-weight:600; color:#E8EDEF; margin-bottom:10px">6 · Conversa com spoiler</figcaption>
+        <div class="fr" style="width:375px; height:812px; border-radius:34px; overflow:hidden; background:#0E1417; color:#E8EDEF; border:1px solid #2A363C; display:flex; flex-direction:column">
+          <div style="padding:52px 20px 14px; display:flex; align-items:center; gap:12px; border-bottom:1px solid #2A363C; background:#172025">
+            <span style="width:44px; height:44px; margin-left:-10px; display:grid; place-items:center; font-size:18px; color:#96A5AC">‹</span>
+            <div style="flex:1"><span style="font-family:'Newsreader',serif; font-size:19px; font-weight:600; line-height:1.15; display:block">Torto Arado</span><span style="font-size:12px; color:#96A5AC"><span style="font-variant-numeric:tabular-nums">38</span> comentários · Clube da Sexta</span></div>
+            <span style="display:inline-flex; align-items:center; gap:6px; height:30px; padding:0 11px 0 9px; border-radius:999px; background:#0E2E2B; border:1px solid #1D5850; color:#4FD3BD; font-size:12px; font-weight:600; flex:none"><svg width="11" height="11" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#4FD3BD" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#4FD3BD"/></svg>Lendo</span>
+          </div>
+
+          <div style="flex:1; overflow-y:auto; padding:14px 20px 10px; display:flex; flex-direction:column; gap:10px">
+            <div style="display:flex; gap:12px">
+              <span style="width:32px; height:32px; border-radius:50%; background:#524436; color:#F4F7F8; font-size:12px; font-weight:600; display:grid; place-items:center; flex:none">B</span>
+              <div style="flex:1"><span style="font-size:13px; font-weight:600; display:block">Bia <span style="font-weight:400; color:#96A5AC">· 23:41</span></span><p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.6; margin:5px 0 0; text-wrap:pretty">gente eu não vou conseguir dormir hoje. alguém acordado?</p></div>
+            </div>
+            <div style="display:flex; gap:12px">
+              <span style="width:32px; height:32px; border-radius:50%; background:#45414F; color:#F4F7F8; font-size:12px; font-weight:600; display:grid; place-items:center; flex:none">D</span>
+              <div style="flex:1">
+                <span style="font-size:13px; font-weight:600; display:block">Diego <span style="font-weight:400; color:#96A5AC">· 23:52</span></span>
+                <div style="margin-top:7px; border:1.5px dashed #6B2340; border-radius:14px; padding:11px 12px; background:#172025">
+                  <span style="display:flex; align-items:center; gap:7px; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FF93B6"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#FF93B6"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#0E1417" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Marcado como spoiler</span>
+                  <span style="display:block; font-size:14px; line-height:1.55; color:#96A5AC; margin-top:7px">Diego contou algo do meio do livro.</span>
+                  <span style="display:inline-flex; align-items:center; height:44px; margin-top:10px; padding:0 16px; border-radius:11px; background:#D19A3A; color:#0E1417; font-size:15px; font-weight:600">Mostrar pra mim</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; gap:12px">
+              <span style="width:32px; height:32px; border-radius:50%; background:#4A3B44; color:#F4F7F8; font-size:12px; font-weight:600; display:grid; place-items:center; flex:none">M</span>
+              <div style="flex:1">
+                <span style="font-size:13px; font-weight:600; display:block">Marina <span style="font-weight:400; color:#96A5AC">· 00:07</span></span>
+                <div style="margin-top:7px; border:1.5px solid #6B2340; border-radius:14px; padding:11px 12px; background:#172025">
+                  <span style="display:flex; align-items:center; gap:7px; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FF93B6; margin-bottom:7px"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#FF93B6"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#0E1417" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Spoiler revelado</span>
+                  <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.6; margin:0; text-wrap:pretty">eu já tinha terminado quando vocês começaram, então tô sofrendo em silêncio há uma semana. sexta eu falo tudo</p>
+                  <span style="display:inline-flex; align-items:center; height:36px; margin-top:10px; padding:0 12px; border-radius:10px; border:1.5px solid #2A363C; font-size:13px; font-weight:600">Esconder de novo</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; gap:12px">
+              <span style="width:32px; height:32px; border-radius:50%; background:#3A4B52; color:#F4F7F8; font-size:12px; font-weight:600; display:grid; place-items:center; flex:none">C</span>
+              <div style="flex:1"><span style="font-size:13px; font-weight:600; display:block">Caio <span style="font-weight:400; color:#96A5AC">· 00:12</span></span><p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.6; margin:5px 0 0; text-wrap:pretty">eu tô no começo ainda, não abri nada de vocês. respeitem o rapaz</p></div>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid #2A363C; background:#172025; padding:12px 20px 26px">
+            <div style="display:flex; align-items:center; gap:10px">
+              <span style="flex:1; height:44px; border-radius:14px; background:#0E1417; border:1px solid #2A363C; display:flex; align-items:center; padding:0 14px; font-size:15px; color:#96A5AC">Escreve aí…</span>
+              <span style="width:44px; height:44px; border-radius:12px; background:#D19A3A; color:#0E1417; display:grid; place-items:center; font-size:17px">↑</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:9px; margin-top:10px; padding-left:2px">
+              <span style="width:38px; height:22px; border-radius:999px; background:#2A363C; display:flex; align-items:center; padding:2px; box-sizing:border-box"><span style="width:18px; height:18px; border-radius:50%; background:#96A5AC; display:block"></span></span>
+              <span style="font-size:13px; font-weight:600; color:#96A5AC">Marcar como spoiler</span>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <!-- PERFIL ESCURO + CONFIRMAÇÃO DESTRUTIVA -->
+      <figure style="margin:0">
+        <figcaption style="font-size:13px; font-weight:600; color:#E8EDEF; margin-bottom:10px">5 · Perfil <span style="font-weight:400; color:#96A5AC">— com confirmação de saída</span></figcaption>
+        <div class="fr" style="width:375px; height:812px; border-radius:34px; overflow:hidden; background:#0E1417; color:#E8EDEF; border:1px solid #2A363C; display:flex; flex-direction:column; position:relative">
+          <div style="padding:52px 20px 0; display:flex; flex-direction:column; align-items:center">
+            <div style="width:96px; height:96px; border-radius:50%; background:#222E34; display:grid; place-items:center; position:relative">
+              <svg viewBox="0 0 64 64" width="46" height="46" style="color:#E8EDEF; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+              <span style="position:absolute; bottom:-2px; right:-2px; width:32px; height:32px; border-radius:50%; background:#D19A3A; color:#0E1417; font-size:14px; display:grid; place-items:center; border:3px solid #0E1417">✎</span>
+            </div>
+            <span style="font-family:'Newsreader',serif; font-size:30px; font-weight:600; margin-top:14px; display:block">Kauê</span>
+            <span style="font-size:13px; color:#96A5AC; margin-top:2px">no Prosa desde março</span>
+          </div>
+          <div style="padding:24px 20px 0">
+            <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#96A5AC; display:block; margin-bottom:10px">Seus clubes</span>
+            <div style="background:#172025; border:1px solid #2A363C; border-radius:16px; overflow:hidden">
+              <div style="display:flex; align-items:center; gap:12px; padding:13px 14px; border-bottom:1px solid #2A363C">
+                <svg viewBox="0 0 64 64" width="20" height="20" style="color:#E7B054; display:block; flex:none"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+                <span style="flex:1"><span style="font-family:'Newsreader',serif; font-size:17px; font-weight:600; display:block">Clube da Sexta</span><span style="font-size:12px; color:#96A5AC"><span style="font-variant-numeric:tabular-nums">5</span> pessoas · lendo Torto Arado</span></span>
+                <span style="font-size:15px; color:#96A5AC">›</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:12px; padding:13px 14px">
+                <svg viewBox="0 0 64 64" width="20" height="20" style="color:#E7B054; display:block; flex:none"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+                <span style="flex:1"><span style="font-family:'Newsreader',serif; font-size:17px; font-weight:600; display:block">Terça sem Pressa</span><span style="font-size:12px; color:#96A5AC"><span style="font-variant-numeric:tabular-nums">3</span> pessoas · votação aberta</span></span>
+                <span style="font-size:15px; color:#96A5AC">›</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding:22px 20px 0; flex:1">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px">
+              <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#96A5AC">Já lidos</span>
+              <span style="font-size:12px; color:#96A5AC"><span style="font-variant-numeric:tabular-nums">14</span> livros</span>
+            </div>
+            <div style="display:flex; gap:10px">
+              <span style="flex:1; height:96px; border-radius:4px 8px 8px 4px; background:#4A3B44; border:1px solid #2A363C; display:block"></span>
+              <span style="flex:1; height:96px; border-radius:4px 8px 8px 4px; background:#3A4B52; border:1px solid #2A363C; display:block"></span>
+              <span style="flex:1; height:96px; border-radius:4px 8px 8px 4px; background:#514A38; border:1px solid #2A363C; display:block"></span>
+            </div>
+          </div>
+
+          <!-- folha de confirmação -->
+          <div style="position:absolute; inset:0; background:rgba(6,10,12,0.72); display:flex; align-items:flex-end">
+            <div style="width:100%; background:#172025; border-top:1px solid #2A363C; border-radius:24px 24px 34px 34px; padding:24px 20px 30px">
+              <span style="font-family:'Newsreader',serif; font-size:24px; font-weight:600; line-height:1.25; display:block">Sair do Clube da Sexta?</span>
+              <p style="font-size:15px; line-height:1.6; color:#96A5AC; margin:10px 0 0; text-wrap:pretty">Você perde a conversa dos livros que já leu com eles, e só volta se alguém convidar de novo.</p>
+              <div style="display:flex; flex-direction:column; gap:10px; margin-top:20px">
+                <span style="display:flex; align-items:center; justify-content:center; height:44px; border-radius:12px; background:#FF93B6; color:#0E1417; font-size:15px; font-weight:600">Sim, quero sair</span>
+                <span style="display:flex; align-items:center; justify-content:center; height:44px; border-radius:12px; border:1.5px solid #2A363C; color:#E8EDEF; font-size:15px; font-weight:600">Fico</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- ════════ DESKTOP ════════ -->
+  <section style="max-width:1180px; margin:72px auto 0">
+    <div style="display:flex; align-items:center; gap:16px; margin-bottom:14px">
+      <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#C4882A">Desktop 1180 px</span>
+      <span style="flex:1; height:1px; background:#2A363C; display:block"></span>
+    </div>
+    <p style="font-size:15px; line-height:1.7; color:#96A5AC; margin:0 0 32px; max-width:70ch; text-wrap:pretty">No desktop as três colunas do kanban aparecem juntas e a conversa vira painel fixo à direita — o clube e o livro do ciclo ficam sempre visíveis enquanto se arrastam os cards.</p>
+
+    <div style="border-radius:20px; overflow:hidden; border:1px solid #2A363C; background:#F1F3F4; color:#131A1E">
+      <div style="display:flex; align-items:center; gap:16px; padding:16px 24px; background:#FFFFFF; border-bottom:1px solid #D7DDDF">
+        <div style="display:flex; align-items:center; gap:9px">
+          <svg viewBox="0 0 64 64" width="24" height="24" style="color:#8F6412; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+          <span style="font-family:'Newsreader',serif; font-size:20px; font-weight:600">Clube da Sexta</span>
+        </div>
+        <div style="display:flex; gap:6px; margin-left:20px">
+          <span style="height:36px; padding:0 14px; border-radius:10px; background:#F1F3F4; font-size:15px; font-weight:600; display:grid; place-items:center">Estante</span>
+          <span style="height:36px; padding:0 14px; border-radius:10px; font-size:15px; font-weight:600; color:#56656D; display:grid; place-items:center">Votação</span>
+          <span style="height:36px; padding:0 14px; border-radius:10px; font-size:15px; font-weight:600; color:#56656D; display:grid; place-items:center">Buscar</span>
+        </div>
+        <div style="margin-left:auto; display:flex; align-items:center; gap:12px">
+          <span style="height:40px; padding:0 16px; border-radius:11px; background:#C4882A; color:#131A1E; font-size:15px; font-weight:600; display:grid; place-items:center">Propor livro</span>
+          <span style="display:flex">
+            <span style="width:32px; height:32px; border-radius:50%; background:#33424B; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; border:2px solid #FFFFFF">K</span>
+            <span style="width:32px; height:32px; border-radius:50%; background:#4A3B44; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; border:2px solid #FFFFFF; margin-left:-9px">M</span>
+            <span style="width:32px; height:32px; border-radius:50%; background:#45414F; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; border:2px solid #FFFFFF; margin-left:-9px">D</span>
+            <span style="width:32px; height:32px; border-radius:50%; background:#524436; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; border:2px solid #FFFFFF; margin-left:-9px">B</span>
+            <span style="width:32px; height:32px; border-radius:50%; background:#3A4B52; color:#F1F3F4; font-size:12px; font-weight:600; display:grid; place-items:center; border:2px solid #FFFFFF; margin-left:-9px">C</span>
+          </span>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 320px; gap:0">
+        <div style="padding:24px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px">
+          <div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px">
+              <svg width="14" height="14" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#4A3FC2" stroke-width="2"/></svg>
+              <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#4A3FC2">Quero ler</span>
+              <span style="font-size:12px; color:#56656D; font-variant-numeric:tabular-nums">3</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:12px">
+              <div style="background:#FFFFFF; border-radius:14px; padding:12px; display:flex; gap:12px; align-items:center; box-shadow:0 1px 0 #D7DDDF">
+                <div style="position:relative; width:48px; height:70px; flex:none; border-radius:3px 6px 6px 3px; background:#33424B; overflow:hidden; box-shadow:0 6px 14px rgba(19,26,30,0.2); transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(600px) rotateY(-14deg) translateY(-3px)"><span style="position:absolute; left:0; top:0; bottom:0; width:6px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); display:block"></span></div>
+                <div style="flex:1; min-width:0"><span style="font-family:'Newsreader',serif; font-size:16px; font-weight:600; line-height:1.2; display:block">A Hora da Estrela</span><span style="font-size:12px; color:#56656D">Clarice Lispector</span></div>
+                <span style="width:32px; height:32px; border-radius:9px; display:grid; place-items:center; color:#56656D; font-size:16px">⋯</span>
+              </div>
+              <div style="background:#FFFFFF; border-radius:14px; padding:12px; display:flex; gap:12px; align-items:center; box-shadow:0 1px 0 #D7DDDF">
+                <div style="position:relative; width:48px; height:70px; flex:none; border-radius:3px 6px 6px 3px; background:#4A3B44; overflow:hidden; box-shadow:0 6px 14px rgba(19,26,30,0.2); transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(600px) rotateY(-14deg) translateY(-3px)"><span style="position:absolute; left:0; top:0; bottom:0; width:6px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); display:block"></span></div>
+                <div style="flex:1; min-width:0"><span style="font-family:'Newsreader',serif; font-size:16px; font-weight:600; line-height:1.2; display:block">Dom Casmurro</span><span style="font-size:12px; color:#56656D">Machado de Assis</span></div>
+                <span style="width:32px; height:32px; border-radius:9px; display:grid; place-items:center; color:#56656D; font-size:16px">⋯</span>
+              </div>
+              <div style="background:#FFFFFF; border-radius:14px; padding:12px; display:flex; gap:12px; align-items:center; box-shadow:0 1px 0 #D7DDDF">
+                <div style="position:relative; width:48px; height:70px; flex:none; border-radius:3px 6px 6px 3px; background:#3A4B52; overflow:hidden; box-shadow:0 6px 14px rgba(19,26,30,0.2); transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(600px) rotateY(-14deg) translateY(-3px)"><span style="position:absolute; left:0; top:0; bottom:0; width:6px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); display:block"></span></div>
+                <div style="flex:1; min-width:0"><span style="font-family:'Newsreader',serif; font-size:16px; font-weight:600; line-height:1.2; display:block">A Vida Invisível de Eurídice Gusmão</span><span style="font-size:12px; color:#56656D">Martha Batalha</span></div>
+                <span style="width:32px; height:32px; border-radius:9px; display:grid; place-items:center; color:#56656D; font-size:16px">⋯</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px">
+              <svg width="14" height="14" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#0B7268" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#0B7268"/></svg>
+              <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#0B7268">Lendo</span>
+              <span style="font-size:12px; color:#56656D; font-variant-numeric:tabular-nums">1</span>
+            </div>
+            <div style="background:#FFFFFF; border-radius:14px; padding:14px; box-shadow:0 1px 0 #D7DDDF">
+              <div style="position:relative; width:100%; height:190px; border-radius:4px 10px 10px 4px; background:#3E4A3F; overflow:hidden; box-shadow:0 14px 28px rgba(19,26,30,0.26); transition:transform .4s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(900px) rotateY(-12deg) rotateX(3deg) translateY(-5px)">
+                <span style="position:absolute; left:0; top:0; bottom:0; width:11px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(19,26,30,0.35); display:block"></span>
+                <span style="position:absolute; inset:0 14px 0 24px; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:18px"><span style="font-family:'Newsreader',serif; font-size:22px; line-height:1.12; color:#F4F7F8; font-weight:500">Torto Arado</span><span style="font-size:11px; color:rgba(244,247,248,0.72); margin-top:6px">Itamar Vieira Junior</span></span>
+              </div>
+              <span style="font-family:'Newsreader',serif; font-size:18px; font-weight:600; display:block; margin-top:12px">Torto Arado</span>
+              <span style="display:inline-flex; align-items:center; gap:7px; margin-top:8px; height:30px; padding:0 12px 0 10px; border-radius:999px; background:#0B7268; color:#FFFFFF; font-size:12px; font-weight:600"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#FFFFFF"/></svg>Lendo · você e mais 2</span>
+            </div>
+            <div style="margin-top:12px; border:1.5px dashed #D7DDDF; border-radius:14px; padding:18px; text-align:center; font-size:13px; color:#56656D; line-height:1.5">Arraste um livro para cá quando começar — ou use o menu ⋯ do card</div>
+          </div>
+
+          <div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px">
+              <svg width="14" height="14" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#B0295F"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#B0295F">Lido</span>
+              <span style="font-size:12px; color:#56656D; font-variant-numeric:tabular-nums">2</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:12px">
+              <div style="background:#FFFFFF; border-radius:14px; padding:12px; display:flex; gap:12px; align-items:center; box-shadow:0 1px 0 #D7DDDF">
+                <div style="position:relative; width:48px; height:70px; flex:none; border-radius:3px 6px 6px 3px; background:#514A38; overflow:hidden; box-shadow:0 6px 14px rgba(19,26,30,0.2)"><span style="position:absolute; left:0; top:0; bottom:0; width:6px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); display:block"></span></div>
+                <div style="flex:1; min-width:0"><span style="font-family:'Newsreader',serif; font-size:16px; font-weight:600; line-height:1.2; display:block">Grande Sertão: Veredas</span><span style="font-size:12px; color:#56656D">Guimarães Rosa</span></div>
+                <span style="width:32px; height:32px; border-radius:9px; display:grid; place-items:center; color:#56656D; font-size:16px">⋯</span>
+              </div>
+              <div style="background:#FFFFFF; border-radius:14px; padding:12px; display:flex; gap:12px; align-items:center; box-shadow:0 1px 0 #D7DDDF">
+                <div style="position:relative; width:48px; height:70px; flex:none; border-radius:3px 6px 6px 3px; background:#45414F; overflow:hidden; box-shadow:0 6px 14px rgba(19,26,30,0.2)"><span style="position:absolute; left:0; top:0; bottom:0; width:6px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.5) 0 1px,rgba(255,255,255,0) 1px 3px); display:block"></span></div>
+                <div style="flex:1; min-width:0"><span style="font-family:'Newsreader',serif; font-size:16px; font-weight:600; line-height:1.2; display:block">A Paixão Segundo G.H.</span><span style="font-size:12px; color:#56656D">Clarice Lispector</span></div>
+                <span style="width:32px; height:32px; border-radius:9px; display:grid; place-items:center; color:#56656D; font-size:16px">⋯</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside style="border-left:1px solid #D7DDDF; background:#FFFFFF; padding:24px 20px">
+          <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#56656D; display:block">Conversa de Torto Arado</span>
+          <span style="display:flex; align-items:baseline; gap:7px; margin-top:14px"><span style="font-family:'Newsreader',serif; font-size:28px; font-weight:600; line-height:1; font-variant-numeric:tabular-nums">7</span><span style="font-size:13px; color:#56656D; line-height:1.3">dias até a<br>conversa de sexta</span></span>
+          <div style="display:flex; flex-direction:column; gap:16px; margin-top:22px">
+            <div style="display:flex; gap:11px">
+              <span style="width:30px; height:30px; border-radius:50%; background:#524436; color:#F1F3F4; font-size:11px; font-weight:600; display:grid; place-items:center; flex:none">B</span>
+              <div><span style="font-size:13px; font-weight:600; display:block">Bia <span style="font-weight:400; color:#56656D">· 23:41</span></span><p style="font-family:'Newsreader',serif; font-size:16px; line-height:1.55; margin:4px 0 0; text-wrap:pretty">gente eu não vou conseguir dormir hoje. alguém acordado?</p></div>
+            </div>
+            <div style="display:flex; gap:11px">
+              <span style="width:30px; height:30px; border-radius:50%; background:#45414F; color:#F1F3F4; font-size:11px; font-weight:600; display:grid; place-items:center; flex:none">D</span>
+              <div style="flex:1">
+                <span style="font-size:13px; font-weight:600; display:block">Diego <span style="font-weight:400; color:#56656D">· 23:52</span></span>
+                <div style="margin-top:6px; border:1.5px dashed #B0295F; border-radius:12px; padding:11px; background:#FFFFFF">
+                  <span style="display:flex; align-items:center; gap:6px; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#B0295F"><svg width="11" height="11" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#B0295F"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Spoiler</span>
+                  <span style="display:block; font-size:13px; color:#56656D; margin-top:6px; line-height:1.5">Você escolhe quando ler.</span>
+                  <span style="display:inline-flex; align-items:center; height:36px; margin-top:9px; padding:0 12px; border-radius:10px; background:#C4882A; color:#131A1E; font-size:13px; font-weight:600">Mostrar pra mim</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; gap:11px">
+              <span style="width:30px; height:30px; border-radius:50%; background:#3A4B52; color:#F1F3F4; font-size:11px; font-weight:600; display:grid; place-items:center; flex:none">C</span>
+              <div><span style="font-size:13px; font-weight:600; display:block">Caio <span style="font-weight:400; color:#56656D">· 00:12</span></span><p style="font-family:'Newsreader',serif; font-size:16px; line-height:1.55; margin:4px 0 0; text-wrap:pretty">eu tô no começo ainda, não abri nada de vocês. respeitem o rapaz</p></div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; margin-top:22px">
+            <span style="flex:1; height:44px; border-radius:13px; background:#F1F3F4; border:1px solid #D7DDDF; display:flex; align-items:center; padding:0 13px; font-size:15px; color:#56656D">Escreve aí…</span>
+            <span style="width:44px; height:44px; border-radius:12px; background:#C4882A; color:#131A1E; display:grid; place-items:center; font-size:17px">↑</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- desktop escuro -->
+    <div style="border-radius:20px; overflow:hidden; border:1px solid #2A363C; background:#0E1417; color:#E8EDEF; margin-top:10px">
+      <div style="display:flex; align-items:center; gap:16px; padding:16px 24px; background:#172025; border-bottom:1px solid #2A363C">
+        <div style="display:flex; align-items:center; gap:9px">
+          <svg viewBox="0 0 64 64" width="24" height="24" style="color:#E7B054; display:block"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M18 6H46A14 14 0 0 1 60 20V36A14 14 0 0 1 46 50H26L13 61L18.6 50H18A14 14 0 0 1 4 36V20A14 14 0 0 1 18 6ZM30.5 20C27 17.9 22.6 17.3 18 18V36C22.6 35.3 27 35.9 30.5 38V20ZM33.5 20C37 17.9 41.4 17.3 46 18V36C41.4 35.3 37 35.9 33.5 38V20Z"/></svg>
+          <span style="font-family:'Newsreader',serif; font-size:20px; font-weight:600">Clube da Sexta</span>
+        </div>
+        <div style="display:flex; gap:6px; margin-left:20px">
+          <span style="height:36px; padding:0 14px; border-radius:10px; background:#0E1417; font-size:15px; font-weight:600; display:grid; place-items:center">Estante</span>
+          <span style="height:36px; padding:0 14px; border-radius:10px; font-size:15px; font-weight:600; color:#96A5AC; display:grid; place-items:center">Votação</span>
+          <span style="height:36px; padding:0 14px; border-radius:10px; font-size:15px; font-weight:600; color:#96A5AC; display:grid; place-items:center">Buscar</span>
+        </div>
+        <div style="margin-left:auto; display:flex; align-items:center; gap:12px">
+          <span style="height:40px; padding:0 16px; border-radius:11px; background:#D19A3A; color:#0E1417; font-size:15px; font-weight:600; display:grid; place-items:center">Propor livro</span>
+          <span style="display:flex">
+            <span style="width:32px; height:32px; border-radius:50%; background:#222E34; color:#E8EDEF; font-size:12px; font-weight:600; display:grid; place-items:center; border:2px solid #172025">K</span>
+            <span style="width:32px; height:32px; border-radius:50%; background:#4A3B44; color:#E8EDEF; font-size:12px; font-weight:600; display:grid; place-items:center; border:2px solid #172025; margin-left:-9px">M</span>
+            <span style="width:32px; height:32px; border-radius:50%; background:#45414F; color:#E8EDEF; font-size:12px; font-weight:600; display:grid; place-items:center; border:2px solid #172025; margin-left:-9px">D</span>
+          </span>
+        </div>
+      </div>
+      <div style="padding:24px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px">
+        <div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px">
+            <svg width="14" height="14" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#ABA0FF" stroke-width="2"/></svg>
+            <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#ABA0FF">Quero ler</span>
+            <span style="font-size:12px; color:#96A5AC; font-variant-numeric:tabular-nums">3</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:12px">
+            <div style="background:#172025; border:1px solid #2A363C; border-radius:14px; padding:12px; display:flex; gap:12px; align-items:center">
+              <div style="position:relative; width:48px; height:70px; flex:none; border-radius:3px 6px 6px 3px; background:#33424B; overflow:hidden; transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(600px) rotateY(-14deg) translateY(-3px)"><span style="position:absolute; left:0; top:0; bottom:0; width:6px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.42) 0 1px,rgba(255,255,255,0) 1px 3px); display:block"></span></div>
+              <div style="flex:1; min-width:0"><span style="font-family:'Newsreader',serif; font-size:16px; font-weight:600; line-height:1.2; display:block">A Hora da Estrela</span><span style="font-size:12px; color:#96A5AC">Clarice Lispector</span></div>
+              <span style="width:32px; height:32px; border-radius:9px; display:grid; place-items:center; color:#96A5AC; font-size:16px">⋯</span>
+            </div>
+            <div style="background:#172025; border:1px solid #2A363C; border-radius:14px; padding:12px; display:flex; gap:12px; align-items:center">
+              <div style="position:relative; width:48px; height:70px; flex:none; border-radius:3px 6px 6px 3px; background:#4A3B44; overflow:hidden; transition:transform .35s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(600px) rotateY(-14deg) translateY(-3px)"><span style="position:absolute; left:0; top:0; bottom:0; width:6px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.42) 0 1px,rgba(255,255,255,0) 1px 3px); display:block"></span></div>
+              <div style="flex:1; min-width:0"><span style="font-family:'Newsreader',serif; font-size:16px; font-weight:600; line-height:1.2; display:block">Dom Casmurro</span><span style="font-size:12px; color:#96A5AC">Machado de Assis</span></div>
+              <span style="width:32px; height:32px; border-radius:9px; display:grid; place-items:center; color:#96A5AC; font-size:16px">⋯</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px">
+            <svg width="14" height="14" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#4FD3BD" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#4FD3BD"/></svg>
+            <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#4FD3BD">Lendo</span>
+            <span style="font-size:12px; color:#96A5AC; font-variant-numeric:tabular-nums">1</span>
+          </div>
+          <div style="background:#172025; border:1px solid #2A363C; border-radius:14px; padding:14px">
+            <div style="position:relative; width:100%; height:190px; border-radius:4px 10px 10px 4px; background:#3E4A3F; overflow:hidden; transition:transform .4s cubic-bezier(.2,.7,.3,1)" style-hover="transform:perspective(900px) rotateY(-12deg) rotateX(3deg) translateY(-5px)">
+              <span style="position:absolute; left:0; top:0; bottom:0; width:11px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.42) 0 1px,rgba(255,255,255,0) 1px 3px); border-right:1px solid rgba(0,0,0,0.4); display:block"></span>
+              <span style="position:absolute; inset:0 14px 0 24px; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:18px"><span style="font-family:'Newsreader',serif; font-size:22px; line-height:1.12; color:#F4F7F8; font-weight:500">Torto Arado</span><span style="font-size:11px; color:rgba(244,247,248,0.7); margin-top:6px">Itamar Vieira Junior</span></span>
+            </div>
+            <span style="font-family:'Newsreader',serif; font-size:18px; font-weight:600; display:block; margin-top:12px">Torto Arado</span>
+            <span style="display:inline-flex; align-items:center; gap:7px; margin-top:8px; height:30px; padding:0 12px 0 10px; border-radius:999px; background:#0E2E2B; border:1px solid #1D5850; color:#4FD3BD; font-size:12px; font-weight:600"><svg width="12" height="12" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="5.6" fill="none" stroke="#4FD3BD" stroke-width="2"/><path d="M7 1.4A5.6 5.6 0 0 1 7 12.6Z" fill="#4FD3BD"/></svg>Lendo · você e mais 2</span>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px">
+            <svg width="14" height="14" viewBox="0 0 14 14" style="display:block"><circle cx="7" cy="7" r="6.4" fill="#FF93B6"/><path d="M4.2 7.2 6.1 9.1 9.8 5" fill="none" stroke="#0E1417" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#FF93B6">Lido</span>
+            <span style="font-size:12px; color:#96A5AC; font-variant-numeric:tabular-nums">2</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:12px">
+            <div style="background:#172025; border:1px solid #2A363C; border-radius:14px; padding:12px; display:flex; gap:12px; align-items:center">
+              <div style="position:relative; width:48px; height:70px; flex:none; border-radius:3px 6px 6px 3px; background:#514A38; overflow:hidden"><span style="position:absolute; left:0; top:0; bottom:0; width:6px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.42) 0 1px,rgba(255,255,255,0) 1px 3px); display:block"></span></div>
+              <div style="flex:1; min-width:0"><span style="font-family:'Newsreader',serif; font-size:16px; font-weight:600; line-height:1.2; display:block">Grande Sertão: Veredas</span><span style="font-size:12px; color:#96A5AC">Guimarães Rosa</span></div>
+              <span style="width:32px; height:32px; border-radius:9px; display:grid; place-items:center; color:#96A5AC; font-size:16px">⋯</span>
+            </div>
+            <div style="background:#172025; border:1px solid #2A363C; border-radius:14px; padding:12px; display:flex; gap:12px; align-items:center">
+              <div style="position:relative; width:48px; height:70px; flex:none; border-radius:3px 6px 6px 3px; background:#45414F; overflow:hidden"><span style="position:absolute; left:0; top:0; bottom:0; width:6px; background:repeating-linear-gradient(90deg,rgba(255,255,255,0.42) 0 1px,rgba(255,255,255,0) 1px 3px); display:block"></span></div>
+              <div style="flex:1; min-width:0"><span style="font-family:'Newsreader',serif; font-size:16px; font-weight:600; line-height:1.2; display:block">A Paixão Segundo G.H.</span><span style="font-size:12px; color:#96A5AC">Clarice Lispector</span></div>
+              <span style="width:32px; height:32px; border-radius:9px; display:grid; place-items:center; color:#96A5AC; font-size:16px">⋯</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="max-width:1180px; margin:72px auto 0; padding-top:28px; border-top:1px solid #2A363C; display:flex; gap:16px; flex-wrap:wrap; justify-content:space-between; align-items:center">
+    <span style="font-size:13px; color:#96A5AC; max-width:70ch; line-height:1.6">Sem página, sem percentual: o estado do livro é a única coisa que o clube atualiza — e move-se por arrasto, menu ⋯ ou teclado. Toda saída de clube pede confirmação.</span>
+    <span style="font-family:'Newsreader',serif; font-style:italic; font-size:15px; color:#E7B054">A melhor parte do livro é depois.</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { aberto: false };
+  renderVals() {
+    return {
+      spoilerAberto: this.state.aberto,
+      spoilerFechado: !this.state.aberto,
+      abrirSpoiler: () => this.setState({ aberto: true }),
+      fecharSpoiler: () => this.setState({ aberto: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
