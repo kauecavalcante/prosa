@@ -5,6 +5,21 @@
 export const MINIMO_DA_SENHA = 8
 
 const POR_CODIGO = {
+  otp_expired: {
+    texto: 'Esse link de senha já venceu ou já foi usado.',
+    acao: 'novo-link',
+  },
+  access_denied: {
+    texto: 'Esse link de senha já venceu ou já foi usado.',
+    acao: 'novo-link',
+  },
+  same_password: {
+    texto: 'Essa é a senha que você já usa. Escolha uma diferente.',
+  },
+  session_not_found: {
+    texto: 'A sua sessão de recuperação expirou. Peça um link novo e abra a mensagem mais recente.',
+    acao: 'novo-link',
+  },
   invalid_credentials: {
     texto: 'E-mail ou senha não conferem. Confira o endereço e digite a senha de novo, de olho no maiúsculo e no acento.',
   },

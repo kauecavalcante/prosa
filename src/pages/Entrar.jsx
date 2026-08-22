@@ -127,7 +127,7 @@ export default function Entrar() {
 
     const enderecoLimpo = email.trim()
     const { error } = await supabase.auth.resetPasswordForEmail(enderecoLimpo, {
-      redirectTo: `${window.location.origin}/entrar`,
+      redirectTo: `${window.location.origin}/nova-senha`,
     })
 
     if (error) {
