@@ -2,6 +2,8 @@
    frase que diz o que aconteceu e o que fazer agora. O que a API devolve
    fica no console, para quem está depurando. */
 
+export const MINIMO_DA_SENHA = 8
+
 const POR_CODIGO = {
   invalid_credentials: {
     texto: 'E-mail ou senha não conferem. Confira o endereço e digite a senha de novo, de olho no maiúsculo e no acento.',
@@ -63,7 +65,7 @@ export function mensagemDeErro(erro) {
    exigir símbolo obrigatório — regra rígida de composição faz a pessoa
    escolher senha pior, não melhor. */
 export function forcaDaSenha(senha) {
-  if (senha.length < 8) return 0
+  if (senha.length < MINIMO_DA_SENHA) return 0
 
   let pontos = 1
   if (senha.length >= 12) pontos += 1

@@ -1,5 +1,6 @@
 /* Linguagem ilustrada: contorno grosso de tinta, cantos gordos e base sólida
-   sob o que se aperta. Vale para o app inteiro, não só para esta tela. */
+   sob o que se aperta. Vale para o app inteiro, não só para uma tela — daí
+   viver em estilos/ e ser lida pelas telas de entrar e de senha nova. */
 
 .entrar {
   min-height: 100dvh;
@@ -173,6 +174,16 @@
   font-weight: 700;
 }
 
+/* Na L1 e na senha nova o cartão é branco, então o campo se destaca dele
+   afundando. Nas telas de fundo claro é o contrário: o campo é que fica branco. */
+.entrar--formulario .campo__entrada {
+  height: 48px;
+  background: var(--superficie);
+}
+
+/* Só a força alta muda a borda — as outras seguem no contorno. */
+.campo__entrada--forte { border-color: var(--estado-lendo); }
+
 .campo__entrada--com-botao { padding-right: 92px; }
 
 .campo__entrada::placeholder {
@@ -217,12 +228,16 @@
 .forca__degrau--cheio { background: var(--forca-cor); }
 
 .forca__rotulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-size: 12px;
   font-weight: 800;
   color: var(--forca-cor);
-  min-width: 6ch;
   text-align: right;
 }
+
+.forca__rotulo--forte { color: var(--verde-rotulo); }
 
 /* ---------------------------------------------------------------- botões */
 
@@ -273,8 +288,14 @@
   font-size: 13px;
   font-weight: 800;
   color: var(--ocre-marca);
-  text-decoration: underline;
+  text-decoration: none;
   text-underline-offset: 3px;
+}
+
+/* Sublinhado só na interação: aí ele é sinal, não enfeite. */
+.botao--texto:hover,
+.botao--texto:focus-visible {
+  text-decoration: underline;
 }
 
 .botao--voltar {

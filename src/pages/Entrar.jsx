@@ -1,24 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
-import {
-  ERRO_EMAIL_JA_USADO,
-  ROTULO_DA_FORCA,
-  forcaDaSenha,
-  mensagemDeErro,
-} from '../lib/mensagens'
+import { ERRO_EMAIL_JA_USADO, MINIMO_DA_SENHA, mensagemDeErro } from '../lib/mensagens'
 import { useSessao } from '../hooks/useSessao'
+import { CampoSenha } from '../components/CampoSenha'
 import { Marca } from '../components/Marca'
-import './Entrar.css'
-
-const MINIMO_DA_SENHA = 8
-
-const COR_DA_FORCA = [
-  'var(--tinta-suave)',
-  'var(--estado-lidos)',
-  'var(--estado-futuros)',
-  'var(--estado-lendo)',
-]
+import '../estilos/formulario.css'
 
 function Voltar({ aoClicar, rotulo }) {
   return (
@@ -42,11 +29,10 @@ export default function Entrar() {
   const navegar = useNavigate()
   const local = useLocation()
 
-  const [modo, setModo] = useState('entrar')
+  const [modo, setModo] = useState(local.state?.passo ?? 'entrar')
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
-  const [senhaVisivel, setSenhaVisivel] = useState(false)
   const [enviando, setEnviando] = useState(false)
   const [erro, setErro] = useState(null)
   const [enderecoAvisado, setEnderecoAvisado] = useState(null)
@@ -60,15 +46,11 @@ export default function Entrar() {
   if (verificandoSessao) return null
   if (sessao) return <Navigate to={local.state?.de ?? '/'} replace />
 
-  const forca = forcaDaSenha(senha)
-  const senhaCurta = senha.length > 0 && senha.length < MINIMO_DA_SENHA
-
   function irPara(novoModo) {
     setModo(novoModo)
     setErro(null)
     setEnderecoAvisado(null)
     setSenha('')
-    setSenhaVisivel(false)
   }
 
   async function aoEntrar(evento) {
@@ -320,60 +302,12 @@ export default function Entrar() {
                 </div>
               </div>
 
-              <div className="campo">
-                <label className="campo__rotulo" htmlFor="senha">
-                  Senha
-                </label>
-                <div className="campo__caixa">
-                  <input
-                    id="senha"
-                    className="campo__entrada campo__entrada--com-botao"
-                    type={senhaVisivel ? 'text' : 'password'}
-                    value={senha}
-                    onChange={(e) => setSenha(e.target.value)}
-                    autoComplete="new-password"
-                    minLength={MINIMO_DA_SENHA}
-                    aria-describedby="ajuda-senha"
-                    required
-                  />
-                  <button
-                    type="button"
-                    className="campo__mostrar"
-                    onClick={() => setSenhaVisivel((v) => !v)}
-                    aria-pressed={senhaVisivel}
-                  >
-                    {senhaVisivel ? 'ocultar' : 'mostrar'}
-                  </button>
-                </div>
-
-                <div
-                  className="forca"
-                  style={{ '--forca-cor': COR_DA_FORCA[forca] }}
-                  aria-hidden="true"
-                >
-                  <div className="forca__trilha">
-                    {[1, 2, 3].map((degrau) => (
-                      <span
-                        key={degrau}
-                        className={
-                          'forca__degrau' + (forca >= degrau ? ' forca__degrau--cheio' : '')
-                        }
-                      />
-                    ))}
-                  </div>
-                  {senha.length > 0 && <span className="forca__rotulo">{ROTULO_DA_FORCA[forca]}</span>}
-                </div>
-
-                <p className="campo__ajuda" id="ajuda-senha" aria-live="polite">
-                  {senha.length === 0
-                    ? 'Mínimo 8 caracteres. Nada de "senha123", a gente confia em você.'
-                    : senhaCurta
-                      ? `Faltam ${MINIMO_DA_SENHA - senha.length} caracteres para chegar aos 8.`
-                      : forca === 3
-                        ? 'Senha boa. Pode seguir.'
-                        : `Senha ${ROTULO_DA_FORCA[forca]}. Alongar um pouco, ou misturar números e símbolos, deixa melhor.`}
-                </p>
-              </div>
+              <CampoSenha
+                valor={senha}
+                aoMudar={setSenha}
+                autoComplete="new-password"
+                medirForca
+              />
 
               <p className="privacidade">
                 <span className="privacidade__marca" aria-hidden="true">
@@ -438,30 +372,11 @@ export default function Entrar() {
               </div>
             </div>
 
-            <div className="campo">
-              <label className="campo__rotulo" htmlFor="senha">
-                Senha
-              </label>
-              <div className="campo__caixa">
-                <input
-                  id="senha"
-                  className="campo__entrada campo__entrada--com-botao"
-                  type={senhaVisivel ? 'text' : 'password'}
-                  value={senha}
-                  onChange={(e) => setSenha(e.target.value)}
-                  autoComplete="current-password"
-                  required
-                />
-                <button
-                  type="button"
-                  className="campo__mostrar"
-                  onClick={() => setSenhaVisivel((v) => !v)}
-                  aria-pressed={senhaVisivel}
-                >
-                  {senhaVisivel ? 'ocultar' : 'mostrar'}
-                </button>
-              </div>
-            </div>
+            <CampoSenha
+              valor={senha}
+              aoMudar={setSenha}
+              autoComplete="current-password"
+            />
 
             <button type="submit" className="botao botao--principal" disabled={enviando}>
               {carregando('Entrar', 'Entrando…')}

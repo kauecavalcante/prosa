@@ -15,6 +15,7 @@
   --campo-fundo: #EEF2F3;
   --contorno: #131A1E;
   --base-ocre: #8F6412;
+  --verde-rotulo: #075149;
 
   --estado-futuros: #4A3FC2;
   --estado-lendo: #0B7268;
@@ -47,6 +48,9 @@
     --campo-fundo: #0E1417;
     /* A base do botão continua ocre escuro nos dois temas, como no protótipo. */
     --base-ocre: #8F6412;
+    /* O #075149 do protótipo é verde escuro e some no escuro: 1,8:1 sobre a
+       superfície. Aqui vale o verde-água claro do manual, que dá 8,97:1. */
+    --verde-rotulo: #4FD3BD;
 
     --estado-futuros: #ABA0FF;
     --estado-lendo: #4FD3BD;
