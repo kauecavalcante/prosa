@@ -119,8 +119,11 @@ O laço de baixo é o que a v1 não tinha: o feed devolve descoberta para dentro
 | US-02 | Como usuário, quero fazer login e permanecer conectado. | M |
 | US-03 | Como usuário, quero escolher meu retrato numa galeria ilustrada, para me identificar. | M |
 | US-04 | Como usuário, quero editar meu nome de exibição. | M |
+| US-59 | Como usuário, quero redefinir minha senha por e-mail, para voltar a entrar quando esquecer. | M |
 
 **Critérios — US-03:** galeria com no mínimo 8 retratos ilustrados; seleção reflete imediatamente no perfil, no feed e na lista de membros; retrato padrão atribuído a quem não escolher.
+
+**Critérios — US-59:** o pedido de redefinição nunca revela se o e-mail tem conta, para não entregar a estranhos quais endereços estão cadastrados; a confirmação repete o endereço e diz o que fazer se a mensagem não chegar; o link do e-mail leva a uma tela onde a pessoa **digita a senha nova**, com a mesma exigência de 8 caracteres da US-01.
 
 ### E2 — Clubes
 
@@ -246,7 +249,7 @@ O MVP fecha um ciclo completo **e** dá ao usuário para onde levar o que ele ac
 
 | Épico | Stories no MVP | Qtd |
 |---|---|---|
-| E1 — Conta e Perfil | US-01 a US-04 | 4 |
+| E1 — Conta e Perfil | US-01 a US-04, US-59 | 5 |
 | E2 — Clubes | US-05 a US-09 | 5 |
 | E3 — Catálogo | US-13 a US-16 | 4 |
 | E4 — Ciclo e Votação | US-19 a US-23 | 5 |
@@ -255,7 +258,7 @@ O MVP fecha um ciclo completo **e** dá ao usuário para onde levar o que ele ac
 | E8 — Plataforma | US-46 a US-48 | 3 |
 | E9 — Rede | US-51 a US-53 | 3 |
 
-**Total: 32 user stories.**
+**Total: 33 user stories.**
 
 **Critério de pronto:** um clube real com pelo menos 3 membros escolhe um livro por votação, lê dentro do prazo combinado, conversa sobre ele sem expor spoiler a quem está atrasado e publica nota e resenha — e essas notas aparecem no feed de quem segue essas pessoas, sem nenhuma intervenção fora do app.
 
