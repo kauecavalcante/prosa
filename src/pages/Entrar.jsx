@@ -138,6 +138,27 @@ export default function Entrar() {
     setEnviando(false)
   }
 
+  async function aoPedirRedefinicao(evento) {
+    evento.preventDefault()
+    setErro(null)
+    setEnviando(true)
+
+    const enderecoLimpo = email.trim()
+    const { error } = await supabase.auth.resetPasswordForEmail(enderecoLimpo, {
+      redirectTo: `${window.location.origin}/entrar`,
+    })
+
+    if (error) {
+      setErro(mensagemDeErro(error))
+      setEnviando(false)
+      return
+    }
+
+    setModo('redefinicao-enviada')
+    setEnderecoAvisado(enderecoLimpo)
+    setEnviando(false)
+  }
+
   const avisoDeErro = erro && (
     <div className="aviso aviso--erro" role="alert" tabIndex={-1} ref={campoErro}>
       <span>{erro.texto}</span>
@@ -158,18 +179,24 @@ export default function Entrar() {
 
   /* ---------------------------------------------------------- confirmações */
 
-  if (modo === 'confirmar-email') {
+  if (modo === 'confirmar-email' || modo === 'redefinicao-enviada') {
+    const criandoConta = modo === 'confirmar-email'
     return (
       <main className="entrar entrar--formulario">
         <div className="entrar__quadro">
           <div className="entrar__cabecalho">
             <Voltar aoClicar={() => irPara('entrar')} rotulo="Voltar para o login" />
-            <h1 className="entrar__titulo">Quase lá</h1>
+            <h1 className="entrar__titulo">{criandoConta ? 'Quase lá' : 'Olha o e-mail'}</h1>
           </div>
           <div className="entrar__rolagem">
             <p className="aviso aviso--sucesso" role="status">
-              Mandamos um e-mail de confirmação para <strong>{enderecoAvisado}</strong>. Abra a
-              mensagem, clique no link e volte aqui para entrar.
+              {criandoConta
+                ? 'Mandamos um e-mail de confirmação para '
+                : 'Se existir conta com esse endereço, o link de nova senha chegou em '}
+              <strong>{enderecoAvisado}</strong>.{' '}
+              {criandoConta
+                ? 'Abra a mensagem, clique no link e volte aqui para entrar.'
+                : 'Abra a mensagem e clique no link para escolher a senha nova.'}
             </p>
             <p className="campo__ajuda">
               Não chegou? Confira a caixa de spam e o endereço que você digitou. O e-mail
@@ -182,6 +209,50 @@ export default function Entrar() {
             >
               Ir para o login
             </button>
+          </div>
+        </div>
+      </main>
+    )
+  }
+
+  /* ---------------------------------------------------------- esqueci a senha */
+
+  if (modo === 'recuperar') {
+    return (
+      <main className="entrar entrar--formulario">
+        <div className="entrar__quadro">
+          <div className="entrar__cabecalho">
+            <Voltar aoClicar={() => irPara('entrar')} rotulo="Voltar para o login" />
+            <h1 className="entrar__titulo">Esqueci a senha</h1>
+          </div>
+          <div className="entrar__rolagem">
+            <p className="campo__ajuda">
+              Diga o e-mail da sua conta e mandamos um link para você escolher uma senha
+              nova.
+            </p>
+            <form className="entrar__formulario-campos" onSubmit={aoPedirRedefinicao} noValidate>
+              {avisoDeErro}
+              <div className="campo">
+                <label className="campo__rotulo" htmlFor="email">
+                  E-mail
+                </label>
+                <div className="campo__caixa">
+                  <input
+                    id="email"
+                    className="campo__entrada"
+                    type="email"
+                    inputMode="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    autoComplete="email"
+                    required
+                  />
+                </div>
+              </div>
+              <button type="submit" className="botao botao--principal" disabled={enviando}>
+                {carregando('Enviar o link', 'Enviando…')}
+              </button>
+            </form>
           </div>
         </div>
       </main>
@@ -405,6 +476,15 @@ export default function Entrar() {
             </button>
           </form>
 
+          <p className="entrar__alternativa">
+            <button
+              type="button"
+              className="botao botao--texto"
+              onClick={() => irPara('recuperar')}
+            >
+              Esqueci a senha
+            </button>
+          </p>
         </div>
       </div>
     </main>
