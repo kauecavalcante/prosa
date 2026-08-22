@@ -208,7 +208,7 @@ As chaves de API e a senha do banco não ficam no repositório. Elas são lidas 
 
 ## 7. Validação do esquema
 
-O [schema.sql](schema.sql) foi executado do zero em PostgreSQL 17 local e depois no Supabase do projeto. Nos dois, criou 16 tabelas, 26 políticas de RLS, 5 gatilhos e 29 índices, sem erro.
+O [schema.sql](schema.sql) foi executado do zero em PostgreSQL 17 local e no Supabase do projeto, criando 16 tabelas, 26 políticas de RLS, 5 gatilhos e 29 índices sem erro. Os testes de regra abaixo rodaram como superusuário, que ignora RLS — por isso eles verificam gatilhos e restrições, mas **não** verificam as políticas de acesso. O caminho real de cadastro só passou a funcionar com a migração [001-perfil-ao-cadastrar.sql](migracoes/001-perfil-ao-cadastrar.sql).
 
 As regras de negócio foram testadas uma a uma:
 
