@@ -53,16 +53,29 @@ Acompanhamento em [Projects](../../projects).
 
 **Tipografia** — [Newsreader](https://fonts.google.com/specimen/Newsreader) para a voz do produto, [Nunito](https://fonts.google.com/specimen/Nunito) para a interface.
 
-## Stack prevista
+## Stack
 
 - **Frontend:** PWA em React + Vite
 - **Dados:** Supabase (Postgres, Auth, Storage)
 - **Livros:** Google Books API, com Open Library como fonte alternativa
 - **Deploy:** Vercel
 
+## Como rodar
+
+```
+npm install
+cp .env.example .env   # preencha com a URL e a chave anônima do projeto Supabase
+npm run dev
+```
+
+As chaves ficam só no `.env`, que está no `.gitignore`. Use sempre a chave anônima —
+a `service_role` ignora as políticas de RLS e não pode chegar ao navegador.
+
 ## Estado do projeto
 
-Fase de concepção. Requisitos fechados, identidade visual definida, protótipo de telas pronto. O desenvolvimento começa depois dos wireframes no Figma.
+Requisitos fechados, identidade visual definida e esquema do banco aplicado. Em
+desenvolvimento: o projeto base, os tokens da marca, as rotas e a tela de entrar
+(US-01 e US-02) estão de pé; as demais telas ainda são espaços reservados.
 
 ## Equipe
 
