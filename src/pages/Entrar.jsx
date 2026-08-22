@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
-import { garantirPerfil } from '../lib/perfil'
 import {
   ERRO_EMAIL_JA_USADO,
   ROTULO_DA_FORCA,
@@ -21,6 +20,23 @@ const COR_DA_FORCA = [
   'var(--estado-lendo)',
 ]
 
+function Voltar({ aoClicar, rotulo }) {
+  return (
+    <button type="button" className="botao botao--voltar" onClick={aoClicar} aria-label={rotulo}>
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
+        <path
+          d="M15 4 7 12l8 8"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </button>
+  )
+}
+
 export default function Entrar() {
   const { sessao, carregando: verificandoSessao } = useSessao()
   const navegar = useNavigate()
@@ -33,10 +49,9 @@ export default function Entrar() {
   const [senhaVisivel, setSenhaVisivel] = useState(false)
   const [enviando, setEnviando] = useState(false)
   const [erro, setErro] = useState(null)
-  const [confirmacaoPendente, setConfirmacaoPendente] = useState(null)
+  const [enderecoAvisado, setEnderecoAvisado] = useState(null)
 
   const campoErro = useRef(null)
-  const primeiroCampo = useRef(null)
 
   useEffect(() => {
     if (erro) campoErro.current?.focus()
@@ -48,10 +63,10 @@ export default function Entrar() {
   const forca = forcaDaSenha(senha)
   const senhaCurta = senha.length > 0 && senha.length < MINIMO_DA_SENHA
 
-  function trocarModo(novoModo) {
+  function irPara(novoModo) {
     setModo(novoModo)
     setErro(null)
-    setConfirmacaoPendente(null)
+    setEnderecoAvisado(null)
     setSenha('')
     setSenhaVisivel(false)
   }
@@ -61,7 +76,7 @@ export default function Entrar() {
     setErro(null)
     setEnviando(true)
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signInWithPassword({
       email: email.trim(),
       password: senha,
     })
@@ -72,11 +87,6 @@ export default function Entrar() {
       return
     }
 
-    const { erro: erroDePerfil } = await garantirPerfil(data.user)
-    if (erroDePerfil && import.meta.env.DEV) {
-      console.error('[prosa] não foi possível criar a linha de perfil', erroDePerfil)
-    }
-
     navegar(local.state?.de ?? '/', { replace: true })
   }
 
@@ -84,18 +94,20 @@ export default function Entrar() {
     evento.preventDefault()
     setErro(null)
 
-    if (senha.length < MINIMO_DA_SENHA) {
-      setErro({ texto: `A senha precisa de pelo menos ${MINIMO_DA_SENHA} caracteres.` })
-      return
-    }
     if (!nome.trim()) {
       setErro({ texto: 'Falta dizer como te chamam. É o nome que o clube vai ver.' })
+      return
+    }
+    if (senha.length < MINIMO_DA_SENHA) {
+      setErro({ texto: `A senha precisa de pelo menos ${MINIMO_DA_SENHA} caracteres.` })
       return
     }
 
     setEnviando(true)
 
     const enderecoLimpo = email.trim()
+    // O nome vai em options.data porque é de raw_user_meta_data que o gatilho
+    // ao_criar_usuario lê para montar a linha de perfil.
     const { data, error } = await supabase.auth.signUp({
       email: enderecoLimpo,
       password: senha,
@@ -117,43 +129,56 @@ export default function Entrar() {
     }
 
     if (data.session) {
-      const { erro: erroDePerfil } = await garantirPerfil(data.user)
-      if (erroDePerfil && import.meta.env.DEV) {
-        console.error('[prosa] não foi possível criar a linha de perfil', erroDePerfil)
-      }
       navegar('/', { replace: true })
       return
     }
 
-    setConfirmacaoPendente(enderecoLimpo)
+    setModo('confirmar-email')
+    setEnderecoAvisado(enderecoLimpo)
     setEnviando(false)
   }
 
-  if (confirmacaoPendente) {
+  const avisoDeErro = erro && (
+    <div className="aviso aviso--erro" role="alert" tabIndex={-1} ref={campoErro}>
+      <span>{erro.texto}</span>
+      {erro.acao === 'entrar' && (
+        <button type="button" className="aviso__acao" onClick={() => irPara('entrar')}>
+          Ir para o login com esse e-mail
+        </button>
+      )}
+    </div>
+  )
+
+  const carregando = (rotulo, rotuloEmCurso) => (
+    <>
+      {enviando && <span className="giro" aria-hidden="true" />}
+      {enviando ? rotuloEmCurso : rotulo}
+    </>
+  )
+
+  /* ---------------------------------------------------------- confirmações */
+
+  if (modo === 'confirmar-email') {
     return (
-      <main className="entrar">
+      <main className="entrar entrar--formulario">
         <div className="entrar__quadro">
-          <div className="entrar__capa">
-            <Marca tamanho={96} titulo="Prosa" />
-            <h1 className="entrar__nome">Quase lá</h1>
+          <div className="entrar__cabecalho">
+            <Voltar aoClicar={() => irPara('entrar')} rotulo="Voltar para o login" />
+            <h1 className="entrar__titulo">Quase lá</h1>
           </div>
-          <div className="entrar__cartao">
+          <div className="entrar__rolagem">
             <p className="aviso aviso--sucesso" role="status">
-              Mandamos um e-mail para <strong>{confirmacaoPendente}</strong>. Abra a
-              mensagem e clique no link de confirmação — depois volte aqui e entre com
-              a sua senha.
+              Mandamos um e-mail de confirmação para <strong>{enderecoAvisado}</strong>. Abra a
+              mensagem, clique no link e volte aqui para entrar.
             </p>
-            <p className="campo__ajuda" style={{ marginTop: 14 }}>
-              Não chegou? Confira a caixa de spam. O e-mail pode levar alguns minutos.
+            <p className="campo__ajuda">
+              Não chegou? Confira a caixa de spam e o endereço que você digitou. O e-mail
+              pode levar alguns minutos.
             </p>
             <button
               type="button"
               className="botao botao--secundario"
-              style={{ marginTop: 16, width: '100%' }}
-              onClick={() => {
-                setConfirmacaoPendente(null)
-                trocarModo('entrar')
-              }}
+              onClick={() => irPara('entrar')}
             >
               Ir para o login
             </button>
@@ -163,69 +188,31 @@ export default function Entrar() {
     )
   }
 
-  const criando = modo === 'criar'
+  /* ---------------------------------------------------------- L2 · criar conta */
 
-  return (
-    <main className="entrar">
-      <div className="entrar__quadro">
-        {criando ? (
+  if (modo === 'criar') {
+    return (
+      <main className="entrar entrar--formulario">
+        <div className="entrar__quadro">
           <div className="entrar__cabecalho">
-            <button
-              type="button"
-              className="botao botao--voltar"
-              onClick={() => trocarModo('entrar')}
-              aria-label="Voltar para o login"
-            >
-              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
-                <path
-                  d="M15 4 7 12l8 8"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+            <Voltar aoClicar={() => irPara('entrar')} rotulo="Voltar para o login" />
             <h1 className="entrar__titulo">Bem-vindo ao Prosa</h1>
           </div>
-        ) : (
-          <div className="entrar__capa">
-            <Marca tamanho={132} titulo="Prosa" />
-            <h1 className="entrar__nome">Prosa</h1>
-            <p className="entrar__lema">
-              O clube de leitura dos seus amigos. A melhor parte do livro é depois.
-            </p>
-          </div>
-        )}
 
-        <div className="entrar__cartao">
-          <form
-            className="entrar__formulario"
-            onSubmit={criando ? aoCriarConta : aoEntrar}
-            noValidate
-          >
-            {erro && (
-              <div
-                className="aviso aviso--erro"
-                role="alert"
-                tabIndex={-1}
-                ref={campoErro}
-              >
-                <span>{erro.texto}</span>
-                {erro.acao === 'entrar' && (
-                  <button
-                    type="button"
-                    className="aviso__acao"
-                    onClick={() => trocarModo('entrar')}
-                  >
-                    Ir para o login com esse e-mail
-                  </button>
-                )}
+          <div className="entrar__rolagem">
+            <div className="cartao">
+              <span className="cartao__rotulo">Escolha seu retrato</span>
+              <div className="retratos" aria-hidden="true">
+                {[1, 2, 3, 4, 5].map((vaga) => (
+                  <span key={vaga} className="retratos__vaga" />
+                ))}
               </div>
-            )}
+              <p className="retratos__nota">A galeria de retratos chega na US-03.</p>
+            </div>
 
-            {criando && (
+            <form className="entrar__formulario-campos" onSubmit={aoCriarConta} noValidate>
+              {avisoDeErro}
+
               <div className="campo">
                 <label className="campo__rotulo" htmlFor="nome">
                   Como te chamam
@@ -234,7 +221,6 @@ export default function Entrar() {
                   <input
                     id="nome"
                     className="campo__entrada"
-                    ref={primeiroCampo}
                     type="text"
                     value={nome}
                     onChange={(e) => setNome(e.target.value)}
@@ -244,7 +230,124 @@ export default function Entrar() {
                   />
                 </div>
               </div>
-            )}
+
+              <div className="campo">
+                <label className="campo__rotulo" htmlFor="email">
+                  E-mail
+                </label>
+                <div className="campo__caixa">
+                  <input
+                    id="email"
+                    className="campo__entrada"
+                    type="email"
+                    inputMode="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    autoComplete="email"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="campo">
+                <label className="campo__rotulo" htmlFor="senha">
+                  Senha
+                </label>
+                <div className="campo__caixa">
+                  <input
+                    id="senha"
+                    className="campo__entrada campo__entrada--com-botao"
+                    type={senhaVisivel ? 'text' : 'password'}
+                    value={senha}
+                    onChange={(e) => setSenha(e.target.value)}
+                    autoComplete="new-password"
+                    minLength={MINIMO_DA_SENHA}
+                    aria-describedby="ajuda-senha"
+                    required
+                  />
+                  <button
+                    type="button"
+                    className="campo__mostrar"
+                    onClick={() => setSenhaVisivel((v) => !v)}
+                    aria-pressed={senhaVisivel}
+                  >
+                    {senhaVisivel ? 'ocultar' : 'mostrar'}
+                  </button>
+                </div>
+
+                <div
+                  className="forca"
+                  style={{ '--forca-cor': COR_DA_FORCA[forca] }}
+                  aria-hidden="true"
+                >
+                  <div className="forca__trilha">
+                    {[1, 2, 3].map((degrau) => (
+                      <span
+                        key={degrau}
+                        className={
+                          'forca__degrau' + (forca >= degrau ? ' forca__degrau--cheio' : '')
+                        }
+                      />
+                    ))}
+                  </div>
+                  {senha.length > 0 && <span className="forca__rotulo">{ROTULO_DA_FORCA[forca]}</span>}
+                </div>
+
+                <p className="campo__ajuda" id="ajuda-senha" aria-live="polite">
+                  {senha.length === 0
+                    ? 'Mínimo 8 caracteres. Nada de "senha123", a gente confia em você.'
+                    : senhaCurta
+                      ? `Faltam ${MINIMO_DA_SENHA - senha.length} caracteres para chegar aos 8.`
+                      : forca === 3
+                        ? 'Senha boa. Pode seguir.'
+                        : `Senha ${ROTULO_DA_FORCA[forca]}. Alongar um pouco, ou misturar números e símbolos, deixa melhor.`}
+                </p>
+              </div>
+
+              <p className="privacidade">
+                <span className="privacidade__marca" aria-hidden="true">
+                  <Marca tamanho={20} />
+                </span>
+                <span>
+                  Antes de continuar: sua <strong>lista de futuros é pública</strong> — qualquer
+                  pessoa com conta no Prosa vê os livros que você quer ler, e as suas notas e
+                  resenhas. O que você marcar como <em>lendo</em> só aparece para os seus clubes.
+                </span>
+              </p>
+
+              <button type="submit" className="botao botao--principal" disabled={enviando}>
+                {carregando('Criar conta', 'Criando sua conta…')}
+              </button>
+            </form>
+
+            <p className="entrar__alternativa">
+              Já tem conta?{' '}
+              <button type="button" className="botao botao--texto" onClick={() => irPara('entrar')}>
+                Entrar
+              </button>
+            </p>
+          </div>
+        </div>
+      </main>
+    )
+  }
+
+  /* ---------------------------------------------------------- L1 · entrar */
+
+  return (
+    <main className="entrar">
+      <div className="entrar__quadro">
+        <div className="entrar__capa">
+          <Marca tamanho={140} titulo="Prosa" />
+          <h1 className="entrar__nome">Prosa</h1>
+          <p className="entrar__lema">
+            O clube de leitura dos seus amigos. A melhor parte do livro é depois.
+          </p>
+        </div>
+
+        <div className="entrar__folha">
+          <form className="entrar__formulario-campos" onSubmit={aoEntrar} noValidate>
+            {avisoDeErro}
 
             <div className="campo">
               <label className="campo__rotulo" htmlFor="email">
@@ -275,9 +378,7 @@ export default function Entrar() {
                   type={senhaVisivel ? 'text' : 'password'}
                   value={senha}
                   onChange={(e) => setSenha(e.target.value)}
-                  autoComplete={criando ? 'new-password' : 'current-password'}
-                  minLength={criando ? MINIMO_DA_SENHA : undefined}
-                  aria-describedby={criando ? 'ajuda-senha' : undefined}
+                  autoComplete="current-password"
                   required
                 />
                 <button
@@ -289,94 +390,21 @@ export default function Entrar() {
                   {senhaVisivel ? 'ocultar' : 'mostrar'}
                 </button>
               </div>
-
-              {criando && (
-                <>
-                  <div
-                    className="forca"
-                    style={{ '--forca-cor': COR_DA_FORCA[forca] }}
-                    aria-hidden="true"
-                  >
-                    <div className="forca__trilha">
-                      {[1, 2, 3].map((degrau) => (
-                        <span
-                          key={degrau}
-                          className={
-                            'forca__degrau' +
-                            (forca >= degrau ? ' forca__degrau--cheio' : '')
-                          }
-                        />
-                      ))}
-                    </div>
-                    {senha.length > 0 && (
-                      <span className="forca__rotulo">{ROTULO_DA_FORCA[forca]}</span>
-                    )}
-                  </div>
-                  <p className="campo__ajuda" id="ajuda-senha" aria-live="polite">
-                    {senha.length === 0
-                      ? 'Mínimo 8 caracteres. Nada de "senha123", a gente confia em você.'
-                      : senhaCurta
-                        ? `Faltam ${MINIMO_DA_SENHA - senha.length} caracteres para chegar aos 8.`
-                        : forca === 3
-                          ? 'Senha boa. Pode seguir.'
-                          : `Senha ${ROTULO_DA_FORCA[forca]}. Alongar um pouco, ou misturar números e símbolos, deixa melhor.`}
-                  </p>
-                </>
-              )}
             </div>
 
-            {criando && (
-              <p className="privacidade">
-                <span className="privacidade__marca" aria-hidden="true">
-                  <Marca tamanho={20} />
-                </span>
-                <span>
-                  Antes de continuar: sua <strong>lista de futuros é pública</strong> —
-                  qualquer pessoa com conta no Prosa vê os livros que você quer ler, e
-                  as suas notas e resenhas. O que você marcar como <em>lendo</em> só
-                  aparece para os seus clubes.
-                </span>
-              </p>
-            )}
-
-            <button
-              type="submit"
-              className="botao botao--principal"
-              disabled={enviando}
-            >
-              {enviando && <span className="giro" aria-hidden="true" />}
-              {enviando
-                ? criando
-                  ? 'Criando sua conta…'
-                  : 'Entrando…'
-                : criando
-                  ? 'Criar conta'
-                  : 'Entrar'}
+            <button type="submit" className="botao botao--principal" disabled={enviando}>
+              {carregando('Entrar', 'Entrando…')}
             </button>
 
-            {!criando && (
-              <button
-                type="button"
-                className="botao botao--secundario"
-                onClick={() => trocarModo('criar')}
-              >
-                Criar minha conta
-              </button>
-            )}
+            <button
+              type="button"
+              className="botao botao--secundario"
+              onClick={() => irPara('criar')}
+            >
+              Criar minha conta
+            </button>
           </form>
 
-          {criando ? (
-            <p className="entrar__alternativa">
-              Já tem conta?{' '}
-              <button
-                type="button"
-                className="botao botao--texto"
-                onClick={() => trocarModo('entrar')}
-              >
-                Entrar
-              </button>
-            </p>
-          ) : null}
         </div>
       </div>
     </main>

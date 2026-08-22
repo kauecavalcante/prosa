@@ -11,6 +11,11 @@
   --ocre-marca: #8F6412;
   --traco: #D7DDDF;
 
+  --creme: #FCE3B4;
+  --campo-fundo: #EEF2F3;
+  --contorno: #131A1E;
+  --base-ocre: #8F6412;
+
   --estado-futuros: #4A3FC2;
   --estado-lendo: #0B7268;
   --estado-lidos: #B0295F;
@@ -31,6 +36,17 @@
     --ocre-acao: #D19A3A;
     --ocre-marca: #E7B054;
     --traco: #2A363C;
+
+    /* No escuro o contorno vira luz. O tom vem de --tinta-suave, que é o mais
+       claro do manual que ainda não se confunde com o texto: 6,5:1 sobre a
+       superfície. O #3A4A52 dos cartões do feed daria 1,8:1 e apagaria a borda
+       do campo, que é o que define o campo — o preenchimento quase não muda. */
+    --contorno: #96A5AC;
+    /* O creme é a cor da tela de entrar no claro; no escuro ela dá lugar ao papel. */
+    --creme: #0E1417;
+    --campo-fundo: #0E1417;
+    /* A base do botão continua ocre escuro nos dois temas, como no protótipo. */
+    --base-ocre: #8F6412;
 
     --estado-futuros: #ABA0FF;
     --estado-lendo: #4FD3BD;

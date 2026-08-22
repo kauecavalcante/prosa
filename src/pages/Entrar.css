@@ -1,36 +1,92 @@
+/* Linguagem ilustrada: contorno grosso de tinta, cantos gordos e base sólida
+   sob o que se aperta. Vale para o app inteiro, não só para esta tela. */
+
 .entrar {
-  min-height: 100%;
+  min-height: 100dvh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px 16px 40px;
+  justify-content: center;
+  background: var(--creme);
 }
+
+.entrar--formulario { background: var(--campo-fundo); }
 
 .entrar__quadro {
   width: 100%;
   max-width: 420px;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: inherit;
 }
 
+/* A partir daqui a tela deixa de ocupar o aparelho inteiro e vira o frame do
+   protótipo: contorno grosso e cantos de 34px. */
+@media (min-width: 480px) {
+  .entrar { align-items: center; padding: 24px 16px; }
+
+  .entrar__quadro {
+    min-height: 0;
+    height: min(812px, calc(100dvh - 48px));
+    border: 2.5px solid var(--contorno);
+    border-radius: 34px;
+    overflow: hidden;
+  }
+}
+
+/* ---------------------------------------------------------------- L1 */
+
 .entrar__capa {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 16px 8px 28px;
+  padding: 40px 24px 24px;
 }
 
 .entrar__nome {
   font-family: var(--fonte-voz);
-  font-size: clamp(40px, 12vw, 52px);
+  font-size: clamp(44px, 13vw, 52px);
   font-weight: 600;
   line-height: 1;
-  margin: 14px 0 0;
+  margin: 18px 0 0;
 }
 
 .entrar__lema {
   font-family: var(--fonte-voz);
   font-size: 19px;
   line-height: 1.4;
-  margin: 10px auto 0;
+  margin: 10px 0 0;
   max-width: 24ch;
   text-wrap: pretty;
+}
+
+/* A folha branca encosta na base da tela, como no protótipo: contorno só em
+   cima, cantos gordos apenas nos de cima. */
+.entrar__folha {
+  background: var(--superficie);
+  border-top: 3px solid var(--contorno);
+  border-radius: 28px 28px 0 0;
+  padding: 22px 20px 30px;
+}
+
+/* ---------------------------------------------------------------- L2 e L3 */
+
+.entrar__rolagem {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.entrar__cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 20px 14px;
 }
 
 .entrar__titulo {
@@ -40,22 +96,46 @@
   margin: 0;
 }
 
-.entrar__cabecalho {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 0 20px;
-}
-
-.entrar__cartao {
+.cartao {
   background: var(--superficie);
-  border: 2.5px solid var(--tinta);
-  border-radius: 24px;
-  box-shadow: 0 5px 0 var(--tinta);
-  padding: 20px 18px 24px;
+  border: 2.5px solid var(--contorno);
+  border-radius: 22px;
+  box-shadow: 0 5px 0 var(--contorno);
+  padding: 14px;
 }
 
-.entrar__formulario {
+.cartao__rotulo {
+  font-size: 13px;
+  font-weight: 800;
+  display: block;
+}
+
+/* Espaço reservado da galeria de retratos — US-03, fora deste brief. */
+.retratos {
+  display: flex;
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.retratos__vaga {
+  width: 54px;
+  height: 54px;
+  flex: none;
+  border-radius: 50%;
+  border: 2.5px dashed var(--contorno);
+  background: var(--campo-fundo);
+}
+
+.retratos__nota {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--tinta-suave);
+  margin: 11px 0 0;
+}
+
+/* ---------------------------------------------------------------- campos */
+
+.entrar__formulario-campos {
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -85,8 +165,8 @@
   width: 100%;
   height: 52px;
   border-radius: 16px;
-  background: var(--papel);
-  border: 2.5px solid var(--tinta);
+  background: var(--campo-fundo);
+  border: 2.5px solid var(--contorno);
   color: var(--tinta);
   padding: 0 15px;
   font-size: 16px;
@@ -122,23 +202,16 @@
   line-height: 1.5;
 }
 
-.forca {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+.forca { display: flex; align-items: center; gap: 10px; }
 
-.forca__trilha {
-  flex: 1;
-  display: flex;
-  gap: 5px;
-}
+.forca__trilha { flex: 1; display: flex; gap: 5px; }
 
 .forca__degrau {
   flex: 1;
   height: 7px;
   border-radius: 999px;
   background: var(--traco);
+  border: 1px solid var(--contorno);
 }
 
 .forca__degrau--cheio { background: var(--forca-cor); }
@@ -151,17 +224,16 @@
   text-align: right;
 }
 
+/* ---------------------------------------------------------------- botões */
+
 .botao {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
-  min-height: 54px;
-  border-radius: 17px;
-  font-size: 17px;
-  font-weight: 800;
   cursor: pointer;
   color: var(--tinta);
+  transition: transform 60ms ease-out, box-shadow 60ms ease-out;
 }
 
 .botao:disabled { cursor: progress; }
@@ -170,18 +242,24 @@
    e clara sobre ocre-ação cai para 2,1:1. O ocre é o mesmo nos dois temas, então
    o texto escuro é o único que mantém os 4,5:1 do RNF-08 em ambos. */
 .botao--principal {
+  height: 54px;
+  border-radius: 17px;
   background: var(--ocre-acao);
-  border: 3px solid var(--tinta);
-  box-shadow: 0 5px 0 var(--ocre-marca);
+  border: 3px solid var(--contorno);
+  box-shadow: 0 5px 0 var(--base-ocre);
+  font-size: 17px;
+  font-weight: 800;
   color: #131A1E;
 }
 
 .botao--secundario {
-  min-height: 50px;
-  font-size: 15px;
+  height: 50px;
+  border-radius: 16px;
   background: var(--superficie);
-  border: 2.5px solid var(--tinta);
-  box-shadow: 0 4px 0 var(--tinta);
+  border: 2.5px solid var(--contorno);
+  box-shadow: 0 4px 0 var(--contorno);
+  font-size: 15px;
+  font-weight: 800;
 }
 
 .botao--texto {
@@ -202,7 +280,6 @@
 .botao--voltar {
   width: var(--alvo-minimo);
   height: var(--alvo-minimo);
-  min-height: var(--alvo-minimo);
   flex: none;
   border-radius: 14px;
   background: none;
@@ -211,21 +288,29 @@
   color: var(--tinta);
 }
 
-.botao:active:not(:disabled) {
-  transform: translateY(3px);
+/* O toque afunda o botão até a base e a base some. Só transform e box-shadow
+   mudam, então a altura ocupada é a mesma e o layout não pula. Vale para o
+   Enter e o Espaço do teclado, que também disparam :active. */
+.botao--principal:active:not(:disabled) {
+  transform: translateY(5px);
   box-shadow: none;
 }
 
-.giro {
-  width: 18px;
-  height: 18px;
-  border: 3px solid currentColor;
-  border-top-color: transparent;
-  border-radius: 50%;
-  animation: gira 0.7s linear infinite;
+.botao--secundario:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: none;
 }
 
-@keyframes gira { to { transform: rotate(360deg); } }
+/* Sem movimento, o afundar vira só o sumiço da base — o retorno continua
+   existindo, sem deslocamento. */
+@media (prefers-reduced-motion: reduce) {
+  .botao--principal:active:not(:disabled),
+  .botao--secundario:active:not(:disabled) {
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------------- avisos */
 
 .aviso {
   display: flex;
@@ -234,22 +319,14 @@
   padding: 13px 14px;
   border-radius: 16px;
   border: 2.5px solid;
+  background: var(--superficie);
   font-size: 14px;
   font-weight: 700;
   line-height: 1.45;
 }
 
-.aviso--erro {
-  border-color: var(--estado-lidos);
-  color: var(--estado-lidos);
-  background: var(--superficie);
-}
-
-.aviso--sucesso {
-  border-color: var(--estado-lendo);
-  color: var(--estado-lendo);
-  background: var(--superficie);
-}
+.aviso--erro { border-color: var(--estado-lidos); color: var(--estado-lidos); }
+.aviso--sucesso { border-color: var(--estado-lendo); color: var(--estado-lendo); }
 
 .aviso__acao {
   align-self: flex-start;
@@ -269,6 +346,7 @@
   display: flex;
   gap: 11px;
   align-items: flex-start;
+  margin: 0;
   padding: 13px 14px;
   border-radius: 16px;
   border: 2.5px solid var(--estado-futuros);
@@ -279,18 +357,24 @@
   color: var(--tinta);
 }
 
-.privacidade__marca {
-  flex: none;
-  color: var(--estado-futuros);
-  margin-top: 2px;
-}
-
+.privacidade__marca { flex: none; color: var(--estado-futuros); margin-top: 2px; }
 .privacidade strong { color: var(--estado-futuros); }
 
 .entrar__alternativa {
   text-align: center;
-  margin-top: 16px;
-  font-size: 14px;
-  font-weight: 700;
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-weight: 800;
   color: var(--tinta-suave);
 }
+
+.giro {
+  width: 18px;
+  height: 18px;
+  border: 3px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: gira 0.7s linear infinite;
+}
+
+@keyframes gira { to { transform: rotate(360deg); } }
