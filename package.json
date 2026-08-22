@@ -1,0 +1,34 @@
+{
+  "name": "prosa",
+  "version": "0.1.0",
+  "description": "Rede de leitura organizada em clubes.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kauecavalcante/prosa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kauecavalcante/prosa/issues"
+  },
+  "homepage": "https://github.com/kauecavalcante/prosa#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.112.3",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.0",
+    "vite": "^8.2.2",
+    "vite-plugin-pwa": "^1.3.0"
+  },
+  "private": true,
+  "type": "module"
+}
