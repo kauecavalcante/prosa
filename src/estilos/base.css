@@ -1,0 +1,41 @@
+@import './tokens.css';
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #raiz { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--fonte-interface);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Se pode ser clicado, é sem serifa. A serifada fica para a voz do produto. */
+button, input, select, textarea, label, a {
+  font-family: var(--fonte-interface);
+}
+
+h1, h2, .voz {
+  font-family: var(--fonte-voz);
+  font-weight: 600;
+}
+
+/* RNF-09: o foco precisa ser visível em qualquer fundo. */
+:focus-visible {
+  outline: 3px solid var(--ocre-marca);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+a { color: var(--ocre-marca); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

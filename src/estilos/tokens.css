@@ -1,0 +1,39 @@
+/* Prosa — variáveis do manual da marca.
+   Os hexadecimais são normativos: não arredondar, não substituir por
+   aproximações "melhores". O contraste do RNF-08 depende deles. */
+
+:root {
+  --papel: #F1F3F4;
+  --superficie: #FFFFFF;
+  --tinta: #131A1E;
+  --tinta-suave: #56656D;
+  --ocre-acao: #C4882A;
+  --ocre-marca: #8F6412;
+  --traco: #D7DDDF;
+
+  --estado-futuros: #4A3FC2;
+  --estado-lendo: #0B7268;
+  --estado-lidos: #B0295F;
+
+  --fonte-voz: 'Newsreader', Georgia, serif;
+  --fonte-interface: 'Nunito', system-ui, sans-serif;
+
+  /* RNF-11: nenhum alvo de toque abaixo disso. */
+  --alvo-minimo: 44px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --papel: #0E1417;
+    --superficie: #172025;
+    --tinta: #E8EDEF;
+    --tinta-suave: #96A5AC;
+    --ocre-acao: #D19A3A;
+    --ocre-marca: #E7B054;
+    --traco: #2A363C;
+
+    --estado-futuros: #ABA0FF;
+    --estado-lendo: #4FD3BD;
+    --estado-lidos: #FF93B6;
+  }
+}
