@@ -1,0 +1,296 @@
+.entrar {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 40px;
+}
+
+.entrar__quadro {
+  width: 100%;
+  max-width: 420px;
+}
+
+.entrar__capa {
+  text-align: center;
+  padding: 16px 8px 28px;
+}
+
+.entrar__nome {
+  font-family: var(--fonte-voz);
+  font-size: clamp(40px, 12vw, 52px);
+  font-weight: 600;
+  line-height: 1;
+  margin: 14px 0 0;
+}
+
+.entrar__lema {
+  font-family: var(--fonte-voz);
+  font-size: 19px;
+  line-height: 1.4;
+  margin: 10px auto 0;
+  max-width: 24ch;
+  text-wrap: pretty;
+}
+
+.entrar__titulo {
+  font-family: var(--fonte-voz);
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.entrar__cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0 20px;
+}
+
+.entrar__cartao {
+  background: var(--superficie);
+  border: 2.5px solid var(--tinta);
+  border-radius: 24px;
+  box-shadow: 0 5px 0 var(--tinta);
+  padding: 20px 18px 24px;
+}
+
+.entrar__formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.campo__rotulo {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.campo__caixa {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.campo__entrada {
+  width: 100%;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--papel);
+  border: 2.5px solid var(--tinta);
+  color: var(--tinta);
+  padding: 0 15px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.campo__entrada--com-botao { padding-right: 92px; }
+
+.campo__entrada::placeholder {
+  color: var(--tinta-suave);
+  font-weight: 600;
+}
+
+.campo__mostrar {
+  position: absolute;
+  right: 5px;
+  min-width: var(--alvo-minimo);
+  height: var(--alvo-minimo);
+  padding: 0 10px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--ocre-marca);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.campo__ajuda {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--tinta-suave);
+  line-height: 1.5;
+}
+
+.forca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.forca__trilha {
+  flex: 1;
+  display: flex;
+  gap: 5px;
+}
+
+.forca__degrau {
+  flex: 1;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--traco);
+}
+
+.forca__degrau--cheio { background: var(--forca-cor); }
+
+.forca__rotulo {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--forca-cor);
+  min-width: 6ch;
+  text-align: right;
+}
+
+.botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 54px;
+  border-radius: 17px;
+  font-size: 17px;
+  font-weight: 800;
+  cursor: pointer;
+  color: var(--tinta);
+}
+
+.botao:disabled { cursor: progress; }
+
+/* A tinta aqui é fixa em vez de var(--tinta): no tema escuro a tinta clareia,
+   e clara sobre ocre-ação cai para 2,1:1. O ocre é o mesmo nos dois temas, então
+   o texto escuro é o único que mantém os 4,5:1 do RNF-08 em ambos. */
+.botao--principal {
+  background: var(--ocre-acao);
+  border: 3px solid var(--tinta);
+  box-shadow: 0 5px 0 var(--ocre-marca);
+  color: #131A1E;
+}
+
+.botao--secundario {
+  min-height: 50px;
+  font-size: 15px;
+  background: var(--superficie);
+  border: 2.5px solid var(--tinta);
+  box-shadow: 0 4px 0 var(--tinta);
+}
+
+.botao--texto {
+  display: inline-flex;
+  vertical-align: middle;
+  min-height: var(--alvo-minimo);
+  padding: 0 6px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ocre-marca);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.botao--voltar {
+  width: var(--alvo-minimo);
+  height: var(--alvo-minimo);
+  min-height: var(--alvo-minimo);
+  flex: none;
+  border-radius: 14px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: var(--tinta);
+}
+
+.botao:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.giro {
+  width: 18px;
+  height: 18px;
+  border: 3px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: gira 0.7s linear infinite;
+}
+
+@keyframes gira { to { transform: rotate(360deg); } }
+
+.aviso {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 13px 14px;
+  border-radius: 16px;
+  border: 2.5px solid;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.aviso--erro {
+  border-color: var(--estado-lidos);
+  color: var(--estado-lidos);
+  background: var(--superficie);
+}
+
+.aviso--sucesso {
+  border-color: var(--estado-lendo);
+  color: var(--estado-lendo);
+  background: var(--superficie);
+}
+
+.aviso__acao {
+  align-self: flex-start;
+  min-height: var(--alvo-minimo);
+  padding: 0 4px;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.privacidade {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  padding: 13px 14px;
+  border-radius: 16px;
+  border: 2.5px solid var(--estado-futuros);
+  background: var(--superficie);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--tinta);
+}
+
+.privacidade__marca {
+  flex: none;
+  color: var(--estado-futuros);
+  margin-top: 2px;
+}
+
+.privacidade strong { color: var(--estado-futuros); }
+
+.entrar__alternativa {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--tinta-suave);
+}
