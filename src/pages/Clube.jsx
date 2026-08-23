@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { geraConvite } from '../lib/clubes'
-import { abreVotacao, cicloAberto, cicloEmLeitura } from '../lib/ciclos'
+import { abreVotacao, cicloAberto, cicloComLivro } from '../lib/ciclos'
 import { CardLivro } from '../components/CardLivro'
 import { mensagemDeErro } from '../lib/mensagens'
 import { useClube } from '../hooks/useClube'
@@ -39,7 +39,7 @@ export default function Clube() {
     cicloAberto(id).then(({ ciclo: aberto }) => {
       if (ativo) setCiclo(aberto)
     })
-    cicloEmLeitura(id).then(({ ciclo: lendo }) => {
+    cicloComLivro(id).then(({ ciclo: lendo }) => {
       if (ativo) setEmLeitura(lendo)
     })
     return () => {

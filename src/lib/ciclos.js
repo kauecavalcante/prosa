@@ -69,12 +69,15 @@ export async function propoeLivro({ cicloId, achado, defesa }) {
   return { proposta: data[0], erro: null }
 }
 
-export async function cicloEmLeitura(clubeId) {
+/* O livro atual do clube sai do ciclo mais recente que tem livro escolhido, e
+   não do status: abrir a votação seguinte põe o anterior em 'encerrado', e
+   filtrar por 'leitura' faria o livro em curso sumir da tela. */
+export async function cicloComLivro(clubeId) {
   const { data, error } = await supabase
     .from('ciclo')
     .select('id, status, prazo, criado_em, livro:livro_id (id, titulo, autores, capa_url, paginas, ano)')
     .eq('clube_id', clubeId)
-    .eq('status', 'leitura')
+    .not('livro_id', 'is', null)
     .order('criado_em', { ascending: false })
     .limit(1)
 

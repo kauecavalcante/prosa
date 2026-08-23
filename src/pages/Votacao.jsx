@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import {
   cicloAberto,
-  cicloEmLeitura,
+  cicloComLivro,
   encerraVotacao,
   listaPropostas,
   registraVoto,
@@ -52,7 +52,7 @@ export default function Votacao() {
     const { ciclo: aberto } = await cicloAberto(id)
     setCiclo(aberto)
 
-    const { ciclo: anterior } = await cicloEmLeitura(id)
+    const { ciclo: anterior } = await cicloComLivro(id)
     setPassado(anterior)
 
     if (aberto) {
