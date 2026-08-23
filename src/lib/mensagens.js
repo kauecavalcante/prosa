@@ -39,6 +39,17 @@ const POR_CODIGO = {
     texto: 'Só quem administra o clube pode convidar. Peça a quem criou.',
   },
 
+  // A restrição unique (ciclo_id, livro_id) da US-19.
+  '23505': {
+    texto: 'Esse livro já está na votação. Escolha outro, ou defenda o que já foi proposto.',
+  },
+  LIVRO_AUSENTE: {
+    texto: 'Não encontramos esse livro. Ele pode ter sido removido — tente buscar de novo.',
+  },
+  BUSCA_FORA: {
+    texto: 'Não conseguimos falar com o catálogo agora. Tente de novo em instantes.',
+  },
+
   SEM_SESSAO: {
     texto: 'Sua sessão expirou. Entre de novo e tente outra vez.',
   },
