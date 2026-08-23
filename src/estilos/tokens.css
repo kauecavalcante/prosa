@@ -21,6 +21,12 @@
   --estado-lendo: #0B7268;
   --estado-lidos: #B0295F;
 
+  /* Família framboesa do tratamento de spoiler. Os tons claros são os do
+     protótipo; os escuros são os que ele desenha nas telas escuras. */
+  --framboesa-veu: #FFF5F8;
+  --framboesa-fundo: #FBD3E1;
+  --framboesa-rotulo: #7C1B43;
+
   --fonte-voz: 'Newsreader', Georgia, serif;
   --fonte-interface: 'Nunito', system-ui, sans-serif;
 
@@ -55,5 +61,9 @@
     --estado-futuros: #ABA0FF;
     --estado-lendo: #4FD3BD;
     --estado-lidos: #FF93B6;
+
+    --framboesa-veu: #2E1220;
+    --framboesa-fundo: #4A2F3C;
+    --framboesa-rotulo: #FF93B6;
   }
 }
