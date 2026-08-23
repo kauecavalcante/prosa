@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
+import { observaRecuperacao } from './recuperacao'
 
 const url = import.meta.env.VITE_SUPABASE_URL
 const chaveAnonima = import.meta.env.VITE_SUPABASE_ANON_KEY
@@ -18,3 +19,8 @@ export const supabase = createClient(url, chaveAnonima, {
     detectSessionInUrl: true,
   },
 })
+
+// Registrada aqui, na mesma linha de execução em que o cliente nasce, para a
+// assinatura existir antes de qualquer retorno de rede — e sem depender de
+// ordem de importação, que o empacotador reordena sem avisar.
+observaRecuperacao(supabase)

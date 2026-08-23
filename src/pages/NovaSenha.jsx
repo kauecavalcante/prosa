@@ -2,7 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { MINIMO_DA_SENHA, mensagemDeErro } from '../lib/mensagens'
-import { encerraRecuperacao, marcadorDeRecuperacao } from '../lib/recuperacao'
+import {
+  assinaRecuperacao,
+  encerraRecuperacao,
+  pistaDoEndereco,
+  recuperacaoConfirmada,
+} from '../lib/recuperacao'
 import { CampoSenha } from '../components/CampoSenha'
 import { Marca } from '../components/Marca'
 import '../estilos/formulario.css'
@@ -10,8 +15,9 @@ import '../estilos/formulario.css'
 export default function NovaSenha() {
   const navegar = useNavigate()
 
-  const [marcador] = useState(marcadorDeRecuperacao)
+  const [pista] = useState(pistaDoEndereco)
   const [estado, setEstado] = useState('verificando')
+  const [temSessao, setTemSessao] = useState(false)
   const [senha, setSenha] = useState('')
   const [enviando, setEnviando] = useState(false)
   const [erro, setErro] = useState(null)
@@ -23,43 +29,56 @@ export default function NovaSenha() {
   }, [erro])
 
   useEffect(() => {
-    if (marcador.erro) {
-      setErro(mensagemDeErro(marcador.erro))
+    if (pista.erro) {
+      setErro(mensagemDeErro(pista.erro))
       setEstado('sem-recuperacao')
-      return
-    }
-
-    // Só o marcador de recuperação abre o formulário. Sessão comum não serve:
-    // quem pegasse um aparelho destravado trocaria a senha sem saber a atual,
-    // e a troca derruba as outras sessões — o dono é que ficaria de fora.
-    if (!marcador.recuperacao) {
-      setEstado('sessao-comum')
       return
     }
 
     let ativo = true
 
-    // O token pode ser consumido antes desta tela montar, então além de ouvir
-    // o aviso a sessão também é lida.
-    const { data: inscricao } = supabase.auth.onAuthStateChange((evento, sessao) => {
-      if (!ativo) return
-      if (evento === 'PASSWORD_RECOVERY' || (evento === 'SIGNED_IN' && sessao)) {
-        setEstado('pronto')
-      }
-    })
+    const liberar = () => {
+      if (ativo) setEstado('pronto')
+    }
 
+    if (recuperacaoConfirmada()) {
+      liberar()
+      return
+    }
+
+    // A pista do endereço não abre o formulário sozinha: ela só compra tempo
+    // para o evento chegar. Sem evento, nega.
+    if (!pista.emCurso) {
+      supabase.auth.getSession().then(({ data }) => {
+        if (!ativo) return
+        setTemSessao(Boolean(data.session))
+        setEstado('negado')
+      })
+      return () => {
+        ativo = false
+      }
+    }
+
+    const desassina = assinaRecuperacao(liberar)
+
+    // getSession só resolve depois de a biblioteca terminar de processar o
+    // endereço; a folga cobre o disparo do evento, que ela agenda para o
+    // laço seguinte.
     supabase.auth.getSession().then(({ data }) => {
       if (!ativo) return
-      setEstado((atual) =>
-        atual === 'verificando' ? (data.session ? 'pronto' : 'sem-recuperacao') : atual
-      )
+      setTemSessao(Boolean(data.session))
+      setTimeout(() => {
+        if (!ativo) return
+        if (recuperacaoConfirmada()) liberar()
+        else setEstado('negado')
+      }, 250)
     })
 
     return () => {
       ativo = false
-      inscricao.subscription.unsubscribe()
+      desassina()
     }
-  }, [marcador])
+  }, [pista])
 
   function pedirOutroLink() {
     navegar('/entrar', { replace: true, state: { passo: 'recuperar' } })
@@ -87,13 +106,7 @@ export default function NovaSenha() {
     navegar('/', { replace: true })
   }
 
-  if (estado === 'verificando') return null
-
-  // Já autenticado e sem vir de link: esta tela não é o lugar de trocar senha
-  // sabendo a atual — isso é outra história, com pedido da senha vigente.
-  if (estado === 'sessao-comum') return <Navigate to="/" replace />
-
-  if (estado === 'sem-recuperacao') {
+  function SemRecuperacao() {
     return (
       <main className="entrar entrar--formulario">
         <div className="entrar__quadro">
@@ -124,6 +137,17 @@ export default function NovaSenha() {
       </main>
     )
   }
+
+  if (estado === 'verificando') return null
+
+  // Sem evento de recuperação confirmado pela biblioteca não há formulário.
+  // Quem já está autenticado volta para o feed; quem não está vê a tela de
+  // link inválido, que oferece pedir outro.
+  if (estado === 'negado') {
+    return temSessao ? <Navigate to="/" replace /> : <SemRecuperacao />
+  }
+
+  if (estado === 'sem-recuperacao') return <SemRecuperacao />
 
   return (
     <main className="entrar">
