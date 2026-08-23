@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { geraConvite } from '../lib/clubes'
+import { abreVotacao, cicloAberto } from '../lib/ciclos'
 import { mensagemDeErro } from '../lib/mensagens'
 import { useClube } from '../hooks/useClube'
 import { useSessao } from '../hooks/useSessao'
@@ -17,8 +18,38 @@ export default function Clube() {
   const [gerando, setGerando] = useState(false)
   const [erroDoConvite, setErroDoConvite] = useState(null)
   const [copiado, setCopiado] = useState(false)
+  const [ciclo, setCiclo] = useState(null)
+  const [abrindo, setAbrindo] = useState(false)
 
   const souAdmin = membros.some((m) => m.perfil.id === usuario?.id && m.papel === 'admin')
+
+  useEffect(() => {
+    let ativo = true
+    cicloAberto(id).then(({ ciclo: aberto }) => {
+      if (ativo) setCiclo(aberto)
+    })
+    return () => {
+      ativo = false
+    }
+  }, [id])
+
+  async function aoAbrirVotacao() {
+    setErroDoConvite(null)
+    setAbrindo(true)
+
+    // Uma semana para a votação; o prazo de leitura vem depois, com o livro.
+    const ate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString()
+    const { ciclo: novo, erro: falha } = await abreVotacao({ clubeId: id, votacaoAte: ate })
+
+    if (falha) {
+      setErroDoConvite(mensagemDeErro(falha))
+      setAbrindo(false)
+      return
+    }
+    setCiclo(novo)
+    setAbrindo(false)
+    navegar(`/clube/${id}/votacao`)
+  }
 
   async function aoConvidar() {
     setErroDoConvite(null)
@@ -118,14 +149,44 @@ export default function Clube() {
             </div>
           )}
 
-          {/* O ciclo é o épico E4. Até lá o lugar dele orienta em vez de ficar em branco. */}
           <span className="rotulo-secao">Livro do ciclo</span>
-          <div className="caminho" style={{ marginTop: 0 }}>
-            <p className="caminho__texto">
-              Nenhum ciclo aberto ainda. Quando a votação existir, é aqui que o livro
-              escolhido e o prazo da conversa vão aparecer.
-            </p>
-          </div>
+          {ciclo ? (
+            <div className="caminho" style={{ marginTop: 0 }}>
+              <p className="caminho__texto">
+                A votação está aberta. O livro do ciclo sai dela — proponha o seu e
+                veja o que o clube já sugeriu.
+              </p>
+              <button
+                type="button"
+                className="botao botao--principal"
+                onClick={() => navegar(`/clube/${id}/votacao`)}
+              >
+                Ver a votação
+              </button>
+            </div>
+          ) : (
+            <div className="caminho" style={{ marginTop: 0 }}>
+              <p className="caminho__texto">
+                Nenhum ciclo aberto ainda. A votação escolhe o livro, e o livro escolhido
+                aparece aqui com o prazo da conversa.
+              </p>
+              {souAdmin ? (
+                <button
+                  type="button"
+                  className="botao botao--principal"
+                  onClick={aoAbrirVotacao}
+                  disabled={abrindo}
+                >
+                  {abrindo && <span className="giro" aria-hidden="true" />}
+                  {abrindo ? 'Abrindo…' : 'Abrir a votação'}
+                </button>
+              ) : (
+                <p className="caminho__texto">
+                  Quem administra o clube é quem abre a votação.
+                </p>
+              )}
+            </div>
+          )}
 
           <span className="rotulo-secao">Quem está no clube</span>
           <ul className="lista">
