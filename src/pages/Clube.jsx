@@ -206,6 +206,14 @@ export default function Clube() {
                 </div>
               </div>
 
+              <button
+                type="button"
+                className="botao botao--principal"
+                onClick={() => navegar(`/clube/${id}/livro/${emLeitura.livro.id}`)}
+              >
+                Abrir a conversa
+              </button>
+
               {/* Sem isto o clube travava no primeiro ciclo: com um livro em
                   leitura, não havia caminho para escolher o próximo. */}
               {ciclo ? (

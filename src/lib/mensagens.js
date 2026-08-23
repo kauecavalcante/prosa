@@ -61,6 +61,20 @@ const POR_CODIGO = {
     texto: 'A votação não foi encerrada. Ela pode já ter sido fechada por outra pessoa — recarregue para ver o resultado.',
   },
 
+  // O gatilho nota_exige_lido, com código próprio desde a migração 010.
+  PR007: {
+    texto: 'Só dá para avaliar um livro que você marcou como lido. Mova ele para Lidos e a nota abre.',
+  },
+  NOTA_RECUSADA: {
+    texto: 'A nota não foi salva. Confira se o livro está marcado como lido e tente de novo.',
+  },
+  RESENHA_RECUSADA: {
+    texto: 'A resenha não foi salva. Tente de novo em instantes.',
+  },
+  FALA_RECUSADA: {
+    texto: 'Sua mensagem não foi enviada. Recarregue a página e tente de novo.',
+  },
+
   SEM_SESSAO: {
     texto: 'Sua sessão expirou. Entre de novo e tente outra vez.',
   },

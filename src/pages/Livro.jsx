@@ -4,6 +4,10 @@ import { buscaLivroPorId } from '../lib/buscaLivros'
 import { mensagemDeErro } from '../lib/mensagens'
 import { CardLivro } from '../components/CardLivro'
 import { ChipEstado, ESTADOS } from '../components/ChipEstado'
+import { Estrelas } from '../components/Estrelas'
+import { Spoiler } from '../components/Spoiler'
+import { Retrato } from '../components/Retrato'
+import { listaResenhas, minhaNota, salvaNota, salvaResenha } from '../lib/avaliacoes'
 import { livrosNaMinhaEstante, moveItem, poeNaEstante } from '../lib/estante'
 import { supabase } from '../lib/supabase'
 import '../estilos/clube.css'
@@ -21,6 +25,11 @@ export default function Livro() {
   const [inteira, setInteira] = useState(false)
   const [naEstante, setNaEstante] = useState(null)
   const [salvando, setSalvando] = useState(false)
+  const [nota, setNota] = useState(null)
+  const [resenhas, setResenhas] = useState([])
+  const [textoResenha, setTextoResenha] = useState('')
+  const [spoilerResenha, setSpoilerResenha] = useState(false)
+  const [escrevendo, setEscrevendo] = useState(false)
 
   useEffect(() => {
     let ativo = true
@@ -48,9 +57,51 @@ export default function Livro() {
     setNaEstante(data ?? null)
   }, [id])
 
+  const lerAvaliacoes = useCallback(async () => {
+    const [{ nota: minha }, { resenhas: lista }] = await Promise.all([
+      minhaNota(id),
+      listaResenhas(id),
+    ])
+    setNota(minha)
+    setResenhas(lista ?? [])
+  }, [id])
+
   useEffect(() => {
     lerEstante()
-  }, [lerEstante])
+    lerAvaliacoes()
+  }, [lerEstante, lerAvaliacoes])
+
+  async function aoNotar(valor) {
+    setErro(null)
+    const { erro: falha } = await salvaNota({ livroId: id, valor })
+    if (falha) {
+      setErro(mensagemDeErro(falha))
+      return
+    }
+    setNota(valor)
+  }
+
+  async function aoResenhar(evento) {
+    evento.preventDefault()
+    if (!textoResenha.trim()) return
+    setErro(null)
+    setEscrevendo(true)
+
+    const { erro: falha } = await salvaResenha({
+      livroId: id,
+      texto: textoResenha,
+      spoiler: spoilerResenha,
+    })
+    if (falha) {
+      setErro(mensagemDeErro(falha))
+      setEscrevendo(false)
+      return
+    }
+    setTextoResenha('')
+    setSpoilerResenha(false)
+    setEscrevendo(false)
+    lerAvaliacoes()
+  }
 
   /* É por aqui que o livro entra na estante. Sem digitar nada: três botões,
      um por estado — o que a US-28 pede e o caminho alternativo da US-29. */
@@ -150,6 +201,77 @@ export default function Livro() {
                 </span>
               ))}
             </div>
+          )}
+
+          {/* A nota só aparece para quem marcou o livro como lido: o gatilho
+              nota_exige_lido recusaria, e oferecer o que vai ser negado é
+              gastar o clique de quem está ali. */}
+          {naEstante?.estado === 'lido' ? (
+            <div className="caminho" style={{ marginTop: 0 }}>
+              <span className="cartao__rotulo">Sua nota</span>
+              <Estrelas valor={nota ?? 0} aoEscolher={aoNotar} />
+              <p className="caminho__texto">
+                {nota === null
+                  ? 'De 0 a 5. Dá para mudar depois.'
+                  : `Você deu ${nota} de 5.`}
+              </p>
+            </div>
+          ) : (
+            <div className="caminho" style={{ marginTop: 0 }}>
+              <span className="cartao__rotulo">Sua nota</span>
+              <p className="caminho__texto">
+                A nota abre quando você marcar o livro como lido.
+              </p>
+            </div>
+          )}
+
+          <div className="caminho" style={{ marginTop: 0 }}>
+            <span className="cartao__rotulo">Sua resenha</span>
+            <form onSubmit={aoResenhar} style={{ display: 'grid', gap: 10 }}>
+              <div className="campo__caixa">
+                <textarea
+                  id="resenha"
+                  className="campo__entrada"
+                  style={{ height: 92, padding: '12px 15px', resize: 'vertical' }}
+                  value={textoResenha}
+                  onChange={(e) => setTextoResenha(e.target.value)}
+                  placeholder="o que ficou depois de fechar o livro?"
+                  aria-label="Sua resenha"
+                />
+              </div>
+              <label className="marcar-spoiler">
+                <input
+                  type="checkbox"
+                  checked={spoilerResenha}
+                  onChange={(e) => setSpoilerResenha(e.target.checked)}
+                />
+                Contém spoiler
+              </label>
+              <button type="submit" className="botao botao--secundario" disabled={escrevendo}>
+                {escrevendo ? 'Salvando…' : 'Publicar resenha'}
+              </button>
+            </form>
+          </div>
+
+          {resenhas.length > 0 && (
+            <>
+              <span className="rotulo-secao">
+                {resenhas.length === 1 ? '1 resenha' : `${resenhas.length} resenhas`}
+              </span>
+              {resenhas.map((resenha) => (
+                <article className="fala" key={resenha.id}>
+                  <div className="fala__quem">
+                    <Retrato nome={resenha.quem.retrato} tamanho={30} />
+                    <span className="fala__nome">{resenha.quem.nome}</span>
+                  </div>
+                  {resenha.spoiler ? (
+                    <Spoiler quem={resenha.quem.nome}>{resenha.texto}</Spoiler>
+                  ) : (
+                    <p className="fala__texto">{resenha.texto}</p>
+                  )}
+                </article>
+              ))}
+            </>
           )}
 
           {livro.descricao ? (

@@ -708,3 +708,139 @@
   font-size: 11px;
   font-weight: 800;
 }
+
+/* ---------------------------------------------------------------- nota */
+
+.estrelas { display: inline-flex; align-items: center; gap: 2px; }
+
+.estrelas__alvo {
+  min-width: var(--alvo-minimo);
+  min-height: var(--alvo-minimo);
+  display: grid;
+  place-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--estado-lidos);
+}
+
+.estrelas__alvo--zero { font-size: 15px; font-weight: 800; }
+
+/* ---------------------------------------------------------------- spoiler */
+
+.spoiler {
+  border-radius: 16px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.spoiler--oculto {
+  border: 2.5px dashed var(--estado-lidos);
+  background: var(--framboesa-veu);
+  color: var(--estado-lidos);
+}
+
+.spoiler__aviso { font-size: 13px; font-weight: 800; color: var(--tinta); }
+
+.spoiler__calma { font-size: 12px; font-weight: 700; color: var(--tinta-suave); }
+
+.spoiler__mostrar {
+  min-height: var(--alvo-minimo);
+  margin-top: 4px;
+  padding: 0 18px;
+  border-radius: 14px;
+  background: var(--ocre-acao);
+  border: 2.5px solid var(--contorno);
+  box-shadow: 0 4px 0 var(--base-ocre);
+  color: #131A1E;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 60ms ease-out, box-shadow 60ms ease-out;
+}
+
+.spoiler__mostrar:active { transform: translateY(4px); box-shadow: none; }
+
+.spoiler--aberto {
+  border: 2.5px solid var(--estado-lidos);
+  background: var(--framboesa-fundo);
+  align-items: flex-start;
+  text-align: left;
+}
+
+.spoiler__rotulo {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--framboesa-rotulo);
+}
+
+.spoiler__texto {
+  font-family: var(--fonte-voz);
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 0;
+  color: var(--tinta);
+  text-wrap: pretty;
+}
+
+.spoiler__esconder {
+  min-height: var(--alvo-minimo);
+  padding: 0 14px;
+  border-radius: 12px;
+  background: var(--superficie);
+  border: 2px solid var(--contorno);
+  box-shadow: 0 3px 0 var(--contorno);
+  color: var(--tinta);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------------- conversa */
+
+.fala {
+  background: var(--superficie);
+  border: 2.5px solid var(--contorno);
+  border-radius: 20px;
+  box-shadow: 0 4px 0 var(--contorno);
+  padding: 12px;
+}
+
+.fala__quem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 8px;
+}
+
+.fala__nome { font-size: 14px; font-weight: 800; }
+
+.fala__quando { font-size: 12px; font-weight: 700; color: var(--tinta-suave); }
+
+.fala__texto {
+  font-family: var(--fonte-voz);
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.marcar-spoiler {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: var(--alvo-minimo);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--tinta);
+  cursor: pointer;
+}
+
+.marcar-spoiler input { width: 20px; height: 20px; accent-color: var(--estado-lidos); }
