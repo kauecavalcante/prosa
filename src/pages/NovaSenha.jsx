@@ -7,6 +7,7 @@ import {
   encerraRecuperacao,
   pistaDoEndereco,
   recuperacaoConfirmada,
+  sessaoNasceuDeSenha,
 } from '../lib/recuperacao'
 import { CampoSenha } from '../components/CampoSenha'
 import { Marca } from '../components/Marca'
@@ -69,7 +70,9 @@ export default function NovaSenha() {
       setTemSessao(Boolean(data.session))
       setTimeout(() => {
         if (!ativo) return
-        if (recuperacaoConfirmada()) liberar()
+        // Sessão nascida de senha não troca senha por aqui: o servidor pede a
+        // atual e o formulário só levaria a pessoa a um erro evitável.
+        if (recuperacaoConfirmada() && !sessaoNasceuDeSenha(data.session)) liberar()
         else setEstado('negado')
       }, 250)
     })

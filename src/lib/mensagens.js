@@ -13,6 +13,39 @@ const POR_CODIGO = {
     texto: 'Esse link de senha já venceu ou já foi usado.',
     acao: 'novo-link',
   },
+  current_password_required: {
+    texto: 'Para trocar a senha estando conectado, o Prosa pede a senha atual. Saia e use o link de "Esqueci a senha" para escolher outra.',
+  },
+
+  // Códigos que entrar_por_convite e criar_convite levantam. Cada um pede uma
+  // resposta diferente: quem errou o código refaz, quem já entrou só precisa ir.
+  PR000: {
+    texto: 'Você precisa entrar na sua conta antes de aceitar o convite.',
+  },
+  PR001: {
+    texto: 'Não encontramos esse convite. Confira se o código veio inteiro — ele tem 12 caracteres.',
+  },
+  PR002: {
+    texto: 'Esse convite foi cancelado por quem administra o clube. Peça um novo.',
+  },
+  PR003: {
+    texto: 'Esse convite venceu. Peça outro a quem te chamou — eles valem sete dias.',
+  },
+  PR004: {
+    texto: 'Você já está nesse clube.',
+    acao: 'ir-ao-clube',
+  },
+  PR005: {
+    texto: 'Só quem administra o clube pode convidar. Peça a quem criou.',
+  },
+
+  SEM_SESSAO: {
+    texto: 'Sua sessão expirou. Entre de novo e tente outra vez.',
+  },
+  SEM_LINHA: {
+    texto: 'A operação não foi aceita. Recarregue a página e tente de novo.',
+  },
+
   same_password: {
     texto: 'Essa é a senha que você já usa. Escolha uma diferente.',
   },

@@ -34,6 +34,34 @@ export function recuperacaoConfirmada() {
   return eventoObservado
 }
 
+/* O servidor assina o método de autenticação no próprio token: `password` numa
+   sessão comum, `otp` na que nasceu de um link de recuperação.
+
+   Isto NÃO é trava. Quem tem console chama updateUser direto e nem passa por
+   esta tela — quem barra é o servidor, que exige a senha atual fora da
+   recuperação. Aqui serve para não abrir um formulário que vai falhar. */
+export function sessaoNasceuDeSenha(sessao) {
+  const bruto = sessao?.access_token
+  if (typeof bruto !== 'string') return false
+
+  try {
+    const corpo = bruto.split('.')[1]
+    if (!corpo) return false
+    const json = JSON.parse(
+      decodeURIComponent(
+        atob(corpo.replace(/-/g, '+').replace(/_/g, '/'))
+          .split('')
+          .map((c) => '%' + c.charCodeAt(0).toString(16).padStart(2, '0'))
+          .join('')
+      )
+    )
+    const metodos = Array.isArray(json.amr) ? json.amr : []
+    return metodos.length > 0 && metodos.every((m) => m?.method === 'password')
+  } catch {
+    return false
+  }
+}
+
 export function assinaRecuperacao(ouvinte) {
   ouvintes.add(ouvinte)
   return () => ouvintes.delete(ouvinte)
