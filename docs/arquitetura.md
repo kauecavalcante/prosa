@@ -216,6 +216,14 @@ As três regras que sustentam o resto:
 
 Além disso, o gatilho `nota_exige_lido` garante a regra da US-34 — só avalia quem marcou o livro como lido — mesmo que a interface deixe passar.
 
+### Duas armadilhas de RLS que já custaram tempo
+
+**`INSERT ... RETURNING` falha quando a permissão de leitura nasce de um gatilho na mesma instrução.** Criar clube devolvia `42501 new row violates row-level security policy`. A inserção passa; o que falha é a leitura de volta — o gatilho que torna o criador membro é `AFTER INSERT`, e o `returning` é avaliado antes dele terminar, então a linha ainda não satisfaz `clube_leitura`. O PostgreSQL reporta isso como violação de política do `insert`, o que manda quem depura para o lugar errado.
+
+Isso vale **apenas para `clube`**. Em `ciclo` e `proposta`, quem escreve já é membro antes da inserção, então o `returning` funciona — verificado em transação com papel `authenticated`. A condição não é "leitura restrita a membro", é "permissão criada por gatilho dentro da mesma instrução".
+
+**`membro_clube` devolve os membros de todos os clubes de que participo.** A política de leitura é `e_membro(clube_id)`, não `perfil_id = auth.uid()`. Uma consulta que quer *as minhas linhas* precisa filtrar pelo próprio perfil — sem isso a lista de clubes vem duplicada e o papel exibido pode ser o de outra pessoa, mostrando alguém como administrador de um clube onde é membro comum.
+
 ---
 
 ## 6. Ambiente
