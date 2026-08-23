@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { buscaLivroPorId } from '../lib/buscaLivros'
 import { mensagemDeErro } from '../lib/mensagens'
 import { CardLivro } from '../components/CardLivro'
+import { ChipEstado, ESTADOS } from '../components/ChipEstado'
+import { livrosNaMinhaEstante, moveItem, poeNaEstante } from '../lib/estante'
+import { supabase } from '../lib/supabase'
 import '../estilos/clube.css'
 
 /* A B3 traz nota média e a contagem por estado na estante. Nota é o épico E6 e
@@ -16,6 +19,8 @@ export default function Livro() {
   const [carregando, setCarregando] = useState(true)
   const [erro, setErro] = useState(null)
   const [inteira, setInteira] = useState(false)
+  const [naEstante, setNaEstante] = useState(null)
+  const [salvando, setSalvando] = useState(false)
 
   useEffect(() => {
     let ativo = true
@@ -29,6 +34,42 @@ export default function Livro() {
       ativo = false
     }
   }, [id])
+
+  const lerEstante = useCallback(async () => {
+    const { data: sessao } = await supabase.auth.getSession()
+    const perfilId = sessao?.session?.user?.id
+    if (!perfilId) return
+    const { data } = await supabase
+      .from('item_estante')
+      .select('id, estado')
+      .eq('perfil_id', perfilId)
+      .eq('livro_id', id)
+      .maybeSingle()
+    setNaEstante(data ?? null)
+  }, [id])
+
+  useEffect(() => {
+    lerEstante()
+  }, [lerEstante])
+
+  /* É por aqui que o livro entra na estante. Sem digitar nada: três botões,
+     um por estado — o que a US-28 pede e o caminho alternativo da US-29. */
+  async function aoMarcar(estado) {
+    setErro(null)
+    setSalvando(true)
+
+    const falha = naEstante
+      ? (await moveItem({ itemId: naEstante.id, estado })).erro
+      : (await poeNaEstante({ livroId: id, estado })).erro
+
+    if (falha) {
+      setErro(mensagemDeErro(falha))
+      setSalvando(false)
+      return
+    }
+    await lerEstante()
+    setSalvando(false)
+  }
 
   if (carregando) return null
 
@@ -82,6 +123,24 @@ export default function Livro() {
         </div>
 
         <div className="corpo">
+          {erro && (
+            <div className="aviso aviso--erro" role="alert">
+              <span>{erro.texto}</span>
+            </div>
+          )}
+
+          <span className="rotulo-secao">Na sua estante</span>
+          <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap' }}>
+            {ESTADOS.map((estado) => (
+              <ChipEstado
+                key={estado}
+                estado={estado}
+                marcado={naEstante?.estado === estado}
+                aoClicar={salvando ? undefined : () => aoMarcar(estado)}
+              />
+            ))}
+          </div>
+
           {fichas.length > 0 && (
             <div className="fichas">
               {fichas.map((f) => (
