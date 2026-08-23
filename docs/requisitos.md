@@ -121,7 +121,9 @@ O laço de baixo é o que a v1 não tinha: o feed devolve descoberta para dentro
 | US-04 | Como usuário, quero editar meu nome de exibição. | M |
 | US-59 | Como usuário, quero redefinir minha senha por e-mail, para voltar a entrar quando esquecer. | M |
 
-**Critérios — US-03:** galeria com no mínimo 8 retratos ilustrados; seleção reflete imediatamente no perfil, no feed e na lista de membros; retrato padrão atribuído a quem não escolher.
+**Critérios — US-03:** galeria com os retratos ilustrados que a identidade fornecer — hoje são 6, desenhados no protótipo; seleção reflete imediatamente no perfil, no feed e na lista de membros; retrato padrão atribuído a quem não escolher.
+
+> Seis retratos é pouco para um clube de cinco pessoas: a chance de repetição é alta. Ampliar o conjunto é tarefa de identidade visual, não de desenvolvimento, e vale fazer antes do teste de usabilidade.
 
 **Critérios — US-59:** o pedido de redefinição nunca revela se o e-mail tem conta, para não entregar a estranhos quais endereços estão cadastrados; a confirmação repete o endereço e diz o que fazer se a mensagem não chegar; o link do e-mail leva a uma tela onde a pessoa **digita a senha nova**, com a mesma exigência de 8 caracteres da US-01.
 

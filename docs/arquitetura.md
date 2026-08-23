@@ -76,7 +76,7 @@ erDiagram
 
 ---
 
-## 3. Cinco decisões que valem explicar
+## 3. Seis decisões que valem explicar
 
 ### 3.1 Não existe coluna de progresso, e isso é proposital
 
@@ -112,7 +112,15 @@ Quando alguém avalia, resenha ou adiciona um livro aos futuros, um gatilho no b
 
 A alternativa seria a aplicação inserir nas duas tabelas. O problema é que qualquer caminho que esqueça a segunda inserção — um script de importação, uma correção manual, uma tela nova — deixa o feed dessincronizado do que de fato aconteceu. Com gatilho, isso é impossível por construção.
 
-### 3.5 A conversa não tem trava de data
+### 3.5 O perfil nasce por gatilho, não pelo cliente
+
+A função `cria_perfil_ao_cadastrar` roda `AFTER INSERT` em `auth.users` e grava a linha em `perfil`, lendo o nome de `raw_user_meta_data`.
+
+É gatilho, e não política de insert, porque no cadastro com confirmação de e-mail ainda não existe sessão — e sem sessão `auth.uid()` é nulo, então nenhuma política resolveria esse instante. Como consequência, `perfil` **não tem política de insert**, e isso é proposital: o cliente nunca escreve nessa tabela.
+
+A migração está em [migracoes/001-perfil-ao-cadastrar.sql](migracoes/001-perfil-ao-cadastrar.sql).
+
+### 3.6 A conversa não tem trava de data
 
 A `fala` não tem campo de liberação. Qualquer membro escreve a qualquer momento.
 
@@ -127,7 +135,8 @@ A proteção continua existindo, e é melhor: a marcação de spoiler deixa cada
 ```
 src/
   pages/          uma tela por arquivo, espelhando os wireframes
-    Entrar.jsx
+    Entrar.jsx         login, cadastro e pedido de recuperação
+    NovaSenha.jsx      escolha da senha nova, a partir do link do e-mail
     Convite.jsx
     Clube.jsx
     Votacao.jsx
@@ -138,12 +147,15 @@ src/
     Perfil.jsx
     Buscar.jsx
   components/     peças reutilizáveis
+    Marca.jsx          o balão com olhos, em tamanho variável
+    CampoSenha.jsx     campo, medidor de força e mínimo, num lugar só
     CardLivro.jsx      capa com lombada, o elemento mais visível do app
     ChipEstado.jsx     cor + forma + rótulo, nunca só cor (RNF-12)
     Estrelas.jsx       nota de 0 a 5, em framboesa
     Spoiler.jsx        oculta por padrão, revela por ação individual
   lib/
     supabase.js        cliente único, criado uma vez
+    mensagens.js       traduz falha em frase acionável (RNF-05)
     buscaLivros.js     Google Books com alternativa no Open Library
     estante.js         operações de mudança de estado
   hooks/
@@ -151,7 +163,11 @@ src/
     useClube.js
   estilos/
     tokens.css         as variáveis de cor e tipografia do manual da marca
+    base.css           reset, tipografia de base e foco visível
+    formulario.css     a linguagem ilustrada das telas de acesso
 ```
+
+O perfil não é criado pelo cliente. Quem cria é o gatilho `ao_criar_usuario`, descrito na seção 3.5 — por isso não existe um `lib/perfil.js`.
 
 ### Rotas
 
