@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { buscaLivros, garanteLivro } from '../lib/buscaLivros'
+import { livrosNaMinhaEstante } from '../lib/estante'
 import { propoeLivro } from '../lib/ciclos'
 import { mensagemDeErro } from '../lib/mensagens'
+import { supabase } from '../lib/supabase'
+import { ROTULO } from '../components/ChipEstado'
 import { CardLivro } from '../components/CardLivro'
 import { Marca } from '../components/Marca'
 import '../estilos/clube.css'
@@ -21,6 +24,7 @@ export default function Buscar() {
   const [carregando, setCarregando] = useState(false)
   const [erro, setErro] = useState(null)
 
+  const [naEstante, setNaEstante] = useState({})
   const [propondo, setPropondo] = useState(null)
   const [defesa, setDefesa] = useState('')
   const [enviando, setEnviando] = useState(false)
@@ -43,6 +47,28 @@ export default function Buscar() {
     setBuscado(limpo)
     setResultados(livros)
     setCarregando(false)
+
+    /* A B1 mostra "Na estante" no lugar da ação. Como o catálogo é externo, só
+       dá para saber depois de conferir quais desses livros já foram copiados
+       para o nosso banco e estão na estante de quem procura. */
+    const chaves = livros.map((l) => `${l.fonte}:${l.fonte_id}`)
+    if (chaves.length) {
+      const { data } = await supabase
+        .from('livro')
+        .select('id, fonte, fonte_id')
+        .in('fonte_id', livros.map((l) => l.fonte_id))
+
+      const nossos = data ?? []
+      const { porLivro } = await livrosNaMinhaEstante(nossos.map((l) => l.id))
+      const porChave = {}
+      for (const nosso of nossos) {
+        const estado = porLivro[nosso.id]
+        if (estado) porChave[`${nosso.fonte}:${nosso.fonte_id}`] = estado
+      }
+      setNaEstante(porChave)
+    } else {
+      setNaEstante({})
+    }
   }
 
   async function aoVerFicha(achado) {
@@ -245,7 +271,11 @@ export default function Buscar() {
                         .join(' · ')}
                     </span>
                   </button>
-                  {ciclo && (
+                  {naEstante[`${achado.fonte}:${achado.fonte_id}`] ? (
+                    <span className="selo">
+                      Na estante · {ROTULO[naEstante[`${achado.fonte}:${achado.fonte_id}`]]}
+                    </span>
+                  ) : ciclo ? (
                     <button
                       type="button"
                       className="resultado__acao"
@@ -256,7 +286,7 @@ export default function Buscar() {
                     >
                       Propor
                     </button>
-                  )}
+                  ) : null}
                 </div>
               ))}
             </>

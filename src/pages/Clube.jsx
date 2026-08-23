@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { geraConvite } from '../lib/clubes'
 import { abreVotacao, cicloAberto, cicloComLivro } from '../lib/ciclos'
 import { CardLivro } from '../components/CardLivro'
+import { estadosDosMembros } from '../lib/estante'
+import { COR, FormaEstado, ROTULO } from '../components/ChipEstado'
 import { mensagemDeErro } from '../lib/mensagens'
 import { useClube } from '../hooks/useClube'
 import { useSessao } from '../hooks/useSessao'
@@ -30,6 +32,7 @@ export default function Clube() {
   const [copiado, setCopiado] = useState(false)
   const [ciclo, setCiclo] = useState(null)
   const [emLeitura, setEmLeitura] = useState(null)
+  const [estadosPorPerfil, setEstadosPorPerfil] = useState({})
   const [abrindo, setAbrindo] = useState(false)
 
   const souAdmin = membros.some((m) => m.perfil.id === usuario?.id && m.papel === 'admin')
@@ -46,6 +49,20 @@ export default function Clube() {
       ativo = false
     }
   }, [id])
+
+  useEffect(() => {
+    let ativo = true
+    const livroId = emLeitura?.livro?.id
+    const ids = membros.map((m) => m.perfil.id)
+    if (!livroId || !ids.length) return
+
+    estadosDosMembros({ livroId, perfilIds: ids }).then(({ porPerfil }) => {
+      if (ativo) setEstadosPorPerfil(porPerfil)
+    })
+    return () => {
+      ativo = false
+    }
+  }, [emLeitura, membros])
 
   async function aoAbrirVotacao() {
     setErroDoConvite(null)
@@ -258,6 +275,15 @@ export default function Clube() {
                   {membro.perfil.nome}
                   {membro.perfil.id === usuario?.id && <span> · você</span>}
                 </span>
+                {estadosPorPerfil[membro.perfil.id] && (
+                  <span
+                    className="estado-membro"
+                    style={{ '--cor-estado': COR[estadosPorPerfil[membro.perfil.id]] }}
+                  >
+                    <FormaEstado estado={estadosPorPerfil[membro.perfil.id]} tamanho={11} />
+                    {ROTULO[estadosPorPerfil[membro.perfil.id]]}
+                  </span>
+                )}
                 {membro.papel === 'admin' && <span className="selo">administra</span>}
               </li>
             ))}
