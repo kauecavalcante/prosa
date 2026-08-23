@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-route
 import { useSessao } from './hooks/useSessao'
 import Entrar from './pages/Entrar'
 import NovaSenha from './pages/NovaSenha'
+import ClubeNovo from './pages/ClubeNovo'
 import Convite from './pages/Convite'
 import Feed from './pages/Feed'
 import Estante from './pages/Estante'
@@ -37,6 +38,7 @@ export default function App() {
         <Route path="/estante" element={<Autenticada><Estante /></Autenticada>} />
         <Route path="/buscar" element={<Autenticada><Buscar /></Autenticada>} />
         <Route path="/livro/:id" element={<Autenticada><Livro /></Autenticada>} />
+        <Route path="/clube/novo" element={<Autenticada><ClubeNovo /></Autenticada>} />
         <Route path="/clube/:id" element={<Autenticada><Clube /></Autenticada>} />
         <Route path="/clube/:id/votacao" element={<Autenticada><Votacao /></Autenticada>} />
         <Route

@@ -1,3 +1,147 @@
+import { useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { geraConvite } from '../lib/clubes'
+import { mensagemDeErro } from '../lib/mensagens'
+import { useClube } from '../hooks/useClube'
+import { useSessao } from '../hooks/useSessao'
+import { Retrato } from '../components/Retrato'
+import '../estilos/clube.css'
+
 export default function Clube() {
-  return <main className="tela-vazia"><h1>Clube</h1></main>
+  const { id } = useParams()
+  const navegar = useNavigate()
+  const { usuario } = useSessao()
+  const { clube, membros, carregando, erro } = useClube(id)
+
+  const [convite, setConvite] = useState(null)
+  const [gerando, setGerando] = useState(false)
+  const [erroDoConvite, setErroDoConvite] = useState(null)
+  const [copiado, setCopiado] = useState(false)
+
+  const souAdmin = membros.some((m) => m.perfil.id === usuario?.id && m.papel === 'admin')
+
+  async function aoConvidar() {
+    setErroDoConvite(null)
+    setGerando(true)
+    const { convite: gerado, erro: falha } = await geraConvite(id)
+    if (falha) {
+      setErroDoConvite(mensagemDeErro(falha))
+      setGerando(false)
+      return
+    }
+    setConvite(gerado)
+    setGerando(false)
+  }
+
+  async function aoCopiar() {
+    const link = `${window.location.origin}/convite/${convite.codigo}`
+    try {
+      await navigator.clipboard.writeText(link)
+      setCopiado(true)
+      setTimeout(() => setCopiado(false), 2500)
+    } catch {
+      setCopiado(false)
+    }
+  }
+
+  if (carregando) return null
+
+  if (erro || !clube) {
+    return (
+      <main className="tela">
+        <div className="tela__quadro">
+          <div className="corpo" style={{ justifyContent: 'center' }}>
+            <p className="aviso aviso--erro" role="status">
+              Este clube não existe ou você não faz parte dele. Clube é fechado: só quem
+              foi chamado enxerga.
+            </p>
+            <button type="button" className="botao botao--principal" onClick={() => navegar('/')}>
+              Ver os seus clubes
+            </button>
+          </div>
+        </div>
+      </main>
+    )
+  }
+
+  return (
+    <main className="tela">
+      <div className="tela__quadro">
+        <div className="faixa">
+          <div className="faixa__linha">
+            <span style={{ display: 'flex', alignItems: 'center', gap: 6, minWidth: 0 }}>
+              <button
+                type="button"
+                className="botao botao--voltar"
+                onClick={() => navegar('/')}
+                aria-label="Voltar para os seus clubes"
+              >
+                <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
+                  <path
+                    d="M15 4 7 12l8 8"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <h1 className="faixa__titulo">{clube.nome}</h1>
+            </span>
+            {souAdmin && (
+              <button type="button" className="pilula" onClick={aoConvidar} disabled={gerando}>
+                {gerando ? 'Gerando…' : 'Convidar'}
+              </button>
+            )}
+          </div>
+          {clube.descricao && <p className="faixa__descricao">{clube.descricao}</p>}
+        </div>
+
+        <div className="corpo">
+          {erroDoConvite && (
+            <div className="aviso aviso--erro" role="alert">
+              <span>{erroDoConvite.texto}</span>
+            </div>
+          )}
+
+          {convite && (
+            <div className="caminho" style={{ marginTop: 0 }}>
+              <span className="cartao__rotulo">Código do convite</span>
+              <span className="codigo">{convite.codigo}</span>
+              <p className="caminho__texto">
+                Vale por sete dias. Quem receber entra pelo código ou pelo link.
+              </p>
+              <button type="button" className="botao botao--secundario" onClick={aoCopiar}>
+                {copiado ? 'Link copiado' : 'Copiar o link'}
+              </button>
+            </div>
+          )}
+
+          {/* O ciclo é o épico E4. Até lá o lugar dele orienta em vez de ficar em branco. */}
+          <span className="rotulo-secao">Livro do ciclo</span>
+          <div className="caminho" style={{ marginTop: 0 }}>
+            <p className="caminho__texto">
+              Nenhum ciclo aberto ainda. Quando a votação existir, é aqui que o livro
+              escolhido e o prazo da conversa vão aparecer.
+            </p>
+          </div>
+
+          <span className="rotulo-secao">Quem está no clube</span>
+          <ul className="lista">
+            {membros.map((membro) => (
+              <li key={membro.perfil.id} className="lista__item">
+                <Retrato nome={membro.perfil.retrato} tamanho={38} />
+                <span className="lista__nome">
+                  {membro.perfil.nome}
+                  {membro.perfil.id === usuario?.id && <span> · você</span>}
+                </span>
+                {membro.papel === 'admin' && <span className="selo">administra</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </main>
+  )
 }
