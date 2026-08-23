@@ -137,6 +137,8 @@ src/
   pages/          uma tela por arquivo, espelhando os wireframes
     Entrar.jsx         login, cadastro e pedido de recuperação
     NovaSenha.jsx      escolha da senha nova, a partir do link do e-mail
+    Feed.jsx           lista de clubes, e o estado vazio de quem ainda não tem nenhum
+    ClubeNovo.jsx      criação de clube
     Convite.jsx
     Clube.jsx
     Votacao.jsx
@@ -149,6 +151,8 @@ src/
   components/     peças reutilizáveis
     Marca.jsx          o balão com olhos, em tamanho variável
     CampoSenha.jsx     campo, medidor de força e mínimo, num lugar só
+    Retrato.jsx        os retratos ilustrados, em tamanho variável
+    GaleriaRetratos.jsx  escolha do retrato, com cor, forma e rótulo
     CardLivro.jsx      capa com lombada, o elemento mais visível do app
     ChipEstado.jsx     cor + forma + rótulo, nunca só cor (RNF-12)
     Estrelas.jsx       nota de 0 a 5, em framboesa
@@ -156,6 +160,8 @@ src/
   lib/
     supabase.js        cliente único, criado uma vez
     mensagens.js       traduz falha em frase acionável (RNF-05)
+    recuperacao.js     distingue sessão de recuperação de sessão comum
+    clubes.js          criar, convidar, entrar e listar clubes
     buscaLivros.js     Google Books com alternativa no Open Library
     estante.js         operações de mudança de estado
   hooks/
@@ -165,6 +171,7 @@ src/
     tokens.css         as variáveis de cor e tipografia do manual da marca
     base.css           reset, tipografia de base e foco visível
     formulario.css     a linguagem ilustrada das telas de acesso
+    clube.css          as telas de clube
 ```
 
 O perfil não é criado pelo cliente. Quem cria é o gatilho `ao_criar_usuario`, descrito na seção 3.5 — por isso não existe um `lib/perfil.js`.
@@ -174,8 +181,10 @@ O perfil não é criado pelo cliente. Quem cria é o gatilho `ao_criar_usuario`,
 | Rota | Tela | Acesso |
 |---|---|---|
 | `/entrar` | Login e cadastro | Público |
+| `/nova-senha` | Escolha da senha nova | Só em sessão de recuperação |
 | `/convite/:codigo` | Aceite de convite | Público, exige login para concluir |
-| `/` | Feed | Autenticado |
+| `/` | Seus clubes, ou o estado vazio | Autenticado |
+| `/clube/novo` | Criação de clube | Autenticado |
 | `/estante` | Estante pessoal | Autenticado |
 | `/buscar` | Busca de livro | Autenticado |
 | `/livro/:id` | Ficha, nota e resenhas | Autenticado |
