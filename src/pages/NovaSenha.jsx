@@ -1,25 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { MINIMO_DA_SENHA, mensagemDeErro } from '../lib/mensagens'
+import { encerraRecuperacao, marcadorDeRecuperacao } from '../lib/recuperacao'
 import { CampoSenha } from '../components/CampoSenha'
 import { Marca } from '../components/Marca'
 import '../estilos/formulario.css'
 
-/* O link do e-mail traz o resultado no fragmento da URL. Quando ele vem com
-   erro, é porque venceu ou já foi aberto — e aí não há sessão nenhuma. */
-function erroDoEndereco() {
-  const bruto = window.location.hash.startsWith('#')
-    ? window.location.hash.slice(1)
-    : window.location.search.slice(1)
-  const parametros = new URLSearchParams(bruto)
-  const codigo = parametros.get('error_code')
-  return codigo ? { code: codigo } : null
-}
-
 export default function NovaSenha() {
   const navegar = useNavigate()
 
+  const [marcador] = useState(marcadorDeRecuperacao)
   const [estado, setEstado] = useState('verificando')
   const [senha, setSenha] = useState('')
   const [enviando, setEnviando] = useState(false)
@@ -32,17 +23,24 @@ export default function NovaSenha() {
   }, [erro])
 
   useEffect(() => {
-    const falha = erroDoEndereco()
-    if (falha) {
-      setErro(mensagemDeErro(falha))
+    if (marcador.erro) {
+      setErro(mensagemDeErro(marcador.erro))
       setEstado('sem-recuperacao')
+      return
+    }
+
+    // Só o marcador de recuperação abre o formulário. Sessão comum não serve:
+    // quem pegasse um aparelho destravado trocaria a senha sem saber a atual,
+    // e a troca derruba as outras sessões — o dono é que ficaria de fora.
+    if (!marcador.recuperacao) {
+      setEstado('sessao-comum')
       return
     }
 
     let ativo = true
 
-    // O Supabase avisa PASSWORD_RECOVERY ao consumir o token do endereço. O
-    // aviso pode chegar antes desta tela montar, então a sessão também é lida.
+    // O token pode ser consumido antes desta tela montar, então além de ouvir
+    // o aviso a sessão também é lida.
     const { data: inscricao } = supabase.auth.onAuthStateChange((evento, sessao) => {
       if (!ativo) return
       if (evento === 'PASSWORD_RECOVERY' || (evento === 'SIGNED_IN' && sessao)) {
@@ -61,7 +59,7 @@ export default function NovaSenha() {
       ativo = false
       inscricao.subscription.unsubscribe()
     }
-  }, [])
+  }, [marcador])
 
   function pedirOutroLink() {
     navegar('/entrar', { replace: true, state: { passo: 'recuperar' } })
@@ -85,10 +83,15 @@ export default function NovaSenha() {
       return
     }
 
+    encerraRecuperacao()
     navegar('/', { replace: true })
   }
 
   if (estado === 'verificando') return null
+
+  // Já autenticado e sem vir de link: esta tela não é o lugar de trocar senha
+  // sabendo a atual — isso é outra história, com pedido da senha vigente.
+  if (estado === 'sessao-comum') return <Navigate to="/" replace />
 
   if (estado === 'sem-recuperacao') {
     return (

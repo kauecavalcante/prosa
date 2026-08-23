@@ -6,6 +6,13 @@
     <title>Prosa</title>
     <meta name="description" content="O clube de leitura dos seus amigos. A melhor parte do livro é depois." />
     <meta name="theme-color" content="#C4882A" />
+    <script>
+      // O cliente Supabase limpa o fragmento do endereço ao inicializar, e é
+      // dele que sai o marcador de recuperação de senha. Este script roda na
+      // ordem do documento, antes de qualquer módulo, então a leitura nunca
+      // depende de como o empacotador ordenou as importações.
+      window.__prosaEnderecoInicial = window.location.href
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
