@@ -50,13 +50,15 @@ export default function Feed() {
           <span>{erro.texto}</span>
         </div>
       )}
+      {/* O marcador mostra o formato — doze caracteres — sem poder ser um código
+          de verdade: os códigos são hexadecimais, e x não é hexadecimal. */}
       <div className="campo__caixa">
         <input
           id="codigo"
           className="campo__entrada"
           value={codigo}
           onChange={(e) => setCodigo(e.target.value)}
-          placeholder="por exemplo, 54b6d5d834c7"
+          placeholder="xxxxxxxxxxxx"
           aria-label="Código do convite"
           required
         />
