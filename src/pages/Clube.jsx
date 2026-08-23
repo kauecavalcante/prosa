@@ -1,12 +1,22 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { geraConvite } from '../lib/clubes'
-import { abreVotacao, cicloAberto } from '../lib/ciclos'
+import { abreVotacao, cicloAberto, cicloEmLeitura } from '../lib/ciclos'
+import { CardLivro } from '../components/CardLivro'
 import { mensagemDeErro } from '../lib/mensagens'
 import { useClube } from '../hooks/useClube'
 import { useSessao } from '../hooks/useSessao'
 import { Retrato } from '../components/Retrato'
 import '../estilos/clube.css'
+
+/* O prazo é meta de leitura, e não trava: a conversa fica aberta antes e
+   depois dele — decisão 3.6 da arquitetura. Aqui ele só é mostrado. */
+function diasAte(prazo) {
+  const alvo = new Date(`${prazo}T00:00:00`)
+  const hoje = new Date()
+  hoje.setHours(0, 0, 0, 0)
+  return Math.max(0, Math.round((alvo - hoje) / (24 * 60 * 60 * 1000)))
+}
 
 export default function Clube() {
   const { id } = useParams()
@@ -19,6 +29,7 @@ export default function Clube() {
   const [erroDoConvite, setErroDoConvite] = useState(null)
   const [copiado, setCopiado] = useState(false)
   const [ciclo, setCiclo] = useState(null)
+  const [emLeitura, setEmLeitura] = useState(null)
   const [abrindo, setAbrindo] = useState(false)
 
   const souAdmin = membros.some((m) => m.perfil.id === usuario?.id && m.papel === 'admin')
@@ -27,6 +38,9 @@ export default function Clube() {
     let ativo = true
     cicloAberto(id).then(({ ciclo: aberto }) => {
       if (ativo) setCiclo(aberto)
+    })
+    cicloEmLeitura(id).then(({ ciclo: lendo }) => {
+      if (ativo) setEmLeitura(lendo)
     })
     return () => {
       ativo = false
@@ -150,7 +164,54 @@ export default function Clube() {
           )}
 
           <span className="rotulo-secao">Livro do ciclo</span>
-          {ciclo ? (
+          {emLeitura?.livro ? (
+            <div className="caminho" style={{ marginTop: 0 }}>
+              <div className="ciclo-livro">
+                <CardLivro livro={emLeitura.livro} largura={70} altura={102} />
+                <div className="ciclo-livro__corpo">
+                  <span className="resultado__titulo" style={{ fontSize: 21 }}>
+                    {emLeitura.livro.titulo}
+                  </span>
+                  <span className="resultado__autor">
+                    {emLeitura.livro.autores?.length
+                      ? emLeitura.livro.autores.join(', ')
+                      : 'autoria não informada'}
+                  </span>
+                  {emLeitura.prazo && (
+                    <span className="ciclo-livro__prazo">
+                      <span className="ciclo-livro__numero">{diasAte(emLeitura.prazo)}</span>
+                      <span style={{ fontSize: 12, fontWeight: 800, lineHeight: 1.2 }}>
+                        {diasAte(emLeitura.prazo) === 1 ? 'dia até' : 'dias até'}
+                        <br />a conversa
+                      </span>
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Sem isto o clube travava no primeiro ciclo: com um livro em
+                  leitura, não havia caminho para escolher o próximo. */}
+              {ciclo ? (
+                <button
+                  type="button"
+                  className="botao botao--secundario"
+                  onClick={() => navegar(`/clube/${id}/votacao`)}
+                >
+                  Ver a votação do próximo
+                </button>
+              ) : souAdmin ? (
+                <button
+                  type="button"
+                  className="botao botao--secundario"
+                  onClick={aoAbrirVotacao}
+                  disabled={abrindo}
+                >
+                  {abrindo && <span className="giro" aria-hidden="true" />}
+                  {abrindo ? 'Abrindo…' : 'Abrir a votação do próximo'}
+                </button>
+              ) : null}
+            </div>
+          ) : ciclo ? (
             <div className="caminho" style={{ marginTop: 0 }}>
               <p className="caminho__texto">
                 A votação está aberta. O livro do ciclo sai dela — proponha o seu e

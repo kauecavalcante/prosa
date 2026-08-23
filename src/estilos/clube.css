@@ -432,3 +432,123 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ---------------------------------------------------------------- votação */
+
+.situacao {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--tinta-suave);
+  font-variant-numeric: tabular-nums;
+  margin: 10px 0 0;
+}
+
+.situacao strong { font-weight: 800; color: var(--tinta); }
+
+.situacao__marca {
+  width: 9px;
+  height: 9px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--estado-lendo);
+  border: 2px solid var(--contorno);
+}
+
+.proposta { position: relative; }
+
+/* O voto próprio muda de forma, não só de cor: borda mais grossa, cantos mais
+   gordos e a base sólida do botão primário. Aqui o ocre marca estado, e é a
+   única exceção à regra do manual — vem do próprio desenho da C2, porque o
+   voto próprio é a ação que a pessoa já tomou. Não estender a outros lugares. */
+.proposta--minha {
+  border: 3px solid var(--ocre-acao);
+  border-radius: 22px;
+  box-shadow: 0 5px 0 var(--base-ocre);
+}
+
+.proposta__selo {
+  position: absolute;
+  top: -11px;
+  left: 14px;
+  height: 22px;
+  padding: 0 9px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--ocre-acao);
+  border: 2px solid var(--contorno);
+  color: #131A1E;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.proposta__votos {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--tinta-suave);
+  font-variant-numeric: tabular-nums;
+}
+
+.proposta__defesa {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.acao-votar {
+  flex: none;
+  min-height: var(--alvo-minimo);
+  padding: 0 14px;
+  border-radius: 12px;
+  background: var(--superficie);
+  border: 2.5px solid var(--contorno);
+  box-shadow: 0 3px 0 var(--contorno);
+  color: var(--tinta);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 60ms ease-out, box-shadow 60ms ease-out;
+}
+
+.acao-votar:active:not(:disabled) { transform: translateY(3px); box-shadow: none; }
+
+.acao-votar--votado {
+  background: var(--ocre-acao);
+  border-color: var(--contorno);
+  box-shadow: 0 3px 0 var(--base-ocre);
+  color: #131A1E;
+}
+
+.ciclo-livro {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.ciclo-livro__corpo { flex: 1; min-width: 0; }
+
+.ciclo-livro__prazo {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.ciclo-livro__numero {
+  font-family: var(--fonte-voz);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}

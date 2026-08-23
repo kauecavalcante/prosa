@@ -50,6 +50,17 @@ const POR_CODIGO = {
     texto: 'Não conseguimos falar com o catálogo agora. Tente de novo em instantes.',
   },
 
+  // O gatilho ciclo_prazo_futuro, com código próprio desde a migração 008.
+  PR006: {
+    texto: 'Esse prazo já passou. Escolha uma data de hoje em diante — ela é a meta de leitura do clube.',
+  },
+  VOTO_RECUSADO: {
+    texto: 'Seu voto não foi registrado. A votação pode ter sido encerrada — recarregue a página para ver como ficou.',
+  },
+  ENCERRAMENTO_RECUSADO: {
+    texto: 'A votação não foi encerrada. Ela pode já ter sido fechada por outra pessoa — recarregue para ver o resultado.',
+  },
+
   SEM_SESSAO: {
     texto: 'Sua sessão expirou. Entre de novo e tente outra vez.',
   },
