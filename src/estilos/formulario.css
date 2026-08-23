@@ -111,20 +111,35 @@
   display: block;
 }
 
-/* Espaço reservado da galeria de retratos — US-03, fora deste brief. */
 .retratos {
   display: flex;
+  flex-wrap: wrap;
   gap: 9px;
   margin-top: 12px;
 }
 
+/* O alvo tem 54px de desenho e 44px de mínimo de toque; o preenchimento
+   garante os 44 mesmo se o retrato encolher numa tela estreita. */
 .retratos__vaga {
-  width: 54px;
-  height: 54px;
+  position: relative;
+  min-width: var(--alvo-minimo);
+  min-height: var(--alvo-minimo);
   flex: none;
+  display: grid;
+  place-items: center;
+  padding: 3px;
+  border: 3px solid transparent;
   border-radius: 50%;
-  border: 2.5px dashed var(--contorno);
-  background: var(--campo-fundo);
+  background: none;
+  cursor: pointer;
+}
+
+.retratos__vaga--escolhido { border-color: var(--estado-lendo); }
+
+.retratos__selo {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
 }
 
 .retratos__nota {

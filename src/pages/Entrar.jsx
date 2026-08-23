@@ -4,6 +4,8 @@ import { supabase } from '../lib/supabase'
 import { ERRO_EMAIL_JA_USADO, MINIMO_DA_SENHA, mensagemDeErro } from '../lib/mensagens'
 import { useSessao } from '../hooks/useSessao'
 import { CampoSenha } from '../components/CampoSenha'
+import { GaleriaRetratos } from '../components/GaleriaRetratos'
+import { RETRATO_PADRAO } from '../components/Retrato'
 import { Marca } from '../components/Marca'
 import '../estilos/formulario.css'
 
@@ -33,6 +35,7 @@ export default function Entrar() {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
+  const [retrato, setRetrato] = useState(RETRATO_PADRAO)
   const [enviando, setEnviando] = useState(false)
   const [erro, setErro] = useState(null)
   const [enderecoAvisado, setEnderecoAvisado] = useState(null)
@@ -93,7 +96,7 @@ export default function Entrar() {
     const { data, error } = await supabase.auth.signUp({
       email: enderecoLimpo,
       password: senha,
-      options: { data: { nome: nome.trim() } },
+      options: { data: { nome: nome.trim(), retrato } },
     })
 
     if (error) {
@@ -253,15 +256,7 @@ export default function Entrar() {
           </div>
 
           <div className="entrar__rolagem">
-            <div className="cartao">
-              <span className="cartao__rotulo">Escolha seu retrato</span>
-              <div className="retratos" aria-hidden="true">
-                {[1, 2, 3, 4, 5].map((vaga) => (
-                  <span key={vaga} className="retratos__vaga" />
-                ))}
-              </div>
-              <p className="retratos__nota">A galeria de retratos chega na US-03.</p>
-            </div>
+            <GaleriaRetratos escolhido={retrato} aoEscolher={setRetrato} />
 
             <form className="entrar__formulario-campos" onSubmit={aoCriarConta} noValidate>
               {avisoDeErro}
