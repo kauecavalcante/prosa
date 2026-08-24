@@ -145,7 +145,6 @@ src/
     Estante.jsx
     Livro.jsx
     Conversa.jsx
-    Feed.jsx
     Perfil.jsx
     Buscar.jsx
   components/     peças reutilizáveis

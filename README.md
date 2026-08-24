@@ -28,7 +28,7 @@ O Prosa transforma a leitura em um ciclo com começo, meio e fim: um clube prop�
 
 | Documento | O que tem |
 |---|---|
-| [Requisitos](docs/requisitos.md) | Visão, personas, 9 épicos, 58 user stories, MVP, requisitos não-funcionais |
+| [Requisitos](docs/requisitos.md) | Visão, personas, 9 épicos, 60 user stories, MVP, requisitos não-funcionais |
 | [Arquitetura](docs/arquitetura.md) | Modelo de dados, decisões técnicas, estrutura do app, segurança |
 | [Esquema do banco](docs/schema.sql) | SQL executável no Supabase, validado em PostgreSQL 17 |
 | [Manual da marca](docs/prototipos/manual-da-marca.html) | Marca, paleta, tipografia, regras de uso |
@@ -39,7 +39,9 @@ Os protótipos são páginas HTML — baixe a pasta `docs/prototipos` inteira e 
 
 ## Escopo do MVP
 
-32 user stories que fecham um ciclo completo: um clube com pelo menos 3 membros escolhe um livro por votação, lê dentro do prazo combinado, conversa sobre ele sem expor spoiler a quem está atrasado e publica nota e resenha — e essas notas aparecem no feed de quem segue essas pessoas, sem nenhuma intervenção fora do app.
+34 user stories que fecham um ciclo completo: um clube com pelo menos 3 membros escolhe um livro por votação, lê dentro do prazo combinado, conversa sobre ele sem expor spoiler a quem está atrasado e publica nota e resenha — e essas notas aparecem no feed de quem segue essas pessoas, sem nenhuma intervenção fora do app.
+
+**As 34 estão implementadas e verificadas.**
 
 Acompanhamento em [Projects](../../projects).
 
@@ -75,9 +77,18 @@ a `service_role` ignora as políticas de RLS e não pode chegar ao navegador.
 
 ## Estado do projeto
 
-Requisitos fechados, identidade visual definida e esquema do banco aplicado. Em
-desenvolvimento: o projeto base, os tokens da marca, as rotas e a tela de entrar
-(US-01 e US-02) estão de pé; as demais telas ainda são espaços reservados.
+**MVP completo e publicado.** As 34 user stories do escopo estão implementadas e
+verificadas: cadastro e recuperação de senha, clubes fechados por convite, busca
+de livro com fonte alternativa, ciclo de leitura com votação, estante de três
+estados, nota e resenha, conversa com tratamento de spoiler, e o feed de quem se
+segue. O aplicativo é instalável e funciona de 320 a 1920 pixels.
+
+O que vem depois é validação, não construção: avaliação heurística, teste de
+usabilidade com o clube real e o questionário SUS, como o
+[documento de requisitos](docs/requisitos.md) prevê.
+
+As stories de Fase 2 e Fase 3 continuam abertas em
+[Issues](../../issues), com o motivo de cada uma registrado.
 
 ## Equipe
 
