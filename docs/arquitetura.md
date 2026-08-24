@@ -230,10 +230,18 @@ Isso vale **apenas para `clube`**. Em `ciclo` e `proposta`, quem escreve já é 
 
 | Item | Valor |
 |---|---|
+| Endereço de produção | https://prosa-five.vercel.app |
+| Plataforma | Vercel, publicação automática a cada commit em `main` |
 | Projeto Supabase | `dhhcvrfuwfimhdpnnxmp` |
 | URL da API | `https://dhhcvrfuwfimhdpnnxmp.supabase.co` |
 | Região | São Paulo (`sa-east-1`) |
 | Plano | Free |
+
+O `vercel.json` manda para o `index.html` tudo que não termina em extensão. Sem
+isso, abrir `/estante` pelo endereço devolve 404 num servidor estático — e é o
+que acontece com o link de convite e o de recuperação de senha, que chegam de
+fora. A regra exclui arquivos com extensão para não engolir `sw.js`, o
+manifesto e os ícones, que a instalação do PWA exige.
 
 As chaves de API e a senha do banco não ficam no repositório. Elas são lidas de variáveis de ambiente (`VITE_SUPABASE_URL` e `VITE_SUPABASE_ANON_KEY`), e o `.env` está no `.gitignore`.
 

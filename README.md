@@ -2,6 +2,8 @@
 
 **A melhor parte do livro é depois.**
 
+**O aplicativo está no ar em https://prosa-five.vercel.app**
+
 Rede de leitura organizada em clubes. Projeto da disciplina de Interface Humano-Computador (IHC).
 
 ---
