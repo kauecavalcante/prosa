@@ -279,10 +279,15 @@ export default function Clube() {
             {membros.map((membro) => (
               <li key={membro.perfil.id} className="lista__item">
                 <Retrato nome={membro.perfil.retrato} tamanho={38} />
-                <span className="lista__nome">
+                <button
+                  type="button"
+                  className="lista__nome"
+                  style={{ background: 'none', border: 'none', textAlign: 'left', color: 'inherit', cursor: 'pointer', padding: 0, minHeight: 44 }}
+                  onClick={() => navegar(`/perfil/${membro.perfil.id}`)}
+                >
                   {membro.perfil.nome}
                   {membro.perfil.id === usuario?.id && <span> · você</span>}
-                </span>
+                </button>
                 {estadosPorPerfil[membro.perfil.id] && (
                   <span
                     className="estado-membro"

@@ -107,7 +107,8 @@
 .lista__item {
   display: flex;
   align-items: center;
-  gap: 11px;
+  flex-wrap: wrap;
+  gap: 8px 11px;
   padding: 9px 0;
   border-bottom: 2px dashed var(--traco);
 }
@@ -115,8 +116,8 @@
 .lista__item:last-child { border-bottom: none; }
 
 .lista__nome {
-  flex: 1;
-  min-width: 0;
+  flex: 1 1 8ch;
+  min-width: 8ch;
   font-size: 14px;
   font-weight: 800;
   overflow-wrap: anywhere;
@@ -904,6 +905,9 @@
 
 @media (min-width: 480px) {
   .aplicativo {
+    /* min-height: 100dvh da regra base venceria a altura; sem zerá-lo o quadro
+       cresce com a janela em vez de ficar no tamanho do aparelho. */
+    min-height: 0;
     height: min(812px, calc(100dvh - 48px));
     margin: 24px auto;
     border: 2.5px solid var(--contorno);
@@ -919,4 +923,81 @@
     height: 100%;
     max-width: none;
   }
+}
+
+/* ---------------------------------------------------------------- rede */
+
+.seguir {
+  flex: none;
+  min-height: var(--alvo-minimo);
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--superficie);
+  border: 2px solid var(--contorno);
+  box-shadow: 0 2px 0 var(--contorno);
+  color: var(--tinta);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 60ms ease-out, box-shadow 60ms ease-out;
+}
+
+.seguir:active:not(:disabled) { transform: translateY(2px); box-shadow: none; }
+
+/* Chapado e creme: sem base, para o relevo também dizer o estado. */
+.seguir--seguindo {
+  background: var(--creme);
+  box-shadow: none;
+}
+
+.item-feed {
+  background: var(--superficie);
+  border: 2.5px solid var(--contorno);
+  border-radius: 24px;
+  box-shadow: 0 5px 0 var(--contorno);
+  padding: 14px;
+}
+
+.item-feed__topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-feed__quem {
+  flex: 1;
+  min-width: 0;
+  min-height: var(--alvo-minimo);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  color: var(--tinta);
+  cursor: pointer;
+}
+
+.item-feed__nome { font-size: 15px; font-weight: 800; display: block; line-height: 1.2; }
+
+.item-feed__fez {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--tinta-suave);
+  display: block;
+}
+
+.item-feed__livro {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  align-items: center;
+  background: var(--campo-fundo);
+  border-radius: 18px;
+  padding: 12px;
+  /* O bloco é um botão, e botão não herda cor: sem isto o título do livro
+     saía na cor padrão do sistema, escura sobre fundo escuro. */
+  color: var(--tinta);
 }

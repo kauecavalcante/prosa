@@ -10,6 +10,7 @@ import { CardLivro } from '../components/CardLivro'
 import { Estrelas } from '../components/Estrelas'
 import { Spoiler } from '../components/Spoiler'
 import { ChipEstado } from '../components/ChipEstado'
+import { BotaoSeguir } from '../components/BotaoSeguir'
 import '../estilos/clube.css'
 
 export default function Perfil() {
@@ -90,6 +91,7 @@ export default function Perfil() {
               <h1 className="faixa__titulo" style={{ fontSize: 28 }}>
                 {perfil.nome}
               </h1>
+              {!souEu && <BotaoSeguir perfilId={perfil.id} />}
               {souEu && !editando && (
                 <button
                   type="button"

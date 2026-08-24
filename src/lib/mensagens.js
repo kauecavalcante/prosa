@@ -75,6 +75,14 @@ const POR_CODIGO = {
     texto: 'Sua mensagem não foi enviada. Recarregue a página e tente de novo.',
   },
 
+  SEGUIR_RECUSADO: {
+    texto: 'Não deu para mudar isso agora. Recarregue a página e tente de novo.',
+  },
+  // A restrição nao_segue_a_si.
+  '23514': {
+    texto: 'Você não precisa se seguir: o que é seu já está no seu perfil.',
+  },
+
   SEM_SESSAO: {
     texto: 'Sua sessão expirou. Entre de novo e tente outra vez.',
   },
