@@ -844,3 +844,79 @@
 }
 
 .marcar-spoiler input { width: 20px; height: 20px; accent-color: var(--estado-lidos); }
+
+/* ---------------------------------------------------------------- barra */
+
+.barra {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+  background: var(--superficie);
+  border-top: 2.5px solid var(--contorno);
+}
+
+.barra__item {
+  flex: 1;
+  min-height: var(--alvo-minimo);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  color: var(--tinta-suave);
+  font-size: 10px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* Três sinais ao mesmo tempo: fundo, contorno e traço mais grosso no ícone. */
+.barra__item--ativo {
+  background: var(--creme);
+  border-color: var(--contorno);
+  color: var(--tinta);
+}
+
+.tela__quadro--com-barra { padding-bottom: 0; }
+
+/* O casco das telas autenticadas: conteúdo rolável e a barra colada embaixo. */
+.aplicativo {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--campo-fundo);
+}
+
+.aplicativo > .tela {
+  flex: 1;
+  min-height: 0;
+  padding: 0;
+}
+
+.aplicativo > .tela > .tela__quadro {
+  min-height: 0;
+  height: 100%;
+}
+
+@media (min-width: 480px) {
+  .aplicativo {
+    height: min(812px, calc(100dvh - 48px));
+    margin: 24px auto;
+    border: 2.5px solid var(--contorno);
+    border-radius: 34px;
+    overflow: hidden;
+  }
+
+  .aplicativo > .tela { align-items: stretch; padding: 0; }
+
+  .aplicativo > .tela > .tela__quadro {
+    border: none;
+    border-radius: 0;
+    height: 100%;
+    max-width: none;
+  }
+}

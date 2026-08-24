@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { useSessao } from './hooks/useSessao'
+import { BarraNavegacao } from './components/BarraNavegacao'
 import Entrar from './pages/Entrar'
 import NovaSenha from './pages/NovaSenha'
 import ClubeNovo from './pages/ClubeNovo'
@@ -23,7 +24,12 @@ function Autenticada({ children }) {
 
   if (!sessao) return <Navigate to="/entrar" replace state={{ de: local.pathname }} />
 
-  return children
+  return (
+    <div className="aplicativo">
+      {children}
+      <BarraNavegacao />
+    </div>
+  )
 }
 
 export default function App() {
@@ -45,6 +51,7 @@ export default function App() {
           path="/clube/:id/livro/:livroId"
           element={<Autenticada><Conversa /></Autenticada>}
         />
+        <Route path="/perfil" element={<Autenticada><Perfil /></Autenticada>} />
         <Route path="/perfil/:id" element={<Autenticada><Perfil /></Autenticada>} />
 
         <Route path="*" element={<Navigate to="/" replace />} />

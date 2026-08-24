@@ -5,6 +5,9 @@ import { mensagemDeErro } from '../lib/mensagens'
 import { Marca } from '../components/Marca'
 import '../estilos/clube.css'
 
+/* O feed em si é o brief seguinte. Aqui a rota guarda o estado vazio, que é o
+   primeiro momento real de quem acaba de criar conta, e o lugar reservado para
+   quando houver o que mostrar. */
 export default function Feed() {
   const navegar = useNavigate()
 
@@ -15,10 +18,8 @@ export default function Feed() {
 
   useEffect(() => {
     let ativo = true
-    listaMeusClubes().then(({ clubes: lista, erro: falha }) => {
-      if (!ativo) return
-      if (falha) setErro(mensagemDeErro(falha))
-      setClubes(lista ?? [])
+    listaMeusClubes().then(({ clubes: lista }) => {
+      if (ativo) setClubes(lista ?? [])
     })
     return () => {
       ativo = false
@@ -106,35 +107,24 @@ export default function Feed() {
   return (
     <main className="tela">
       <div className="tela__quadro">
-        <div className="faixa">
-          <div className="faixa__linha">
-            <h1 className="faixa__titulo">Seus clubes</h1>
-            <button type="button" className="pilula" onClick={() => navegar('/clube/novo')}>
-              Criar clube
-            </button>
-          </div>
+        <div style={{ padding: '24px 18px 12px' }}>
+          <h1 className="entrar__titulo">Feed</h1>
         </div>
-
         <div className="corpo">
-          <span className="rotulo-secao">
-            {clubes.length === 1 ? '1 clube' : `${clubes.length} clubes`}
-          </span>
-
-          {clubes.map((clube) => (
-            <button
-              key={clube.id}
-              type="button"
-              className="clube-cartao"
-              onClick={() => navegar(`/clube/${clube.id}`)}
-            >
-              <span className="clube-cartao__nome">{clube.nome}</span>
-              {clube.descricao && <p className="clube-cartao__descricao">{clube.descricao}</p>}
-              <span className="clube-cartao__rodape">
-                <span className="selo">{clube.papel === 'admin' ? 'você administra' : 'membro'}</span>
-              </span>
-            </button>
-          ))}
-
+          <div className="caminho" style={{ marginTop: 0 }}>
+            <p className="caminho__texto">
+              Aqui vai aparecer o que as pessoas que você segue andaram lendo,
+              avaliando e resenhando. Seguir gente é o passo seguinte.
+            </p>
+          </div>
+          <span className="rotulo-secao">Enquanto isso</span>
+          <button
+            type="button"
+            className="botao botao--secundario"
+            onClick={() => navegar('/perfil')}
+          >
+            Ver os seus clubes
+          </button>
           {formularioDeCodigo}
         </div>
       </div>
